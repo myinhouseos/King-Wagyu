@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Work With King Wagyu — Structured access for genetics, embryo, export, and strategic enquiries.">
+<title>Work With King Wagyu | Enquiry Access</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   KING WAGYU — WORK WITH US
+============================================================ */
+:root {
+  --black:     #050505;
+  --off-white: #F7F6F2;
+  --gold:      #B89A5A;
+  --wine:      #4A1018;
+  --stone:     #D9D1C7;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  --max-w: 1280px;
+  --pad: 24px;
+  --sec: 80px;
+}
+@media (min-width: 768px)  { :root { --pad: 48px; --sec: 120px; } }
+@media (min-width: 1200px) { :root { --pad: 80px; --sec: 140px; } }
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+.container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+.t-label { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+
+.btn {
+  display: inline-block; font-family: var(--font-body); font-weight: 500;
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  padding: 14px 28px; border: 1px solid currentColor;
+  transition: background .25s, color .25s; cursor: pointer;
+}
+.btn-gold  { background: transparent; color: var(--gold); border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold); color: var(--black); }
+.btn-light { background: var(--off-white); color: var(--black); border-color: var(--off-white); }
+.btn-light:hover { background: transparent; color: var(--off-white); }
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 72px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--pad);
+  background: rgba(5,5,5,.96);
+  border-bottom: 1px solid rgba(184,154,90,.15);
+  backdrop-filter: blur(8px);
+}
+.logo { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; }
+.logo span { color: var(--gold); }
+.nav-desktop { display: none; align-items: center; gap: 36px; }
+@media (min-width: 1024px) { .nav-desktop { display: flex; } }
+.nav-desktop a { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; color: rgba(247,246,242,.65); transition: color .2s; }
+.nav-desktop a:hover, .nav-desktop a.active { color: var(--off-white); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+.header-cta { display: none; }
+@media (min-width: 1024px) {
+  .header-cta {
+    display: inline-block; font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+    font-weight: 500; padding: 10px 22px; border: 1px solid var(--gold); color: var(--gold);
+    transition: background .25s, color .25s;
+  }
+  .header-cta:hover { background: var(--gold); color: var(--black); }
+}
+.hamburger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
+@media (min-width: 1024px) { .hamburger { display: none; } }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--off-white); transition: all .3s; }
+.hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mobile-menu {
+  display: none; position: fixed; inset: 0; z-index: 99;
+  background: var(--black); padding: 100px var(--pad) 60px;
+  flex-direction: column; justify-content: center;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 4px; }
+.mobile-menu nav a { font-family: var(--font-display); font-size: 38px; font-weight: 700; letter-spacing: .02em; padding: 12px 0; border-bottom: 1px solid rgba(247,246,242,.07); transition: color .2s; }
+.mobile-menu nav a:hover { color: var(--gold); }
+.mobile-menu-foot { margin-top: 48px; }
+.mobile-menu-foot a { display: inline-block; font-family: var(--font-body); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 14px 28px; border: 1px solid var(--gold); color: var(--gold); }
+
+
+/* ============================================================
+   PAGE HERO
+============================================================ */
+.page-hero {
+  padding: 160px 0 80px;
+  border-bottom: 1px solid rgba(184,154,90,.1);
+}
+.page-hero .t-label { color: var(--gold); display: block; margin-bottom: 20px; }
+.page-hero h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(36px, 7vw, 80px);
+  letter-spacing: .02em; line-height: 1.0;
+  max-width: 720px; margin-bottom: 24px;
+}
+.page-hero-sub {
+  font-size: clamp(15px, 1.8vw, 18px); font-weight: 300;
+  color: rgba(247,246,242,.55); max-width: 560px; line-height: 1.65;
+}
+@media (min-width: 768px) { .page-hero { padding: 180px 0 100px; } }
+
+
+/* ============================================================
+   PATHWAY SELECTOR
+============================================================ */
+.pathway-section { padding: var(--sec) 0; }
+.pathway-selector-label {
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(247,246,242,.3); margin-bottom: 28px; display: block;
+}
+.pathway-tabs {
+  display: grid; grid-template-columns: 1fr; gap: 1px;
+  background: rgba(184,154,90,.1); margin-bottom: 0;
+}
+@media (min-width: 640px) { .pathway-tabs { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .pathway-tabs { grid-template-columns: repeat(4,1fr); } }
+
+.pathway-tab {
+  background: var(--black); padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 10px;
+  cursor: pointer; position: relative; transition: background .25s;
+  border: none; text-align: left; color: var(--off-white);
+}
+.pathway-tab::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: transparent; transition: background .3s;
+}
+.pathway-tab:hover { background: #0a0a0a; }
+.pathway-tab.active { background: #0d0d0d; }
+.pathway-tab.active::after { background: var(--gold); }
+
+.tab-num { font-family: var(--font-display); font-size: 12px; color: rgba(184,154,90,.3); letter-spacing: .1em; }
+.tab-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(18px, 2.2vw, 24px); line-height: 1.1; }
+.tab-sub { font-size: 10px; letter-spacing: .13em; text-transform: uppercase; color: rgba(184,154,90,.5); font-weight: 500; }
+.tab-arrow {
+  font-size: 18px; color: var(--gold); opacity: 0; transition: opacity .2s;
+  position: absolute; bottom: 28px; right: 28px;
+  transform: rotate(90deg);
+}
+.pathway-tab.active .tab-arrow { opacity: 1; }
+
+
+/* ============================================================
+   FORM PANELS
+============================================================ */
+.form-panel {
+  display: none; background: #080808;
+  border: 1px solid rgba(184,154,90,.1);
+  border-top: none; padding: 56px var(--pad) 64px;
+}
+.form-panel.active { display: block; }
+
+.form-panel-inner { max-width: 760px; }
+.form-panel-heading {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(247,246,242,.07);
+}
+.form-panel-heading .t-label { color: var(--gold); display: block; margin-bottom: 14px; }
+.form-panel-heading h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 40px); line-height: 1.1; margin-bottom: 12px; }
+.form-panel-heading p { font-size: 14px; line-height: 1.75; color: rgba(247,246,242,.5); max-width: 560px; }
+
+/* Form layout */
+.enquiry-form { display: flex; flex-direction: column; gap: 0; }
+.form-row { display: grid; grid-template-columns: 1fr; gap: 0; }
+@media (min-width: 640px) { .form-row.two-col { grid-template-columns: 1fr 1fr; } }
+
+.form-field {
+  display: flex; flex-direction: column; gap: 0;
+  border-bottom: 1px solid rgba(247,246,242,.08);
+  padding: 24px 0;
+  position: relative;
+}
+.form-field:last-of-type { border-bottom: none; }
+
+label {
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(184,154,90,.7); margin-bottom: 10px; display: block;
+}
+label .required { color: var(--wine); margin-left: 3px; }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  background: transparent;
+  border: none; border-bottom: 1px solid rgba(247,246,242,.12);
+  color: var(--off-white);
+  font-family: var(--font-body); font-weight: 300; font-size: 15px;
+  padding: 10px 0; width: 100%;
+  outline: none; transition: border-color .2s;
+  -webkit-appearance: none; appearance: none;
+  border-radius: 0;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+  border-bottom-color: var(--gold);
+}
+input::placeholder, textarea::placeholder { color: rgba(247,246,242,.2); }
+select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B89A5A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 4px center; padding-right: 24px; }
+select option { background: #0d0d0d; color: var(--off-white); }
+textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+
+/* Honeypot - spam protection */
+.hp-field { position: absolute; left: -9999px; opacity: 0; pointer-events: none; }
+
+/* Form footer */
+.form-footer {
+  margin-top: 40px;
+  display: flex; flex-direction: column; gap: 20px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(247,246,242,.07);
+}
+@media (min-width: 640px) { .form-footer { flex-direction: row; align-items: center; justify-content: space-between; } }
+.form-note { font-size: 12px; line-height: 1.7; color: rgba(247,246,242,.25); max-width: 380px; }
+
+/* Submit button */
+.btn-submit {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-body); font-weight: 500;
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  padding: 16px 32px; background: var(--gold); color: var(--black);
+  border: 1px solid var(--gold); cursor: pointer;
+  transition: background .25s, color .25s;
+  white-space: nowrap;
+}
+.btn-submit:hover { background: transparent; color: var(--gold); }
+.btn-submit svg { transition: transform .2s; }
+.btn-submit:hover svg { transform: translateX(4px); }
+
+/* Success state */
+.form-success {
+  display: none; padding: 48px 0;
+  text-align: center;
+}
+.form-success.show { display: block; }
+.form-success-icon { font-size: 28px; color: var(--gold); margin-bottom: 20px; }
+.form-success h3 { font-family: var(--font-display); font-weight: 600; font-size: 28px; margin-bottom: 12px; }
+.form-success p { font-size: 14px; color: rgba(247,246,242,.5); line-height: 1.7; max-width: 400px; margin: 0 auto; }
+
+
+/* ============================================================
+   ACCESS NOTE
+============================================================ */
+.access-note { background: #030303; padding: 60px 0; border-top: 1px solid rgba(184,154,90,.08); }
+.access-note-inner {
+  display: flex; flex-direction: column; gap: 32px;
+}
+@media (min-width: 768px) { .access-note-inner { flex-direction: row; align-items: flex-start; gap: 80px; } }
+.access-note-rule { width: 36px; height: 1px; background: var(--gold); margin-bottom: 20px; }
+.access-note h3 { font-family: var(--font-display); font-weight: 600; font-size: 22px; margin-bottom: 14px; }
+.access-note p { font-size: 14px; line-height: 1.75; color: rgba(247,246,242,.45); max-width: 400px; }
+
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer { background: #030303; border-top: 1px solid rgba(184,154,90,.12); padding: 60px 0 40px; }
+.footer-top { display: flex; flex-direction: column; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(247,246,242,.06); margin-bottom: 32px; }
+@media (min-width: 768px) { .footer-top { flex-direction: row; justify-content: space-between; } }
+.footer-logo-text { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+.footer-logo-text span { color: var(--gold); }
+.footer-brand p { font-size: 13px; line-height: 1.7; color: rgba(247,246,242,.32); max-width: 300px; }
+.footer-nav { display: grid; grid-template-columns: repeat(2,1fr); gap: 36px; }
+@media (min-width: 480px) { .footer-nav { grid-template-columns: repeat(3,auto); } }
+.footer-nav-group h4 { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+.footer-nav-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav-group a { font-size: 13px; color: rgba(247,246,242,.4); transition: color .2s; }
+.footer-nav-group a:hover { color: var(--off-white); }
+.footer-bottom { display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+.footer-bottom p { font-size: 12px; color: rgba(247,246,242,.18); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(247,246,242,.18); transition: color .2s; }
+.footer-legal a:hover { color: rgba(247,246,242,.5); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop">
+    <a href="index.html">Home</a>
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="header-right">
+    <a href="work-with-us.html" class="header-cta active">Work With King Wagyu</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog">
+  <nav>
+    <a href="index.html"          onclick="closeMenu()">Home</a>
+    <a href="genetics.html"       onclick="closeMenu()">Genetics</a>
+    <a href="embryo-program.html" onclick="closeMenu()">Embryo Program</a>
+    <a href="export.html"         onclick="closeMenu()">Export</a>
+    <a href="insights.html"       onclick="closeMenu()">Insights</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a href="work-with-us.html" onclick="closeMenu()">Work With King Wagyu</a>
+  </div>
+</div>
+
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="t-label">Enquiry Access</span>
+    <h1>Work With<br>King Wagyu</h1>
+    <p class="page-hero-sub">Structured access for genetics, embryo, export, and strategic enquiries. Select the pathway that fits your interest — every enquiry is reviewed and routed with intent.</p>
+  </div>
+</section>
+
+
+<!-- PATHWAY SELECTOR + FORMS -->
+<section class="pathway-section">
+  <div class="container">
+    <span class="pathway-selector-label">Select your enquiry type</span>
+
+    <!-- TABS -->
+    <div class="pathway-tabs" role="tablist">
+      <button class="pathway-tab active" role="tab" aria-selected="true"  aria-controls="form-genetics"  onclick="selectTab('genetics')">
+        <div class="tab-num">01</div>
+        <div class="tab-title">Genetics Enquiry</div>
+        <div class="tab-sub">Breeders / Herd Development</div>
+        <span class="tab-arrow">↓</span>
+      </button>
+      <button class="pathway-tab" role="tab" aria-selected="false" aria-controls="form-embryo"   onclick="selectTab('embryo')">
+        <div class="tab-num">02</div>
+        <div class="tab-title">Embryo Program</div>
+        <div class="tab-sub">Strategy / Program Access</div>
+        <span class="tab-arrow">↓</span>
+      </button>
+      <button class="pathway-tab" role="tab" aria-selected="false" aria-controls="form-export"   onclick="selectTab('export')">
+        <div class="tab-num">03</div>
+        <div class="tab-title">Export Enquiry</div>
+        <div class="tab-sub">International / Trade</div>
+        <span class="tab-arrow">↓</span>
+      </button>
+      <button class="pathway-tab" role="tab" aria-selected="false" aria-controls="form-strategic" onclick="selectTab('strategic')">
+        <div class="tab-num">04</div>
+        <div class="tab-title">Strategic &amp; Conference</div>
+        <div class="tab-sub">Partnership / Industry</div>
+        <span class="tab-arrow">↓</span>
+      </button>
+    </div>
+
+
+    <!-- FORM 1: GENETICS -->
+    <!-- ↓ Replace YOUR_FORMSPREE_ID with your Formspree form endpoint ID -->
+    <div class="form-panel active" id="form-genetics" role="tabpanel">
+      <div class="form-panel-inner">
+        <div class="form-panel-heading">
+          <span class="t-label">Genetics Enquiry</span>
+          <h2>Breeding, herd development &amp; genetics discussion</h2>
+          <p>For breeders, operations, or individuals interested in discussing genetics, herd alignment, or breeding direction. Provide as much context as you can — it helps us route your enquiry correctly.</p>
+        </div>
+        <form class="enquiry-form" id="genetics-form"
+              action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+              method="POST">
+          <input type="hidden" name="enquiry_type" value="Genetics Enquiry">
+          <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          <div class="form-row two-col">
+            <div class="form-field">
+              <label for="g-name">Full Name <span class="required">*</span></label>
+              <input type="text" id="g-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-field">
+              <label for="g-email">Email Address <span class="required">*</span></label>
+              <input type="email" id="g-email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-field">
+              <label for="g-farm">Farm / Operation Name</label>
+              <input type="text" id="g-farm" name="farm_operation" placeholder="Operation name">
+            </div>
+            <div class="form-field">
+              <label for="g-country">Country <span class="required">*</span></label>
+              <input type="text" id="g-country" name="country" placeholder="Country" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="g-herd">Current Herd Status</label>
+            <select id="g-herd" name="herd_status">
+              <option value="" disabled selected>Select your current position</option>
+              <option>Establishing a new Wagyu herd</option>
+              <option>Existing Wagyu operation — looking to improve genetics</option>
+              <option>Cross-breeding program</option>
+              <option>Commercial beef operation — exploring Wagyu</option>
+              <option>Embryo recipient program only</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="g-interest">Primary Area of Interest <span class="required">*</span></label>
+            <select id="g-interest" name="interest_area" required>
+              <option value="" disabled selected>Select area of interest</option>
+              <option>Breeding direction / genetics discussion</option>
+              <option>Sire selection guidance</option>
+              <option>Herd structure and development</option>
+              <option>Marbling genetics and eating quality</option>
+              <option>Fullblood Wagyu genetics</option>
+              <option>Crossbred program development</option>
+              <option>General genetics enquiry</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="g-goals">Breeding Goals &amp; Context</label>
+            <textarea id="g-goals" name="goals_context" placeholder="Describe your goals, current challenges, or what you're looking to achieve. The more context, the better we can engage."></textarea>
+          </div>
+          <div class="form-footer">
+            <p class="form-note">All enquiries are reviewed. We respond to those that are a genuine operational fit.</p>
+            <button type="submit" class="btn-submit">
+              Submit Enquiry
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </form>
+        <div class="form-success" id="genetics-success">
+          <div class="form-success-icon">—</div>
+          <h3>Enquiry Received</h3>
+          <p>Thank you. Your genetics enquiry has been submitted. We review all submissions and will be in contact if there is an operational fit.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- FORM 2: EMBRYO -->
+    <div class="form-panel" id="form-embryo" role="tabpanel">
+      <div class="form-panel-inner">
+        <div class="form-panel-heading">
+          <span class="t-label">Embryo Program Enquiry</span>
+          <h2>Embryo strategy, donor &amp; recipient program access</h2>
+          <p>For operations interested in embryo strategy, program access, or discussing how the King Wagyu embryo system may support your breeding advancement goals.</p>
+        </div>
+        <form class="enquiry-form" id="embryo-form"
+              action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+              method="POST">
+          <input type="hidden" name="enquiry_type" value="Embryo Program Enquiry">
+          <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          <div class="form-row two-col">
+            <div class="form-field">
+              <label for="e-name">Full Name <span class="required">*</span></label>
+              <input type="text" id="e-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-field">
+              <label for="e-email">Email Address <span class="required">*</span></label>
+              <input type="email" id="e-email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-field">
+              <label for="e-operation">Operation Name</label>
+              <input type="text" id="e-operation" name="operation" placeholder="Farm or operation name">
+            </div>
+            <div class="form-field">
+              <label for="e-location">Country / Region <span class="required">*</span></label>
+              <input type="text" id="e-location" name="location" placeholder="Country or region" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="e-interest">Program Interest <span class="required">*</span></label>
+            <select id="e-interest" name="program_interest" required>
+              <option value="" disabled selected>Select your interest area</option>
+              <option>Embryo purchase / acquisition</option>
+              <option>Recipient cow program</option>
+              <option>Donor flush strategy</option>
+              <option>In vitro fertilisation (IVF)</option>
+              <option>Full embryo program development</option>
+              <option>General embryo program enquiry</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="e-scale">Scale of Interest</label>
+            <select id="e-scale" name="scale">
+              <option value="" disabled selected>Approximate scale</option>
+              <option>Pilot / small scale (under 20 embryos)</option>
+              <option>Mid-scale program (20–100 embryos)</option>
+              <option>Large-scale / commercial program</option>
+              <option>Not yet defined</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="e-timeline">Intended Timeline</label>
+            <select id="e-timeline" name="timeline">
+              <option value="" disabled selected>When are you looking to move?</option>
+              <option>Immediately / within 3 months</option>
+              <option>3–6 months</option>
+              <option>6–12 months</option>
+              <option>Planning phase — no set timeline</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="e-notes">Program Context &amp; Notes</label>
+            <textarea id="e-notes" name="notes" placeholder="Describe your current operation, breeding objectives, and what you're hoping to achieve through an embryo program."></textarea>
+          </div>
+          <div class="form-footer">
+            <p class="form-note">All enquiries are reviewed. We respond to those that are a genuine operational fit.</p>
+            <button type="submit" class="btn-submit">
+              Submit Enquiry
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </form>
+        <div class="form-success" id="embryo-success">
+          <div class="form-success-icon">—</div>
+          <h3>Enquiry Received</h3>
+          <p>Thank you. Your embryo program enquiry has been submitted. We review all submissions and will be in contact if there is an operational fit.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- FORM 3: EXPORT -->
+    <div class="form-panel" id="form-export" role="tabpanel">
+      <div class="form-panel-inner">
+        <div class="form-panel-heading">
+          <span class="t-label">Export Enquiry</span>
+          <h2>International buyers, trade &amp; supply discussions</h2>
+          <p>For international buyers, trade contacts, or parties with a serious interest in King Wagyu's export positioning and supply capability. This channel is for substantive trade discussions only.</p>
+        </div>
+        <form class="enquiry-form" id="export-form"
+              action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+              method="POST">
+          <input type="hidden" name="enquiry_type" value="Export Enquiry">
+          <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          <div class="form-row two-col">
+            <div class="form-field">
+              <label for="x-name">Full Name <span class="required">*</span></label>
+              <input type="text" id="x-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-field">
+              <label for="x-email">Email Address <span class="required">*</span></label>
+              <input type="email" id="x-email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-field">
+              <label for="x-company">Company / Organisation <span class="required">*</span></label>
+              <input type="text" id="x-company" name="company" placeholder="Company name" required>
+            </div>
+            <div class="form-field">
+              <label for="x-country">Country / Region <span class="required">*</span></label>
+              <input type="text" id="x-country" name="country" placeholder="Country or region" required>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="x-type">Nature of Enquiry <span class="required">*</span></label>
+            <select id="x-type" name="enquiry_nature" required>
+              <option value="" disabled selected>Select type of export discussion</option>
+              <option>Live animal export</option>
+              <option>Genetics / embryo export</option>
+              <option>Beef / product supply</option>
+              <option>Strategic supply partnership</option>
+              <option>Market development discussion</option>
+              <option>General export enquiry</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="x-timeline">Timeline</label>
+            <select id="x-timeline" name="timeline">
+              <option value="" disabled selected>Indicative timeline</option>
+              <option>Active — looking to move within 3 months</option>
+              <option>3–6 months</option>
+              <option>6–12 months</option>
+              <option>Exploratory — no fixed timeline</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="x-notes">Enquiry Detail &amp; Context</label>
+            <textarea id="x-notes" name="notes" placeholder="Describe the nature of your interest, market context, and what you are looking to discuss. Substantive context receives substantive responses."></textarea>
+          </div>
+          <div class="form-footer">
+            <p class="form-note">Export enquiries are reviewed for relevance and operational fit before response.</p>
+            <button type="submit" class="btn-submit">
+              Submit Enquiry
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </form>
+        <div class="form-success" id="export-success">
+          <div class="form-success-icon">—</div>
+          <h3>Enquiry Received</h3>
+          <p>Thank you. Your export enquiry has been submitted. We review all submissions and will be in contact if there is an operational fit.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- FORM 4: STRATEGIC -->
+    <div class="form-panel" id="form-strategic" role="tabpanel">
+      <div class="form-panel-inner">
+        <div class="form-panel-heading">
+          <span class="t-label">Strategic &amp; Conference Enquiry</span>
+          <h2>Partnership, industry &amp; conference connections</h2>
+          <p>For conference connections, media enquiries, strategic collaborations, or industry discussions. This includes World Wagyu Conference related enquiries and serious industry partnership proposals.</p>
+        </div>
+        <form class="enquiry-form" id="strategic-form"
+              action="https://formspree.io/f/YOUR_FORMSPREE_ID"
+              method="POST">
+          <input type="hidden" name="enquiry_type" value="Strategic &amp; Conference Enquiry">
+          <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          <div class="form-row two-col">
+            <div class="form-field">
+              <label for="s-name">Full Name <span class="required">*</span></label>
+              <input type="text" id="s-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-field">
+              <label for="s-email">Email Address <span class="required">*</span></label>
+              <input type="email" id="s-email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-field">
+              <label for="s-org">Organisation <span class="required">*</span></label>
+              <input type="text" id="s-org" name="organisation" placeholder="Organisation or publication" required>
+            </div>
+            <div class="form-field">
+              <label for="s-country">Country</label>
+              <input type="text" id="s-country" name="country" placeholder="Country">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="s-type">Type of Connection <span class="required">*</span></label>
+            <select id="s-type" name="connection_type" required>
+              <option value="" disabled selected>Select connection type</option>
+              <option>World Wagyu Conference — delegate connection</option>
+              <option>World Wagyu Conference — speaking / presentation</option>
+              <option>Industry media / editorial</option>
+              <option>Strategic partnership proposal</option>
+              <option>Breed association / industry body</option>
+              <option>Sponsorship or co-branding</option>
+              <option>Other strategic enquiry</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="s-context">Event / Context</label>
+            <input type="text" id="s-context" name="event_context" placeholder="Conference name, event, or context (if applicable)">
+          </div>
+          <div class="form-field">
+            <label for="s-notes">Proposal &amp; Notes <span class="required">*</span></label>
+            <textarea id="s-notes" name="notes" placeholder="Describe the nature of your proposal, collaboration idea, or the discussion you'd like to initiate." required></textarea>
+          </div>
+          <div class="form-footer">
+            <p class="form-note">Strategic enquiries are reviewed for relevance and genuine fit before response.</p>
+            <button type="submit" class="btn-submit">
+              Submit Enquiry
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </form>
+        <div class="form-success" id="strategic-success">
+          <div class="form-success-icon">—</div>
+          <h3>Enquiry Received</h3>
+          <p>Thank you. Your strategic enquiry has been submitted. We review all submissions and will be in contact if there is a genuine fit.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</section>
+
+
+<!-- ACCESS NOTE -->
+<section class="access-note">
+  <div class="container">
+    <div class="access-note-inner">
+      <div>
+        <div class="access-note-rule"></div>
+        <h3>How enquiries are handled</h3>
+        <p>Every submission is reviewed directly. Enquiries are assessed for operational relevance and fit. We respond to those where there is a genuine alignment — and we respond with substance, not templates.</p>
+      </div>
+      <div>
+        <div class="access-note-rule"></div>
+        <h3>What to expect</h3>
+        <p>If your enquiry is relevant, you will receive a direct response from King Wagyu within a reasonable timeframe. If the fit is not there, we will not waste your time or ours.</p>
+      </div>
+      <div>
+        <div class="access-note-rule"></div>
+        <h3>Conference &amp; industry</h3>
+        <p>King Wagyu is actively engaged in the global Wagyu industry, including the World Wagyu Conference. If you are preparing for or attending industry events, use the Strategic pathway above.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>A serious Wagyu breeding, embryo, and export operation. Built on genetics, discipline, and outcome. Namibia.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>The Operation</h4>
+          <ul>
+            <li><a href="the-operation.html">The Operation</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="genetics.html">Genetics</a></li>
+            <li><a href="embryo-program.html">Embryo Program</a></li>
+            <li><a href="export.html">Export</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Access</h4>
+          <ul>
+            <li><a href="work-with-us.html">Work With Us</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 King Wagyu. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="work-with-us.html">Enquiry Access</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// --- MOBILE MENU ---
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+function openMenu()  { hamburger.classList.add('active'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMenu() { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+// --- PATHWAY TABS ---
+const tabMap = { genetics: 0, embryo: 1, export: 2, strategic: 3 };
+function selectTab(type) {
+  // Update tabs
+  document.querySelectorAll('.pathway-tab').forEach((tab, i) => {
+    const active = i === tabMap[type];
+    tab.classList.toggle('active', active);
+    tab.setAttribute('aria-selected', active);
+  });
+  // Update panels
+  document.querySelectorAll('.form-panel').forEach(panel => panel.classList.remove('active'));
+  document.getElementById('form-' + type).classList.add('active');
+  // Scroll to form on mobile
+  if (window.innerWidth < 768) {
+    document.getElementById('form-' + type).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// Open correct tab from URL hash (e.g. work-with-us.html#export)
+const hash = window.location.hash.replace('#','');
+if (hash && tabMap[hash] !== undefined) selectTab(hash);
+
+// --- FORM SUBMISSION (AJAX for better UX) ---
+document.querySelectorAll('.enquiry-form').forEach(form => {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.btn-submit');
+    const formId = form.id.replace('-form','');
+    const successEl = document.getElementById(formId + '-success');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        successEl.classList.add('show');
+      } else {
+        btn.textContent = 'Error — please try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Error — please try again';
+      btn.disabled = false;
+    }
+  });
+});
+</script>
+
+</body>
+</html>
