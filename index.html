@@ -563,6 +563,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .footer-legal { display: flex; gap: 24px; }
 .footer-legal a { font-size: 12px; color: rgba(247,246,242,.18); transition: color .2s; }
 .footer-legal a:hover { color: rgba(247,246,242,.5); }
+
+.footer-social { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 16px; }
+.footer-social a { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: rgba(247,246,242,.28); transition: color .2s; }
+.footer-social a:hover { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -574,9 +578,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <a href="index.html" class="logo">King <span>Wagyu</span></a>
   <nav class="nav-desktop" aria-label="Primary">
     <a href="index.html">Home</a>
+    <a href="about.html">About</a>
     <a href="genetics.html">Genetics</a>
     <a href="embryo-program.html">Embryo Program</a>
     <a href="export.html">Export</a>
+    <a href="the-operation.html">The Operation</a>
     <a href="insights.html">Insights</a>
   </nav>
   <div class="header-right">
@@ -590,9 +596,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation">
   <nav>
     <a href="index.html"           onclick="closeMenu()">Home</a>
+    <a href="about.html"         onclick="closeMenu()">About</a>
     <a href="genetics.html"        onclick="closeMenu()">Genetics</a>
     <a href="embryo-program.html"  onclick="closeMenu()">Embryo Program</a>
     <a href="export.html"          onclick="closeMenu()">Export</a>
+    <a href="the-operation.html" onclick="closeMenu()">The Operation</a>
     <a href="insights.html"        onclick="closeMenu()">Insights</a>
   </nav>
   <div class="mobile-menu-foot">
@@ -896,12 +904,18 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     <div class="footer-top">
       <div class="footer-brand">
         <span class="footer-logo-text">King <span>Wagyu</span></span>
-        <p>A serious Wagyu breeding, embryo, and export operation. Built on genetics, discipline, and outcome. Namibia.</p>
+        <p>A serious Wagyu breeding, embryo, and export operation. Built on genetics, discipline, and outcome. Farm Houmoed, Otjozondjupa, Namibia.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/kingwagyunamibia/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.linkedin.com/company/king-wagyu/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/kingwagyu" target="_blank" rel="noopener">Facebook</a>
+        </div>
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <div class="footer-nav-group">
           <h4>The Operation</h4>
           <ul>
+            <li><a href="about.html">About</a></li>
             <li><a href="the-operation.html">The Operation</a></li>
             <li><a href="results.html">Results</a></li>
             <li><a href="insights.html">Insights</a></li>
@@ -926,7 +940,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
       </nav>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 King Wagyu. All rights reserved.</p>
+      <p>© 2026 King Wagyu. Farm Houmoed, Otjozondjupa, Namibia.</p>
       <div class="footer-legal">
         <a href="privacy.html">Privacy Policy</a>
         <a href="work-with-us.html">Enquiry Access</a>
