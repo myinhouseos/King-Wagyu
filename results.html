@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="King Wagyu results — marbling grades, embryo program outcomes, and production data from our Fullblood Wagyu operation in Namibia.">
+<title>Results | King Wagyu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#050505;--off-white:#F7F6F2;--gold:#B89A5A;--wine:#4A1018;--stone:#D9D1C7;--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Inter',-apple-system,sans-serif;--max-w:1280px;--pad:24px;}
+@media(min-width:768px){:root{--pad:48px;}} @media(min-width:1200px){:root{--pad:80px;}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--off-white);font-family:var(--font-body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;} button{cursor:pointer;border:none;background:none;font-family:inherit;}
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad);}
+.t-label{font-family:var(--font-body);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;}
+
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);transition:background .3s,border-color .3s;background:transparent;border-bottom:1px solid transparent;}
+.site-header.scrolled{background:rgba(5,5,5,.96);border-bottom-color:rgba(184,154,90,.15);backdrop-filter:blur(8px);}
+.logo{font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:.12em;text-transform:uppercase;} .logo span{color:var(--gold);}
+.nav-desktop{display:none;align-items:center;gap:36px;} @media(min-width:1024px){.nav-desktop{display:flex;}}
+.nav-desktop a{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:rgba(247,246,242,.65);transition:color .2s;} .nav-desktop a:hover,.nav-desktop a.active{color:var(--off-white);}
+.header-right{display:flex;align-items:center;gap:20px;}
+.header-cta{display:none;} @media(min-width:1024px){.header-cta{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:10px 22px;border:1px solid var(--gold);color:var(--gold);transition:background .25s,color .25s;} .header-cta:hover{background:var(--gold);color:var(--black);}}
+.hamburger{display:flex;flex-direction:column;gap:5px;padding:8px;} @media(min-width:1024px){.hamburger{display:none;}}
+.hamburger span{display:block;width:24px;height:1px;background:var(--off-white);transition:all .3s;}
+.hamburger.active span:nth-child(1){transform:translateY(6px) rotate(45deg);} .hamburger.active span:nth-child(2){opacity:0;} .hamburger.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:99;background:var(--black);padding:100px var(--pad) 60px;flex-direction:column;justify-content:center;} .mobile-menu.open{display:flex;}
+.mobile-menu nav{display:flex;flex-direction:column;gap:4px;}
+.mobile-menu nav a{font-family:var(--font-display);font-size:38px;font-weight:700;letter-spacing:.02em;padding:12px 0;border-bottom:1px solid rgba(247,246,242,.07);transition:color .2s;} .mobile-menu nav a:hover{color:var(--gold);}
+.mobile-menu-foot{margin-top:48px;} .mobile-menu-foot a{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);}
+
+/* HERO */
+.hero{position:relative;min-height:75vh;display:flex;align-items:flex-end;padding-bottom:80px;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:#080808;
+  /* Replace with: background-image:url('images/results-hero.jpg');background-size:cover;background-position:center 30%; */
+}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,.95) 0%,rgba(5,5,5,.5) 55%,rgba(5,5,5,.2) 100%);}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad);}
+.hero-tag{display:inline-block;font-size:10px;letter-spacing:.25em;text-transform:uppercase;font-weight:500;color:var(--gold);margin-bottom:28px;}
+.hero h1{font-family:var(--font-display);font-weight:700;font-size:clamp(38px,6.5vw,82px);line-height:1.0;letter-spacing:-.01em;margin-bottom:24px;max-width:760px;}
+.hero-sub{font-size:clamp(14px,1.8vw,17px);line-height:1.8;color:rgba(247,246,242,.5);max-width:500px;font-weight:300;}
+.hero-note{margin-top:36px;font-size:11px;letter-spacing:.08em;color:rgba(247,246,242,.2);border-left:1px solid rgba(184,154,90,.2);padding-left:16px;max-width:440px;line-height:1.6;}
+
+/* KEY METRICS STRIP */
+.metrics-strip{background:var(--black);border-top:1px solid rgba(184,154,90,.12);border-bottom:1px solid rgba(184,154,90,.12);}
+.metrics-inner{display:grid;grid-template-columns:repeat(2,1fr);} @media(min-width:768px){.metrics-inner{grid-template-columns:repeat(4,1fr);}}
+.metric-cell{padding:40px var(--pad);text-align:center;border-right:1px solid rgba(184,154,90,.08);position:relative;overflow:hidden;} .metric-cell:last-child{border-right:none;}
+.metric-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .4s;} .metric-cell:hover::before{opacity:1;}
+.metric-big{font-family:var(--font-display);font-weight:700;font-size:clamp(36px,5vw,60px);color:var(--gold);line-height:1;display:block;margin-bottom:10px;}
+.metric-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,246,242,.3);display:block;margin-bottom:6px;}
+.metric-sub{font-size:12px;color:rgba(247,246,242,.18);font-style:italic;}
+
+/* MARBLING SECTION */
+.marbling{padding:100px 0;background:#080808;}
+.marbling-header{text-align:center;max-width:640px;margin:0 auto 64px;}
+.marbling-header .section-tag{color:var(--gold);display:block;margin-bottom:20px;}
+.marbling-header h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.1;margin-bottom:18px;}
+.marbling-header p{font-size:15px;line-height:1.8;color:rgba(247,246,242,.45);}
+
+/* GRADE CHART */
+.grade-chart{max-width:860px;margin:0 auto;}
+.grade-row{display:grid;grid-template-columns:60px 1fr 56px;gap:16px;align-items:center;margin-bottom:14px;}
+.grade-label{font-family:var(--font-display);font-weight:600;font-size:18px;color:rgba(247,246,242,.5);text-align:right;}
+.grade-label.highlight{color:var(--gold);}
+.grade-bar-wrap{background:rgba(247,246,242,.04);height:32px;border-radius:2px;overflow:hidden;position:relative;}
+.grade-bar{height:100%;background:rgba(184,154,90,.25);border-radius:2px;width:0;transition:width 1.2s cubic-bezier(.16,1,.3,1);position:relative;}
+.grade-bar.highlight{background:linear-gradient(90deg,rgba(184,154,90,.4),var(--gold));}
+.grade-bar::after{content:'';position:absolute;right:0;top:0;bottom:0;width:2px;background:rgba(184,154,90,.6);}
+.grade-bar.highlight::after{background:var(--gold);}
+.grade-pct{font-family:var(--font-display);font-weight:600;font-size:17px;color:rgba(247,246,242,.35);text-align:left;}
+.grade-pct.highlight{color:var(--gold);}
+.grade-note{text-align:center;margin-top:40px;font-size:12px;color:rgba(247,246,242,.2);letter-spacing:.06em;}
+
+/* MARBLING IMAGE PAIR */
+.marbling-images{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:64px;max-width:860px;margin-left:auto;margin-right:auto;}
+.marbling-img{aspect-ratio:3/2;background:#0d0d0d;position:relative;display:flex;align-items:flex-end;padding:16px 20px;}
+.marbling-img span{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(184,154,90,.3);}
+
+/* EMBRYO RESULTS */
+.embryo-results{padding:100px 0;background:var(--black);}
+.embryo-results-inner{display:grid;grid-template-columns:1fr;gap:64px;align-items:start;} @media(min-width:900px){.embryo-results-inner{grid-template-columns:1fr 1fr;gap:80px;}}
+.embryo-text .section-tag{color:var(--gold);display:block;margin-bottom:24px;}
+.embryo-text h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.1;margin-bottom:24px;}
+.embryo-text p{font-size:15px;line-height:1.85;color:rgba(247,246,242,.5);margin-bottom:18px;}
+.embryo-text p:last-child{margin-bottom:0;}
+.embryo-stats{display:flex;flex-direction:column;gap:1px;}
+.embryo-stat{background:#0a0a0a;padding:28px 32px;display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:center;border-left:2px solid transparent;transition:border-color .3s;} .embryo-stat:hover{border-left-color:var(--gold);}
+.embryo-stat-num{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,3.5vw,40px);color:var(--gold);line-height:1;}
+.embryo-stat-body h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-bottom:4px;}
+.embryo-stat-body p{font-size:13px;line-height:1.6;color:rgba(247,246,242,.35);}
+
+/* PRODUCTION SEQUENCE */
+.production{background:#070707;padding:100px 0;}
+.production-header{text-align:center;max-width:600px;margin:0 auto 64px;}
+.production-header .section-tag{color:var(--gold);display:block;margin-bottom:20px;}
+.production-header h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.1;margin-bottom:18px;}
+.production-header p{font-size:15px;line-height:1.8;color:rgba(247,246,242,.4);}
+.production-grid{display:grid;grid-template-columns:1fr;gap:2px;} @media(min-width:640px){.production-grid{grid-template-columns:repeat(2,1fr);}} @media(min-width:1024px){.production-grid{grid-template-columns:repeat(4,1fr);}}
+.prod-card{background:#070707;padding:40px 32px;border-top:1px solid rgba(184,154,90,.0);transition:background .3s,border-color .3s;position:relative;} .prod-card:hover{background:#0d0d0d;border-top-color:rgba(184,154,90,.3);}
+.prod-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:rgba(184,154,90,.08);}
+.prod-phase{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(184,154,90,.4);font-weight:500;margin-bottom:12px;display:block;}
+.prod-card h3{font-family:var(--font-display);font-weight:600;font-size:21px;line-height:1.2;margin-bottom:14px;}
+.prod-card p{font-size:13px;line-height:1.8;color:rgba(247,246,242,.38);}
+.prod-outcome{margin-top:20px;padding-top:18px;border-top:1px solid rgba(247,246,242,.05);}
+.prod-outcome span{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(184,154,90,.5);display:block;margin-bottom:4px;}
+.prod-outcome strong{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--off-white);}
+
+/* EXPORT RECORD */
+.export-record{padding:100px 0;background:var(--black);}
+.export-record-inner{display:grid;grid-template-columns:1fr;gap:64px;} @media(min-width:900px){.export-record-inner{grid-template-columns:1fr 1fr;gap:80px;}}
+.export-record-image{aspect-ratio:4/3;background:#0d0d0d;
+  /* Replace with: background-image:url('images/results-export.jpg');background-size:cover;background-position:center; */
+}
+.export-record-text .section-tag{color:var(--gold);display:block;margin-bottom:24px;}
+.export-record-text h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.5vw,42px);line-height:1.1;margin-bottom:24px;}
+.export-record-text p{font-size:15px;line-height:1.85;color:rgba(247,246,242,.5);margin-bottom:18px;}
+.export-record-text blockquote{border-left:2px solid var(--gold);padding-left:24px;margin:32px 0;font-family:var(--font-display);font-style:italic;font-size:clamp(17px,2.2vw,22px);line-height:1.5;color:rgba(247,246,242,.7);}
+.export-record-text p:last-child{margin-bottom:0;}
+
+/* HONEST SECTION */
+.honest{background:#0a0a0a;padding:80px 0;border-top:1px solid rgba(184,154,90,.08);border-bottom:1px solid rgba(184,154,90,.08);}
+.honest-inner{max-width:760px;margin:0 auto;padding:0 var(--pad);text-align:center;}
+.honest .section-tag{color:var(--gold);display:block;margin-bottom:24px;}
+.honest h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.5vw,40px);line-height:1.2;margin-bottom:24px;}
+.honest p{font-size:15px;line-height:1.85;color:rgba(247,246,242,.5);margin-bottom:18px;}
+.honest p:last-child{margin-bottom:0;}
+
+/* CTA */
+.results-cta{background:var(--wine);padding:80px 0;}
+.results-cta-inner{text-align:center;max-width:600px;margin:0 auto;padding:0 var(--pad);}
+.results-cta .section-tag{color:rgba(247,246,242,.45);display:block;margin-bottom:20px;}
+.results-cta h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,4vw,46px);line-height:1.1;margin-bottom:18px;}
+.results-cta p{font-size:15px;line-height:1.75;color:rgba(247,246,242,.55);margin-bottom:36px;}
+.btn-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}
+.btn-outline-white{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:14px 28px;border:1px solid rgba(247,246,242,.35);color:var(--off-white);font-family:var(--font-body);transition:border-color .25s,background .25s;} .btn-outline-white:hover{border-color:var(--off-white);background:rgba(247,246,242,.08);}
+.btn-gold-solid{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:14px 28px;background:var(--gold);color:var(--black);font-family:var(--font-body);transition:opacity .25s;} .btn-gold-solid:hover{opacity:.85;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;} .reveal.visible{opacity:1;transform:none;}
+
+/* FOOTER */
+.site-footer{background:#030303;border-top:1px solid rgba(184,154,90,.12);padding:60px 0 40px;}
+.footer-top{display:flex;flex-direction:column;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(247,246,242,.06);margin-bottom:32px;} @media(min-width:768px){.footer-top{flex-direction:row;justify-content:space-between;}}
+.footer-logo-text{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:14px;} .footer-logo-text span{color:var(--gold);}
+.footer-brand p{font-size:13px;line-height:1.7;color:rgba(247,246,242,.32);max-width:300px;}
+.footer-nav{display:grid;grid-template-columns:repeat(2,1fr);gap:36px;} @media(min-width:480px){.footer-nav{grid-template-columns:repeat(3,auto);}}
+.footer-nav-group h4{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px;}
+.footer-nav-group ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-nav-group a{font-size:13px;color:rgba(247,246,242,.4);transition:color .2s;} .footer-nav-group a:hover{color:var(--off-white);}
+.footer-bottom{display:flex;flex-direction:column;gap:12px;} @media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;align-items:center;}}
+.footer-bottom p{font-size:12px;color:rgba(247,246,242,.18);}
+.footer-legal{display:flex;gap:24px;} .footer-legal a{font-size:12px;color:rgba(247,246,242,.18);transition:color .2s;} .footer-legal a:hover{color:rgba(247,246,242,.5);}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="hdr">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop">
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="the-operation.html">The Operation</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="header-right">
+    <a href="work-with-us.html" class="header-cta">Work With Us</a>
+    <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mob">
+  <nav>
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="the-operation.html">The Operation</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="mobile-menu-foot"><a href="work-with-us.html">Work With Us</a></div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <span class="hero-tag">Results</span>
+    <h1>What the program produces.</h1>
+    <p class="hero-sub">Not projections. Not potential. The grading outcomes, embryo program data, and production metrics from the King Wagyu operation — as it runs today.</p>
+    <p class="hero-note">Results shown reflect production data from King Wagyu cohorts. Specific figures will be updated as each production cycle is completed and documented.</p>
+  </div>
+</section>
+
+<!-- KEY METRICS -->
+<div class="metrics-strip">
+  <div class="metrics-inner">
+    <div class="metric-cell">
+      <span class="metric-big">BMS 7+</span>
+      <span class="metric-label">Average Grade Target</span>
+      <span class="metric-sub">Fullblood finishing cohorts</span>
+    </div>
+    <div class="metric-cell">
+      <span class="metric-big">60%+</span>
+      <span class="metric-label">Embryo Conception Rate</span>
+      <span class="metric-sub">Fresh transfer, managed recipients</span>
+    </div>
+    <div class="metric-cell">
+      <span class="metric-big">100%</span>
+      <span class="metric-label">Fullblood Classification</span>
+      <span class="metric-sub">DNA verified, registered pedigree</span>
+    </div>
+    <div class="metric-cell">
+      <span class="metric-big">Export</span>
+      <span class="metric-label">Health Certified</span>
+      <span class="metric-sub">Live animal & processed beef</span>
+    </div>
+  </div>
+</div>
+
+<!-- MARBLING GRADES -->
+<section class="marbling">
+  <div class="container">
+    <div class="marbling-header reveal">
+      <span class="section-tag t-label">Marbling Outcomes</span>
+      <h2>Grade distribution across finishing cohorts</h2>
+      <p>The target grade distribution for King Wagyu Fullblood finishing cohorts. The program is designed to produce consistent BMS 7–9 across the majority of animals — not isolated peak results alongside wide variability.</p>
+    </div>
+
+    <div class="grade-chart reveal">
+      <div class="grade-row">
+        <span class="grade-label">BMS 4–5</span>
+        <div class="grade-bar-wrap"><div class="grade-bar" data-width="12%"></div></div>
+        <span class="grade-pct">~12%</span>
+      </div>
+      <div class="grade-row">
+        <span class="grade-label">BMS 6</span>
+        <div class="grade-bar-wrap"><div class="grade-bar" data-width="22%"></div></div>
+        <span class="grade-pct">~22%</span>
+      </div>
+      <div class="grade-row">
+        <span class="grade-label highlight">BMS 7</span>
+        <div class="grade-bar-wrap"><div class="grade-bar highlight" data-width="32%"></div></div>
+        <span class="grade-pct highlight">~32%</span>
+      </div>
+      <div class="grade-row">
+        <span class="grade-label highlight">BMS 8</span>
+        <div class="grade-bar-wrap"><div class="grade-bar highlight" data-width="24%"></div></div>
+        <span class="grade-pct highlight">~24%</span>
+      </div>
+      <div class="grade-row">
+        <span class="grade-label highlight">BMS 9+</span>
+        <div class="grade-bar-wrap"><div class="grade-bar highlight" data-width="10%"></div></div>
+        <span class="grade-pct highlight">~10%</span>
+      </div>
+      <p class="grade-note">Target distribution — Fullblood finishing cohorts — King Wagyu program. Updated per production cycle.</p>
+    </div>
+
+    <div class="marbling-images reveal">
+      <div class="marbling-img">
+        <!-- Replace with: background-image:url('images/marbling-bms7.jpg');background-size:cover;background-position:center; -->
+        <span>BMS 7 — Cross-section</span>
+      </div>
+      <div class="marbling-img">
+        <!-- Replace with: background-image:url('images/marbling-bms9.jpg');background-size:cover;background-position:center; -->
+        <span>BMS 9 — Cross-section</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMBRYO RESULTS -->
+<section class="embryo-results">
+  <div class="container">
+    <div class="embryo-results-inner">
+      <div class="embryo-text reveal">
+        <span class="section-tag t-label">Embryo Program</span>
+        <h2>Flush yields, conception rates, and calf outcomes</h2>
+        <p>The embryo program at King Wagyu is measured against the inputs it requires and the outputs it delivers. Donor management, recipient quality, and synchronisation discipline are all tracked — because these are what determine whether the program is commercially viable, not just biologically possible.</p>
+        <p>The figures below reflect program performance with managed recipient herds under King Wagyu protocols. Conception rates vary by recipient condition, transfer timing, and seasonal factors — the ranges shown represent outcomes across multiple flush cycles.</p>
+        <p>For buyers sourcing embryos, these figures provide the basis for planning recipient requirements and expected pregnancy outcomes. We do not report best-case results in isolation.</p>
+      </div>
+      <div class="embryo-stats reveal">
+        <div class="embryo-stat">
+          <span class="embryo-stat-num">8–14</span>
+          <div class="embryo-stat-body">
+            <h4>Transferable Embryos per Flush</h4>
+            <p>Average yield from superovulated Fullblood donors across production cycles. Varies by donor age, condition, and cycle timing.</p>
+          </div>
+        </div>
+        <div class="embryo-stat">
+          <span class="embryo-stat-num">60–70%</span>
+          <div class="embryo-stat-body">
+            <h4>Fresh Transfer Conception Rate</h4>
+            <p>Achieved with managed recipients synchronised under King Wagyu protocols. Lower rates indicate recipient management issues, not embryo quality.</p>
+          </div>
+        </div>
+        <div class="embryo-stat">
+          <span class="embryo-stat-num">100%</span>
+          <div class="embryo-stat-body">
+            <h4>Fullblood Calves Produced</h4>
+            <p>All embryos produced from registered Fullblood donors using registered Fullblood sires. DNA parentage verified at birth.</p>
+          </div>
+        </div>
+        <div class="embryo-stat">
+          <span class="embryo-stat-num">Grade 1</span>
+          <div class="embryo-stat-body">
+            <h4>Target Embryo Quality Grade</h4>
+            <p>Embryos are graded prior to transfer. Grade 1 and Grade 2 embryos are offered. Grade 3 and below are not transferred into export or sale programs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTION SEQUENCE -->
+<section class="production">
+  <div class="container">
+    <div class="production-header reveal">
+      <span class="section-tag t-label">Production Outcomes</span>
+      <h2>What each phase of the program delivers</h2>
+      <p>The King Wagyu production system is measured at each phase — not only at the point of slaughter or export. These are the targets and outcomes across the full production sequence.</p>
+    </div>
+    <div class="production-grid">
+      <div class="prod-card reveal">
+        <span class="prod-phase">Phase 01</span>
+        <h3>Genetics & Breeding</h3>
+        <p>Sires selected against top-percentile EBVs for marbling and structure. Donor cows selected from animals with proven progeny performance.</p>
+        <div class="prod-outcome">
+          <span>Outcome Target</span>
+          <strong>High-EBV Fullblood progeny, verified parentage</strong>
+        </div>
+      </div>
+      <div class="prod-card reveal">
+        <span class="prod-phase">Phase 02</span>
+        <h3>Embryo & Calf Crop</h3>
+        <p>Multiple embryos per donor per cycle. Calves produced from Fullblood parentage, DNA tested, registered with relevant Wagyu registry.</p>
+        <div class="prod-outcome">
+          <span>Outcome Target</span>
+          <strong>Registered Fullblood calves, documented from birth</strong>
+        </div>
+      </div>
+      <div class="prod-card reveal">
+        <span class="prod-phase">Phase 03</span>
+        <h3>Backgrounding</h3>
+        <p>Cohort-managed backgrounding with controlled nutrition transition. Body condition targets set per finishing timeline. Stress minimisation protocols throughout.</p>
+        <div class="prod-outcome">
+          <span>Outcome Target</span>
+          <strong>Consistent body condition at finishing entry</strong>
+        </div>
+      </div>
+      <div class="prod-card reveal">
+        <span class="prod-phase">Phase 04</span>
+        <h3>Finishing & Grade</h3>
+        <p>Time on feed set per cohort genetic profile. Target BMS 7+ across majority of cohort. Grade data recorded per animal and fed back into selection decisions.</p>
+        <div class="prod-outcome">
+          <span>Outcome Target</span>
+          <strong>BMS 7–9 across 65%+ of finishing cohort</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPORT RECORD -->
+<section class="export-record">
+  <div class="container">
+    <div class="export-record-inner">
+      <div class="export-record-image reveal"></div>
+      <div class="export-record-text reveal">
+        <span class="section-tag t-label">Export Performance</span>
+        <h2>What reaches the buyer is what was documented at birth</h2>
+        <blockquote>"The pedigree is not an administrative formality. It is the proof of the product."</blockquote>
+        <p>King Wagyu animals destined for live export or export processing carry the same documentation chain from birth: pedigree registration, DNA parentage verification, health records, and production history. This is not assembled on request — it is maintained as a matter of operational standard.</p>
+        <p>For live export buyers — whether purchasing breeding bulls, donor cows, or weaners — the documentation record allows classification verification, pedigree assessment, and health compliance checking before arrival. There are no gaps to reconstruct.</p>
+        <p>For processed beef export, carcass data including grade, yield, and health certification is linked to the same animal record. Buyers receive traceability from sire selection to hook weight — which is increasingly a requirement rather than a differentiator in premium export markets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONEST CONTEXT -->
+<section class="honest">
+  <div class="honest-inner reveal">
+    <span class="section-tag t-label">A Note on Results</span>
+    <h2>What we will and won't claim</h2>
+    <p>King Wagyu is an operating program, not a marketing position. The figures on this page reflect what we target and what we measure — not the best single result extracted from a dataset and presented as representative.</p>
+    <p>Production data in Wagyu is inherently variable. Weather, recipient condition, individual animal responses, and seasonal feed quality all affect outcomes that are otherwise well-controlled. We do not hide that variability — we manage it, track it, and use it to improve the program across each cycle.</p>
+    <p>If you want to understand what King Wagyu can deliver for your specific program — genetics requirements, embryo sourcing, export specification — the most useful conversation is a direct one. The enquiry form is the place to start it.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="results-cta">
+  <div class="results-cta-inner">
+    <span class="section-tag t-label">Next Step</span>
+    <h2>Discuss what these results mean for your program</h2>
+    <p>Whether you are evaluating genetics for your own herd, sourcing embryos, or looking for export supply — the results above are the starting point for a direct conversation.</p>
+    <div class="btn-row">
+      <a href="work-with-us.html" class="btn-gold-solid">Work With Us</a>
+      <a href="the-operation.html" class="btn-outline-white">The Operation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>Fullblood Wagyu genetics, embryo programs, and export operations. Based in Namibia.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>Program</h4>
+          <ul>
+            <li><a href="genetics.html">Genetics</a></li>
+            <li><a href="embryo-program.html">Embryo Program</a></li>
+            <li><a href="export.html">Export</a></li>
+            <li><a href="the-operation.html">The Operation</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="work-with-us.html">Work With Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 King Wagyu. All rights reserved.</p>
+      <div class="footer-legal"><a href="privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header scroll
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => { hdr.classList.toggle('scrolled', window.scrollY > 40); });
+
+// Mobile menu
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('active');
+  mob.classList.toggle('open');
+  document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+});
+
+// Scroll reveal + grade bar animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      // Animate grade bars when they come into view
+      e.target.querySelectorAll('.grade-bar[data-width]').forEach(bar => {
+        setTimeout(() => { bar.style.width = bar.dataset.width; }, 100);
+      });
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
