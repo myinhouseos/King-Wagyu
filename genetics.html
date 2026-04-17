@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="King Wagyu Genetics — Built for consistency, structure, marbling, and eating quality. A breeding program built on intent.">
+<title>Genetics | King Wagyu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:     #050505;
+  --off-white: #F7F6F2;
+  --gold:      #B89A5A;
+  --wine:      #4A1018;
+  --stone:     #D9D1C7;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  --max-w: 1280px;
+  --pad: 24px;
+  --sec: 80px;
+}
+@media (min-width: 768px)  { :root { --pad: 48px; --sec: 120px; } }
+@media (min-width: 1200px) { :root { --pad: 80px; --sec: 150px; } }
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--off-white); font-family: var(--font-body); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+.container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+.t-label { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+.btn { display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; padding: 14px 28px; border: 1px solid currentColor; transition: background .25s, color .25s; cursor: pointer; }
+.btn-gold { background: transparent; color: var(--gold); border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold); color: var(--black); }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* HEADER */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--pad); transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+.site-header.scrolled { background: rgba(5,5,5,.96); border-bottom-color: rgba(184,154,90,.15); backdrop-filter: blur(8px); }
+.logo { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; }
+.logo span { color: var(--gold); }
+.nav-desktop { display: none; align-items: center; gap: 36px; }
+@media (min-width: 1024px) { .nav-desktop { display: flex; } }
+.nav-desktop a { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; color: rgba(247,246,242,.65); transition: color .2s; }
+.nav-desktop a:hover, .nav-desktop a.active { color: var(--off-white); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+.header-cta { display: none; }
+@media (min-width: 1024px) { .header-cta { display: inline-block; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 10px 22px; border: 1px solid var(--gold); color: var(--gold); transition: background .25s, color .25s; } .header-cta:hover { background: var(--gold); color: var(--black); } }
+.hamburger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
+@media (min-width: 1024px) { .hamburger { display: none; } }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--off-white); transition: all .3s; }
+.hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: var(--black); padding: 100px var(--pad) 60px; flex-direction: column; justify-content: center; }
+.mobile-menu.open { display: flex; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 4px; }
+.mobile-menu nav a { font-family: var(--font-display); font-size: 38px; font-weight: 700; letter-spacing: .02em; padding: 12px 0; border-bottom: 1px solid rgba(247,246,242,.07); transition: color .2s; }
+.mobile-menu nav a:hover { color: var(--gold); }
+.mobile-menu-foot { margin-top: 48px; }
+.mobile-menu-foot a { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 14px 28px; border: 1px solid var(--gold); color: var(--gold); }
+
+/* ============================================================
+   PAGE HERO
+============================================================ */
+.page-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex; align-items: flex-end;
+  padding-bottom: 72px;
+  overflow: hidden;
+}
+@media (min-width: 768px) { .page-hero { min-height: 85vh; } }
+.page-hero-bg {
+  position: absolute; inset: 0;
+  /* Replace with: url('images/genetics-hero.jpg') */
+  background:
+    linear-gradient(to bottom, rgba(5,5,5,.3) 0%, rgba(5,5,5,.1) 30%, rgba(5,5,5,.7) 75%, rgba(5,5,5,.95) 100%),
+    linear-gradient(160deg, #130d07 0%, #0a0705 50%, #050505 100%);
+  background-size: cover; background-position: center 40%;
+}
+.page-hero-bg::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+.page-hero-content { position: relative; z-index: 2; }
+.page-hero-content .t-label { color: var(--gold); display: block; margin-bottom: 20px; }
+.page-hero-content h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(52px, 10vw, 110px);
+  letter-spacing: .04em; line-height: .95; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.page-hero-content p {
+  font-size: clamp(15px, 1.8vw, 19px); font-weight: 300;
+  color: rgba(247,246,242,.58); max-width: 520px; line-height: 1.65;
+}
+.page-hero-img-note { position: absolute; top: 90px; right: var(--pad); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(184,154,90,.25); writing-mode: vertical-rl; pointer-events: none; }
+
+/* ============================================================
+   WHAT GENETICS MEANS
+============================================================ */
+.what-genetics { background: var(--off-white); color: var(--black); padding: var(--sec) 0; }
+.wg-inner { display: flex; flex-direction: column; gap: 48px; }
+@media (min-width: 768px) { .wg-inner { flex-direction: row; gap: 80px; align-items: flex-start; } }
+.wg-heading { flex-shrink: 0; max-width: 340px; }
+.wg-heading .t-label { color: var(--wine); display: block; margin-bottom: 18px; }
+.wg-heading h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 44px); line-height: 1.1; }
+.wg-body { flex: 1; }
+.wg-body p { font-size: 16px; line-height: 1.8; color: rgba(5,5,5,.7); margin-bottom: 20px; }
+.wg-body p:last-child { margin-bottom: 0; }
+.wg-body strong { font-weight: 500; color: var(--black); }
+
+/* ============================================================
+   WHY GENETICS MATTERS — TRAIT GRID
+============================================================ */
+.traits-section { background: #080808; padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.1); }
+.traits-header { margin-bottom: 56px; }
+.traits-header .t-label { color: var(--gold); display: block; margin-bottom: 16px; }
+.traits-header h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4.5vw, 50px); line-height: 1.05; max-width: 640px; }
+
+.traits-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(184,154,90,.08); }
+@media (min-width: 640px)  { .traits-grid { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .traits-grid { grid-template-columns: repeat(4,1fr); } }
+
+.trait-card { background: #080808; padding: 40px 32px; display: flex; flex-direction: column; gap: 14px; position: relative; transition: background .3s; }
+.trait-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background .3s; }
+.trait-card:hover { background: #0e0e0e; }
+.trait-card:hover::before { background: var(--gold); }
+
+.trait-num { font-family: var(--font-display); font-size: 13px; color: rgba(184,154,90,.25); letter-spacing: .1em; }
+.trait-name { font-family: var(--font-display); font-weight: 700; font-size: clamp(20px, 2.5vw, 26px); line-height: 1.1; color: var(--off-white); }
+.trait-body { font-size: 13.5px; line-height: 1.75; color: rgba(247,246,242,.45); flex: 1; }
+
+/* Row 2 of traits — spans full width on desktop for visual break */
+.traits-row2 { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(184,154,90,.08); margin-top: 1px; }
+@media (min-width: 640px)  { .traits-row2 { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .traits-row2 { grid-template-columns: repeat(4,1fr); } }
+
+/* ============================================================
+   BREEDING PHILOSOPHY
+============================================================ */
+.philosophy { background: var(--black); padding: var(--sec) 0; }
+.phil-inner { display: flex; flex-direction: column; gap: 48px; }
+@media (min-width: 900px) { .phil-inner { flex-direction: row; gap: 80px; } }
+
+.phil-statement { flex: 1; }
+.phil-statement .t-label { color: var(--gold); display: block; margin-bottom: 20px; }
+.phil-statement h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 4vw, 46px); line-height: 1.1; margin-bottom: 28px; }
+.phil-statement blockquote {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-size: clamp(20px, 2.8vw, 28px); line-height: 1.45;
+  color: rgba(247,246,242,.75);
+  padding-left: 24px;
+  border-left: 2px solid var(--gold);
+}
+
+.phil-points { flex: 1; display: flex; flex-direction: column; gap: 0; padding-top: 8px; }
+.phil-point { padding: 28px 0; border-bottom: 1px solid rgba(247,246,242,.07); }
+.phil-point:first-child { border-top: 1px solid rgba(247,246,242,.07); }
+.phil-point-rule { width: 28px; height: 1px; background: var(--gold); margin-bottom: 14px; }
+.phil-point h3 { font-family: var(--font-display); font-weight: 600; font-size: 20px; margin-bottom: 10px; }
+.phil-point p { font-size: 14px; line-height: 1.75; color: rgba(247,246,242,.5); }
+
+/* ============================================================
+   TRANSITION IMAGE — BREEDING TO EATING
+============================================================ */
+.transition-visual { position: relative; overflow: hidden; }
+.transition-split { display: grid; grid-template-columns: 1fr; min-height: 360px; }
+@media (min-width: 768px) { .transition-split { grid-template-columns: 1fr 1fr; min-height: 480px; } }
+
+.tv-panel { position: relative; min-height: 300px; overflow: hidden; }
+@media (min-width: 768px) { .tv-panel { min-height: 480px; } }
+.tv-panel-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .8s ease; }
+.tv-panel:hover .tv-panel-bg { transform: scale(1.03); }
+
+.tv-bull .tv-panel-bg {
+  /* Replace with: url('images/bull-strength.jpg') */
+  background: linear-gradient(to right, rgba(5,5,5,0) 60%, rgba(5,5,5,.8) 100%), linear-gradient(160deg, #1a1008 0%, #0d0806 100%);
+}
+.tv-marbling .tv-panel-bg {
+  /* Replace with: url('images/marbling-close.jpg') */
+  background: linear-gradient(to left, rgba(5,5,5,0) 60%, rgba(5,5,5,.8) 100%), linear-gradient(340deg, #0e0906 0%, #1a1309 100%);
+}
+.tv-panel-note { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(184,154,90,.2); white-space: nowrap; pointer-events: none; }
+
+.tv-divider { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 5; flex-direction: column; align-items: center; gap: 10px; }
+@media (min-width: 768px) { .transition-split { position: relative; } .tv-divider { display: flex; } }
+.tv-divider-line { width: 1px; height: 56px; background: var(--gold); }
+.tv-divider-dot  { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+
+.tv-panel-copy { position: absolute; bottom: 32px; left: 32px; right: 32px; z-index: 2; }
+.tv-panel-copy .t-label { color: var(--gold); display: block; margin-bottom: 8px; }
+.tv-panel-copy p { font-family: var(--font-display); font-size: clamp(15px, 2vw, 21px); font-style: italic; line-height: 1.4; color: rgba(247,246,242,.8); }
+
+.tv-caption { background: var(--off-white); color: var(--black); padding: 48px var(--pad); }
+.tv-caption-inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+@media (min-width: 768px) { .tv-caption-inner { flex-direction: row; align-items: flex-start; gap: 80px; } }
+.tv-caption-rule { width: 36px; height: 1px; background: var(--wine); margin-bottom: 16px; flex-shrink: 0; margin-top: 6px; }
+.tv-caption h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(20px, 2.5vw, 28px); line-height: 1.2; margin-bottom: 14px; color: var(--black); }
+.tv-caption p { font-size: 15px; line-height: 1.75; color: rgba(5,5,5,.65); }
+
+/* ============================================================
+   GENETICS + EMBRYO BRIDGE
+============================================================ */
+.embryo-bridge { background: var(--black); padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.1); }
+.eb-inner { display: flex; flex-direction: column; gap: 40px; }
+@media (min-width: 768px) { .eb-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: 80px; } }
+.eb-copy .t-label { color: var(--gold); display: block; margin-bottom: 18px; }
+.eb-copy h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 44px); line-height: 1.1; margin-bottom: 22px; max-width: 540px; }
+.eb-copy p { font-size: 15px; line-height: 1.75; color: rgba(247,246,242,.52); max-width: 520px; margin-bottom: 16px; }
+.eb-copy p:last-of-type { margin-bottom: 0; }
+.eb-cta { flex-shrink: 0; }
+
+/* ============================================================
+   PAGE CTA
+============================================================ */
+.page-cta { background: var(--wine); padding: var(--sec) 0; position: relative; overflow: hidden; }
+.page-cta::before {
+  content: 'GENETICS'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(80px,14vw,180px);
+  letter-spacing: .06em; color: rgba(247,246,242,.04); white-space: nowrap; pointer-events: none; user-select: none;
+}
+.page-cta-inner { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 36px; }
+@media (min-width: 768px) { .page-cta-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+.page-cta-copy .t-label { color: rgba(247,246,242,.45); display: block; margin-bottom: 16px; }
+.page-cta-copy h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 46px); line-height: 1.1; color: var(--off-white); max-width: 520px; }
+.btn-white { background: transparent; color: var(--off-white); border: 1px solid rgba(247,246,242,.5); padding: 14px 28px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; display: inline-block; font-family: var(--font-body); transition: background .25s, border-color .25s; flex-shrink: 0; }
+.btn-white:hover { background: rgba(247,246,242,.1); border-color: var(--off-white); }
+
+/* FOOTER */
+.site-footer { background: #030303; border-top: 1px solid rgba(184,154,90,.12); padding: 60px 0 40px; }
+.footer-top { display: flex; flex-direction: column; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(247,246,242,.06); margin-bottom: 32px; }
+@media (min-width: 768px) { .footer-top { flex-direction: row; justify-content: space-between; } }
+.footer-logo-text { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+.footer-logo-text span { color: var(--gold); }
+.footer-brand p { font-size: 13px; line-height: 1.7; color: rgba(247,246,242,.32); max-width: 300px; }
+.footer-nav { display: grid; grid-template-columns: repeat(2,1fr); gap: 36px; }
+@media (min-width: 480px) { .footer-nav { grid-template-columns: repeat(3,auto); } }
+.footer-nav-group h4 { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+.footer-nav-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav-group a { font-size: 13px; color: rgba(247,246,242,.4); transition: color .2s; }
+.footer-nav-group a:hover { color: var(--off-white); }
+.footer-bottom { display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+.footer-bottom p { font-size: 12px; color: rgba(247,246,242,.18); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(247,246,242,.18); transition: color .2s; }
+.footer-legal a:hover { color: rgba(247,246,242,.5); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop">
+    <a href="index.html">Home</a>
+    <a href="genetics.html" class="active">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="header-right">
+    <a href="work-with-us.html" class="header-cta">Work With King Wagyu</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog">
+  <nav>
+    <a href="index.html"          onclick="closeMenu()">Home</a>
+    <a href="genetics.html"       onclick="closeMenu()">Genetics</a>
+    <a href="embryo-program.html" onclick="closeMenu()">Embryo Program</a>
+    <a href="export.html"         onclick="closeMenu()">Export</a>
+    <a href="insights.html"       onclick="closeMenu()">Insights</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a href="work-with-us.html" onclick="closeMenu()">Work With King Wagyu</a>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     PAGE HERO
+============================================================ -->
+<section class="page-hero">
+  <div class="page-hero-bg" aria-hidden="true"></div>
+  <div class="page-hero-img-note" aria-hidden="true">[ IMAGE: Wagyu Bull — Strong Frame ]</div>
+  <div class="page-hero-content container">
+    <span class="t-label">The Foundation</span>
+    <h1>Genetics</h1>
+    <p>Built for consistency, structure, marbling, and eating quality. Every decision at King Wagyu begins here.</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHAT GENETICS MEANS IN THIS SYSTEM
+============================================================ -->
+<section class="what-genetics">
+  <div class="container">
+    <div class="wg-inner">
+      <div class="wg-heading reveal">
+        <span class="t-label">In This System</span>
+        <h2>Genetics is not a talking point. It is the operating logic.</h2>
+      </div>
+      <div class="wg-body reveal">
+        <p>In most operations, genetics is discussed as a feature — a selling point attached to a sire name or a bloodline. At King Wagyu, genetics is the foundational decision layer. It determines what the animal is capable of, what the program can produce, and what the final eating experience will be.</p>
+        <p>Before any animal enters the breeding program, before any embryo is produced, the genetic decision has already been made. That decision is not made randomly, not made on appearance, and not made to follow trends. It is made with a clear understanding of <strong>what traits matter, why they matter, and how they compound across generations.</strong></p>
+        <p>The result is a herd built on selection logic, not selection noise. Animals that consistently express the traits that matter — structure, frame efficiency, marbling potential, and maternal strength — because they were chosen to do exactly that.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY GENETICS MATTERS — TRAIT GRID
+============================================================ -->
+<section class="traits-section">
+  <div class="container">
+    <div class="traits-header reveal">
+      <span class="t-label">Why It Matters</span>
+      <h2>The traits that determine quality — and why King Wagyu selects for each one.</h2>
+    </div>
+
+    <div class="traits-grid">
+      <div class="trait-card reveal">
+        <div class="trait-num">01</div>
+        <div class="trait-name">Marbling Potential</div>
+        <p class="trait-body">Marbling is not produced at the feedlot. It is enabled or restricted by the genetics of the animal. Selecting for marbling potential means selecting for intramuscular fat deposition — the single most important driver of Wagyu eating quality and market premium.</p>
+      </div>
+      <div class="trait-card reveal">
+        <div class="trait-num">02</div>
+        <div class="trait-name">Structure &amp; Frame</div>
+        <p class="trait-body">A well-structured animal is an efficient animal. Correct skeletal structure, balanced frame, and sound feet and legs determine how well an animal converts feed into growth, how long it remains productive, and how reliably it performs across seasons and conditions.</p>
+      </div>
+      <div class="trait-card reveal">
+        <div class="trait-num">03</div>
+        <div class="trait-name">Maternal Strength</div>
+        <p class="trait-body">In a serious Wagyu program, the cow is not secondary. Maternal genetic traits — calving ease, milking ability, fertility, temperament, and longevity — determine the productivity of the entire herd. Weak maternal genetics undermine every other selection decision.</p>
+      </div>
+      <div class="trait-card reveal">
+        <div class="trait-num">04</div>
+        <div class="trait-name">Fertility</div>
+        <p class="trait-body">An animal that does not reproduce reliably has no place in a production system, regardless of its other qualities. Fertility is selected for directly — not assumed. In an embryo-based program, both donor and recipient fertility are programme-critical.</p>
+      </div>
+    </div>
+    <div class="traits-row2">
+      <div class="trait-card reveal">
+        <div class="trait-num">05</div>
+        <div class="trait-name">Growth Efficiency</div>
+        <p class="trait-body">Growth rate and feed conversion efficiency are economic traits. An animal that grows at the right rate on the right input cost is a sustainable production asset. This matters especially in export-aligned programs where consistent carcass weight and specification compliance are non-negotiable.</p>
+      </div>
+      <div class="trait-card reveal">
+        <div class="trait-num">06</div>
+        <div class="trait-name">Consistency</div>
+        <p class="trait-body">Single exceptional animals are interesting. Consistent exceptional animals are a business. Genetic selection for consistency means selecting for animals that reliably pass on the traits that matter — producing predictable, repeatable quality across the progeny group, not occasional outliers.</p>
+      </div>
+      <div class="trait-card reveal">
+        <div class="trait-num">07</div>
+        <div class="trait-name">Temperament</div>
+        <p class="trait-body">Temperament is a production trait. Calm, manageable animals gain better, respond better to handling, and present with better carcass and eating quality outcomes. In a premium Wagyu program, stress management begins at the genetic selection level — not at the crush.</p>
+      </div>
+      <div class="trait-card reveal">
+        <div class="trait-num">08</div>
+        <div class="trait-name">Eating Quality</div>
+        <p class="trait-body">The final measure. Eating quality — tenderness, flavour, juiciness, and marbling expression — is the output of every upstream breeding decision. It is the reason genetics matter at all. At King Wagyu, every selection decision is evaluated against this single, non-negotiable outcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BREEDING PHILOSOPHY
+============================================================ -->
+<section class="philosophy">
+  <div class="container">
+    <div class="phil-inner">
+      <div class="phil-statement reveal">
+        <span class="t-label">Breeding Philosophy</span>
+        <h2>Selection with intent. Quality before noise.</h2>
+        <blockquote>
+          "We are not building animals that look impressive in a photograph. We are building animals that produce outcomes — consistent, repeatable, serious quality — every time."
+        </blockquote>
+      </div>
+      <div class="phil-points reveal">
+        <div class="phil-point">
+          <div class="phil-point-rule"></div>
+          <h3>Not Chasing Prestige</h3>
+          <p>Bloodline prestige and genuine genetic value are not the same thing. King Wagyu selects for measured, demonstrable traits — not for names, trends, or the type of selection that looks good in marketing but does not compound into production quality.</p>
+        </div>
+        <div class="phil-point">
+          <div class="phil-point-rule"></div>
+          <h3>Long-Term Herd Strength</h3>
+          <p>Every breeding decision is evaluated for its contribution to long-term herd quality — not short-term spectacle. Building a serious Wagyu herd takes time, discipline, and the willingness to pass on animals that do not meet the standard, regardless of their pedigree.</p>
+        </div>
+        <div class="phil-point">
+          <div class="phil-point-rule"></div>
+          <h3>Outcome Reliability</h3>
+          <p>The goal of King Wagyu's genetics program is not to produce one extraordinary animal. It is to produce a system that reliably generates high-quality outcomes across the herd, across seasons, and across production cycles. That reliability is what export positioning requires.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FROM BREEDING DECISION TO EATING EXPERIENCE
+============================================================ -->
+<section class="transition-visual">
+  <div class="transition-split">
+    <div class="tv-panel tv-bull">
+      <div class="tv-panel-bg"></div>
+      <span class="tv-panel-note" aria-hidden="true">[ IMAGE: Breeding Bull — Frame &amp; Condition ]</span>
+      <div class="tv-panel-copy">
+        <span class="t-label">The Decision</span>
+        <p>A breeding selection made with precision and intent — structural strength, marbling genetics, maternal depth.</p>
+      </div>
+    </div>
+    <div class="tv-divider" aria-hidden="true">
+      <div class="tv-divider-line"></div>
+      <div class="tv-divider-dot"></div>
+      <div class="tv-divider-line"></div>
+    </div>
+    <div class="tv-panel tv-marbling">
+      <div class="tv-panel-bg"></div>
+      <span class="tv-panel-note" aria-hidden="true">[ IMAGE: Wagyu Marble — Eating Quality ]</span>
+      <div class="tv-panel-copy">
+        <span class="t-label">The Outcome</span>
+        <p>The eating experience — marbling, tenderness, flavour — that this decision made possible, years earlier.</p>
+      </div>
+    </div>
+  </div>
+  <div class="tv-caption">
+    <div class="tv-caption-inner reveal">
+      <div class="tv-caption-rule"></div>
+      <div>
+        <h3>The distance between these two images is the entire genetics program.</h3>
+        <p>Eating quality is not managed at the point of processing. It is not created by feeding programs alone. It is determined, largely and irreversibly, by the breeding decision that created the animal. That is why King Wagyu's genetics program is the first, most important, and most carefully managed component of the entire operation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     GENETICS + EMBRYO BRIDGE
+============================================================ -->
+<section class="embryo-bridge">
+  <div class="container">
+    <div class="eb-inner">
+      <div class="eb-copy reveal">
+        <span class="t-label">The Connection</span>
+        <h2>Genetics and embryo work are not separate disciplines.</h2>
+        <p>The embryo program at King Wagyu exists to accelerate the genetics program — not to replace selection discipline with volume. Embryo technology is a tool. The genetics strategy determines whether that tool is used with precision or wasted on mediocre donors.</p>
+        <p>When donor selection is rigorous, when recipient management is controlled, and when the breeding objectives are clear, embryo work becomes one of the most powerful mechanisms available for systematic genetic advancement. That is how King Wagyu uses it.</p>
+      </div>
+      <div class="eb-cta reveal">
+        <a href="embryo-program.html" class="btn btn-gold">Explore the Embryo Program</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PAGE CTA
+============================================================ -->
+<section class="page-cta">
+  <div class="container page-cta-inner">
+    <div class="page-cta-copy reveal">
+      <span class="t-label">Genetics Enquiry</span>
+      <h2>Discuss genetics, breeding direction, and herd development with King Wagyu.</h2>
+    </div>
+    <a href="work-with-us.html#genetics" class="btn-white reveal">Begin Genetics Enquiry</a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>A serious Wagyu breeding, embryo, and export operation. Built on genetics, discipline, and outcome. Namibia.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>The Operation</h4>
+          <ul>
+            <li><a href="the-operation.html">The Operation</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="genetics.html">Genetics</a></li>
+            <li><a href="embryo-program.html">Embryo Program</a></li>
+            <li><a href="export.html">Export</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Access</h4>
+          <ul>
+            <li><a href="work-with-us.html">Work With Us</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 King Wagyu. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="work-with-us.html">Enquiry Access</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+function openMenu()  { hamburger.classList.add('active'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMenu() { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeMenu(); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

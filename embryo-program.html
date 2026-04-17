@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="King Wagyu Embryo Program — A controlled breeding system designed to accelerate quality, consistency, and long-term herd advancement.">
+<title>Embryo Program | King Wagyu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:     #050505;
+  --off-white: #F7F6F2;
+  --gold:      #B89A5A;
+  --wine:      #4A1018;
+  --stone:     #D9D1C7;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  --max-w: 1280px;
+  --pad: 24px;
+  --sec: 80px;
+}
+@media (min-width: 768px)  { :root { --pad: 48px; --sec: 120px; } }
+@media (min-width: 1200px) { :root { --pad: 80px; --sec: 150px; } }
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--off-white); font-family: var(--font-body); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+.container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+.t-label { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+.btn { display: inline-block; font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; padding: 14px 28px; border: 1px solid currentColor; transition: background .25s, color .25s; cursor: pointer; }
+.btn-gold { background: transparent; color: var(--gold); border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold); color: var(--black); }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* HEADER */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--pad); transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+.site-header.scrolled { background: rgba(5,5,5,.96); border-bottom-color: rgba(184,154,90,.15); backdrop-filter: blur(8px); }
+.logo { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; }
+.logo span { color: var(--gold); }
+.nav-desktop { display: none; align-items: center; gap: 36px; }
+@media (min-width: 1024px) { .nav-desktop { display: flex; } }
+.nav-desktop a { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; color: rgba(247,246,242,.65); transition: color .2s; }
+.nav-desktop a:hover, .nav-desktop a.active { color: var(--off-white); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+.header-cta { display: none; }
+@media (min-width: 1024px) { .header-cta { display: inline-block; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 10px 22px; border: 1px solid var(--gold); color: var(--gold); transition: background .25s, color .25s; } .header-cta:hover { background: var(--gold); color: var(--black); } }
+.hamburger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
+@media (min-width: 1024px) { .hamburger { display: none; } }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--off-white); transition: all .3s; }
+.hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: var(--black); padding: 100px var(--pad) 60px; flex-direction: column; justify-content: center; }
+.mobile-menu.open { display: flex; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 4px; }
+.mobile-menu nav a { font-family: var(--font-display); font-size: 38px; font-weight: 700; letter-spacing: .02em; padding: 12px 0; border-bottom: 1px solid rgba(247,246,242,.07); transition: color .2s; }
+.mobile-menu nav a:hover { color: var(--gold); }
+.mobile-menu-foot { margin-top: 48px; }
+.mobile-menu-foot a { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 14px 28px; border: 1px solid var(--gold); color: var(--gold); }
+
+/* ============================================================
+   PAGE HERO
+============================================================ */
+.page-hero {
+  position: relative; min-height: 80vh; display: flex; align-items: flex-end;
+  padding-bottom: 72px; overflow: hidden;
+}
+@media (min-width: 768px) { .page-hero { min-height: 85vh; } }
+.page-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(5,5,5,.25) 0%, rgba(5,5,5,.08) 35%, rgba(5,5,5,.65) 75%, rgba(5,5,5,.96) 100%),
+    linear-gradient(170deg, #0d0e10 0%, #080808 55%, #050505 100%);
+  background-size: cover; background-position: center;
+}
+.page-hero-bg::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+/* Subtle scientific grid — reinforces the precision/control theme */
+.page-hero-bg::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(184,154,90,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(184,154,90,.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.page-hero-img-note { position: absolute; top: 90px; right: var(--pad); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(184,154,90,.25); writing-mode: vertical-rl; pointer-events: none; }
+.page-hero-content { position: relative; z-index: 2; }
+.page-hero-content .t-label { color: var(--gold); display: block; margin-bottom: 20px; }
+.page-hero-content h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px, 9vw, 100px); letter-spacing: .03em; line-height: .95; text-transform: uppercase; margin-bottom: 28px; }
+.page-hero-content p { font-size: clamp(15px, 1.8vw, 19px); font-weight: 300; color: rgba(247,246,242,.58); max-width: 560px; line-height: 1.65; }
+
+/* ============================================================
+   PROGRAM OVERVIEW
+============================================================ */
+.overview { background: var(--off-white); color: var(--black); padding: var(--sec) 0; }
+.ov-inner { display: flex; flex-direction: column; gap: 48px; }
+@media (min-width: 768px) { .ov-inner { flex-direction: row; gap: 80px; align-items: flex-start; } }
+.ov-heading { flex-shrink: 0; max-width: 340px; }
+.ov-heading .t-label { color: var(--wine); display: block; margin-bottom: 18px; }
+.ov-heading h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 3.8vw, 42px); line-height: 1.1; }
+.ov-body p { font-size: 16px; line-height: 1.8; color: rgba(5,5,5,.68); margin-bottom: 20px; }
+.ov-body p:last-child { margin-bottom: 0; }
+.ov-body strong { font-weight: 500; color: var(--black); }
+
+/* ============================================================
+   WHY EMBRYO WORK MATTERS
+============================================================ */
+.why-embryo { background: #080808; padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.1); }
+.we-header { margin-bottom: 56px; }
+.we-header .t-label { color: var(--gold); display: block; margin-bottom: 16px; }
+.we-header h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4.5vw, 50px); line-height: 1.05; max-width: 680px; }
+
+.we-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(184,154,90,.08); }
+@media (min-width: 768px) { .we-grid { grid-template-columns: repeat(2,1fr); } }
+
+.we-card { background: #080808; padding: 44px 40px; display: flex; flex-direction: column; gap: 16px; position: relative; transition: background .3s; }
+.we-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background .3s; }
+.we-card:hover { background: #0e0e0e; }
+.we-card:hover::before { background: var(--gold); }
+.we-card-rule { width: 32px; height: 1px; background: var(--gold); }
+.we-card h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.1; }
+.we-card p { font-size: 14px; line-height: 1.75; color: rgba(247,246,242,.48); }
+
+/* ============================================================
+   DONOR + RECIPIENT — FULL SPLIT
+============================================================ */
+.strategy-split { background: var(--black); padding: var(--sec) 0; }
+.ss-header { margin-bottom: 56px; }
+.ss-header .t-label { color: var(--gold); display: block; margin-bottom: 16px; }
+.ss-header h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 48px); line-height: 1.05; max-width: 600px; }
+
+.ss-panels { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(184,154,90,.1); }
+@media (min-width: 768px) { .ss-panels { grid-template-columns: 1fr 1fr; } }
+
+.ss-panel { padding: 56px 48px; display: flex; flex-direction: column; gap: 24px; background: var(--black); position: relative; }
+.ss-panel::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); }
+.ss-panel-label { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.ss-panel h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 3.5vw, 38px); line-height: 1.05; }
+.ss-panel-intro { font-family: var(--font-display); font-style: italic; font-size: clamp(16px, 2vw, 20px); line-height: 1.5; color: rgba(247,246,242,.65); }
+.ss-panel-body { font-size: 14px; line-height: 1.8; color: rgba(247,246,242,.5); }
+.ss-panel-points { display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
+.ss-point { padding: 16px 0; border-bottom: 1px solid rgba(247,246,242,.06); display: flex; gap: 16px; align-items: flex-start; }
+.ss-point:first-child { border-top: 1px solid rgba(247,246,242,.06); }
+.ss-point-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 7px; }
+.ss-point p { font-size: 13.5px; line-height: 1.7; color: rgba(247,246,242,.48); }
+.ss-point strong { color: rgba(247,246,242,.75); font-weight: 500; }
+
+/* ============================================================
+   CONTROLLED OUTCOMES — PROCESS FLOW
+============================================================ */
+.outcomes { background: #050505; padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.08); }
+.oc-header { margin-bottom: 60px; }
+.oc-header .t-label { color: var(--gold); display: block; margin-bottom: 16px; }
+.oc-header h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 48px); line-height: 1.05; max-width: 620px; }
+.oc-header p { font-size: 15px; line-height: 1.75; color: rgba(247,246,242,.5); max-width: 560px; margin-top: 20px; }
+
+.process-flow { display: flex; flex-direction: column; gap: 1px; }
+.process-step { display: flex; flex-direction: column; gap: 0; background: #080808; padding: 36px 40px; position: relative; }
+@media (min-width: 768px) { .process-step { flex-direction: row; align-items: flex-start; gap: 48px; padding: 44px 48px; } }
+.process-step::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: rgba(184,154,90,.15); transition: background .3s; }
+.process-step:hover::before { background: var(--gold); }
+.process-step-num { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px, 6vw, 64px); line-height: 1; color: rgba(184,154,90,.12); flex-shrink: 0; min-width: 80px; padding-bottom: 16px; }
+@media (min-width: 768px) { .process-step-num { padding-bottom: 0; } }
+.process-step-content { flex: 1; }
+.process-step-content .t-label { color: var(--gold); display: block; margin-bottom: 10px; }
+.process-step-content h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(20px, 2.5vw, 26px); margin-bottom: 12px; }
+.process-step-content p { font-size: 14px; line-height: 1.75; color: rgba(247,246,242,.48); }
+
+/* ============================================================
+   EXPORT CONNECTION
+============================================================ */
+.export-connect { background: var(--off-white); color: var(--black); padding: var(--sec) 0; }
+.ec-inner { display: flex; flex-direction: column; gap: 48px; }
+@media (min-width: 768px) { .ec-inner { flex-direction: row; gap: 80px; align-items: flex-start; } }
+.ec-left .t-label { color: var(--wine); display: block; margin-bottom: 18px; }
+.ec-left h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 3.8vw, 42px); line-height: 1.1; max-width: 380px; }
+.ec-right p { font-size: 16px; line-height: 1.8; color: rgba(5,5,5,.68); margin-bottom: 20px; }
+.ec-right p:last-child { margin-bottom: 0; }
+.ec-right strong { font-weight: 500; color: var(--black); }
+
+/* ============================================================
+   PAGE CTA
+============================================================ */
+.page-cta { background: var(--wine); padding: var(--sec) 0; position: relative; overflow: hidden; }
+.page-cta::before { content: 'EMBRYO'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%); font-family: var(--font-display); font-weight: 700; font-size: clamp(80px,14vw,180px); letter-spacing: .06em; color: rgba(247,246,242,.04); white-space: nowrap; pointer-events: none; user-select: none; }
+.page-cta-inner { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 36px; }
+@media (min-width: 768px) { .page-cta-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+.page-cta-copy .t-label { color: rgba(247,246,242,.45); display: block; margin-bottom: 16px; }
+.page-cta-copy h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 46px); line-height: 1.1; color: var(--off-white); max-width: 540px; }
+.btn-white { background: transparent; color: var(--off-white); border: 1px solid rgba(247,246,242,.5); padding: 14px 28px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; display: inline-block; font-family: var(--font-body); transition: background .25s, border-color .25s; flex-shrink: 0; white-space: nowrap; }
+.btn-white:hover { background: rgba(247,246,242,.1); border-color: var(--off-white); }
+
+/* FOOTER */
+.site-footer { background: #030303; border-top: 1px solid rgba(184,154,90,.12); padding: 60px 0 40px; }
+.footer-top { display: flex; flex-direction: column; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(247,246,242,.06); margin-bottom: 32px; }
+@media (min-width: 768px) { .footer-top { flex-direction: row; justify-content: space-between; } }
+.footer-logo-text { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+.footer-logo-text span { color: var(--gold); }
+.footer-brand p { font-size: 13px; line-height: 1.7; color: rgba(247,246,242,.32); max-width: 300px; }
+.footer-nav { display: grid; grid-template-columns: repeat(2,1fr); gap: 36px; }
+@media (min-width: 480px) { .footer-nav { grid-template-columns: repeat(3,auto); } }
+.footer-nav-group h4 { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+.footer-nav-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav-group a { font-size: 13px; color: rgba(247,246,242,.4); transition: color .2s; }
+.footer-nav-group a:hover { color: var(--off-white); }
+.footer-bottom { display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+.footer-bottom p { font-size: 12px; color: rgba(247,246,242,.18); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(247,246,242,.18); transition: color .2s; }
+.footer-legal a:hover { color: rgba(247,246,242,.5); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop">
+    <a href="index.html">Home</a>
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html" class="active">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="header-right">
+    <a href="work-with-us.html" class="header-cta">Work With King Wagyu</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog">
+  <nav>
+    <a href="index.html"          onclick="closeMenu()">Home</a>
+    <a href="genetics.html"       onclick="closeMenu()">Genetics</a>
+    <a href="embryo-program.html" onclick="closeMenu()">Embryo Program</a>
+    <a href="export.html"         onclick="closeMenu()">Export</a>
+    <a href="insights.html"       onclick="closeMenu()">Insights</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a href="work-with-us.html" onclick="closeMenu()">Work With King Wagyu</a>
+  </div>
+</div>
+
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" aria-hidden="true"></div>
+  <div class="page-hero-img-note" aria-hidden="true">[ IMAGE: Embryo Station / Cattle Program ]</div>
+  <div class="page-hero-content container">
+    <span class="t-label">Controlled Advancement</span>
+    <h1>Embryo<br>Program</h1>
+    <p>A controlled breeding system designed to accelerate quality, consistency, and long-term herd advancement.</p>
+  </div>
+</section>
+
+
+<!-- PROGRAM OVERVIEW -->
+<section class="overview">
+  <div class="container">
+    <div class="ov-inner">
+      <div class="ov-heading reveal">
+        <span class="t-label">Program Overview</span>
+        <h2>What an embryo program actually changes.</h2>
+      </div>
+      <div class="ov-body reveal">
+        <p>Embryo transfer is not new technology. It has been used in cattle breeding for decades. What separates an effective embryo program from an expensive exercise in futility is the discipline applied to every decision within it — <strong>donor selection, recipient quality, synchronisation management, and program objectives.</strong></p>
+        <p>At King Wagyu, the embryo program is not a volume exercise. It is a precision tool in a broader genetics strategy. It exists to accelerate what selective breeding would otherwise achieve slowly — compressing generational improvement into a controlled, repeatable system with measurable outcomes.</p>
+        <p>The result is a breeding program that moves faster, selects harder, and produces more consistent quality than conventional AI or natural service programs can achieve at the same scale. That is the purpose. That is what it delivers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHY EMBRYO WORK MATTERS -->
+<section class="why-embryo">
+  <div class="container">
+    <div class="we-header reveal">
+      <span class="t-label">Why It Matters</span>
+      <h2>Four things a disciplined embryo program changes — and why conventional programs cannot match them.</h2>
+    </div>
+    <div class="we-grid">
+      <div class="we-card reveal">
+        <div class="we-card-rule"></div>
+        <h3>Accelerated Genetic Progress</h3>
+        <p>In a natural or AI program, a single superior female produces one calf per year. In a disciplined embryo program, that same female can produce multiple embryos per flush cycle, with each embryo capable of expressing her full genetic potential. Genetic improvement that would take a decade through conventional means can be compressed into a fraction of that time — without diluting the selection standard.</p>
+      </div>
+      <div class="we-card reveal">
+        <div class="we-card-rule"></div>
+        <h3>Stronger Selection Control</h3>
+        <p>Embryo programs allow for both sides of the genetic equation to be selected with precision. Donor selection determines what traits enter the program. Sire selection determines how those traits are combined and expressed. The result is a level of control over genetic direction that is impossible in any other breeding system — and that control compounds across generations.</p>
+      </div>
+      <div class="we-card reveal">
+        <div class="we-card-rule"></div>
+        <h3>Improved Program Consistency</h3>
+        <p>When a program is built on a small number of exceptional, carefully selected donors, the genetic variance within the progeny group narrows. Animals are more consistent in their expression of key traits — marbling, structure, growth, temperament. That consistency is what premium buyers require and what export markets pay for. It cannot be faked with feeding programs or finishing management.</p>
+      </div>
+      <div class="we-card reveal">
+        <div class="we-card-rule"></div>
+        <h3>Scaling Elite Outcomes</h3>
+        <p>Without embryo technology, the best genetics in a herd are limited by the reproductive capacity of individual animals. With a disciplined embryo program, elite genetics can be scaled — carefully, intentionally, without the quality dilution that comes from simply buying volume. This is what makes the program strategically relevant to export positioning: consistent quality at meaningful scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- DONOR + RECIPIENT STRATEGY -->
+<section class="strategy-split">
+  <div class="container">
+    <div class="ss-header reveal">
+      <span class="t-label">The System</span>
+      <h2>Donor and recipient strategy — both sides matter equally.</h2>
+    </div>
+    <div class="ss-panels">
+
+      <div class="ss-panel reveal">
+        <div class="ss-panel-label">Donor Strategy</div>
+        <h3>The source of genetic direction.</h3>
+        <p class="ss-panel-intro">Donor selection is where the program either builds quality or wastes investment. There is no shortcut here.</p>
+        <p class="ss-panel-body">The donor female is not selected because she is available, affordable, or impressive in a pedigree document. She is selected because she carries the specific genetic traits the program is designed to advance — and because her ability to express and transmit those traits has been evaluated with rigour, not assumption.</p>
+        <div class="ss-panel-points">
+          <div class="ss-point">
+            <div class="ss-point-dot"></div>
+            <p><strong>Genetic merit is the primary criterion.</strong> Frame, marbling genetics, maternal traits, fertility, and temperament are evaluated against the program's breeding objectives — not against general impressiveness.</p>
+          </div>
+          <div class="ss-point">
+            <div class="ss-point-dot"></div>
+            <p><strong>Reproductive soundness is non-negotiable.</strong> A genetically superior donor who does not flush reliably contributes nothing to the program. Reproductive evaluation precedes selection confirmation.</p>
+          </div>
+          <div class="ss-point">
+            <div class="ss-point-dot"></div>
+            <p><strong>Sire matching is deliberate.</strong> Sire selection for each donor flush is specific — chosen to complement, not duplicate, the donor's strengths and address areas where the program seeks to advance.</p>
+          </div>
+          <div class="ss-point">
+            <div class="ss-point-dot"></div>
+            <p><strong>Donor management is ongoing.</strong> Nutritional condition, stress management, and flush timing are controlled to maximise embryo quality and quantity — not treated as secondary to the genetic selection decision.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ss-panel reveal">
+        <div class="ss-panel-label">Recipient Strategy</div>
+        <h3>The environment that determines outcome.</h3>
+        <p class="ss-panel-intro">An elite embryo in a poor recipient is a wasted asset. Recipient quality is program quality.</p>
+        <p class="ss-panel-body">The recipient cow's role is to carry, nourish, and deliver the embryo to its full genetic potential. If she cannot do that reliably — through poor condition, inadequate management, or inadequate reproductive function — the investment in genetics is lost. The recipient program at King Wagyu is managed with the same standard applied to the donor program.</p>
+        <div class="ss-panel-points">
+          <div class="ss-point">
+            <div class="ss-point-dot"></div>
+            <p><strong>Recipient selection focuses on maternal performance.</strong> Calving ease, milking ability, temperament, and uterine suitability are the primary criteria. The recipient's own genetics are secondary to her ability to carry and raise the calf successfully.</p>
+          </div>
+          <div class="ss-point">
+            <div class="ss-point-dot"></div>
+            <p><strong>Synchronisation precision drives success rates.</strong> Embryo transfer success is highly sensitive to synchronisation quality. The program is managed to achieve optimal recipient-embryo matching at transfer, not approximate timing.</p>
+          </div>
+          <div class="ss-point">
+            <div class="ss-point-dot"></div>
+            <p><strong>Post-transfer management is controlled.</strong> Recipients are managed specifically through the critical early pregnancy period — nutrition, stress, and health monitoring are active program components, not assumed background conditions.</p>
+          </div>
+          <div class="ss-point">
+            <div class="ss-point-dot"></div>
+            <p><strong>Calf development is tracked.</strong> The recipient program does not end at confirmed pregnancy. Calf development, condition at weaning, and early growth are monitored against program benchmarks.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTROLLED OUTCOMES — PROCESS FLOW -->
+<section class="outcomes">
+  <div class="container">
+    <div class="oc-header reveal">
+      <span class="t-label">Controlled Outcomes</span>
+      <h2>The embryo program as a complete breeding system.</h2>
+      <p>Quality, repeatability, and strategic advancement are not accidental outcomes. They are the result of managing every step of the process with the same standard.</p>
+    </div>
+    <div class="process-flow">
+      <div class="process-step reveal">
+        <div class="process-step-num">01</div>
+        <div class="process-step-content">
+          <span class="t-label">Genetics Selection</span>
+          <h3>Breeding objectives defined. Donors and sires selected against program criteria.</h3>
+          <p>The program begins with a clear understanding of what it is trying to build. Breeding objectives are set, donor candidates are evaluated, and sire selections are made with specific genetic intent — not convenience or availability.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step-num">02</div>
+        <div class="process-step-content">
+          <span class="t-label">Donor Preparation</span>
+          <h3>Condition, nutrition, and health managed to optimise flush quality and embryo yield.</h3>
+          <p>Donor cows enter a managed preparation phase. Nutritional plane, body condition, and reproductive health are brought to optimal standard before synchronisation begins. This is where embryo quality is largely determined — before the flush occurs.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step-num">03</div>
+        <div class="process-step-content">
+          <span class="t-label">Flush &amp; Grading</span>
+          <h3>Embryos collected, evaluated, and graded. Only viable embryos proceed.</h3>
+          <p>The flush procedure is conducted under controlled conditions. Each embryo is individually evaluated and graded against standard quality criteria. Embryos that do not meet the required standard are not transferred — maintaining program integrity over volume.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step-num">04</div>
+        <div class="process-step-content">
+          <span class="t-label">Recipient Transfer</span>
+          <h3>Synchronised recipients receive embryos. Transfer timing and recipient condition are precise.</h3>
+          <p>Embryos are transferred to synchronised, pre-screened recipient cows. Transfer timing relative to the recipient's synchronisation cycle is managed precisely — a variance of hours, not days. Recipient condition at transfer is a gating criterion, not an afterthought.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step-num">05</div>
+        <div class="process-step-content">
+          <span class="t-label">Pregnancy &amp; Development</span>
+          <h3>Confirmed pregnancies managed through to weaning. Calf performance tracked against program benchmarks.</h3>
+          <p>Pregnancy is confirmed and recipients enter a managed post-transfer protocol. The program tracks each animal through to weaning, recording calf development, growth performance, and condition against the genetic expectations established by donor and sire selection. This data informs future breeding decisions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPORT CONNECTION -->
+<section class="export-connect">
+  <div class="container">
+    <div class="ec-inner">
+      <div class="ec-left reveal">
+        <span class="t-label">Export Relevance</span>
+        <h2>How the embryo program supports export-grade positioning.</h2>
+      </div>
+      <div class="ec-right reveal">
+        <p>Export markets do not buy exceptional individual animals. They buy <strong>consistent, reliable supply</strong> — product that meets specification repeatedly, from cycle to cycle, without significant variance. That consistency is what justifies premium market positioning.</p>
+        <p>A disciplined embryo program is the most direct mechanism for building the genetic consistency that export positioning requires. When every animal in a production cohort shares a tightly controlled genetic foundation, the variance in eating quality, carcass specification, and marbling expression narrows significantly.</p>
+        <p>At King Wagyu, the embryo program is not operated separately from the export strategy. It is the mechanism that makes that strategy credible — building the supply consistency that serious international trade requires, animal by animal, generation by generation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PAGE CTA -->
+<section class="page-cta">
+  <div class="container page-cta-inner">
+    <div class="page-cta-copy reveal">
+      <span class="t-label">Embryo Program Enquiry</span>
+      <h2>Discuss embryo strategy, program access, and breeding advancement with King Wagyu.</h2>
+    </div>
+    <a href="work-with-us.html#embryo" class="btn-white reveal">Begin Embryo Enquiry</a>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>A serious Wagyu breeding, embryo, and export operation. Built on genetics, discipline, and outcome. Namibia.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>The Operation</h4>
+          <ul>
+            <li><a href="the-operation.html">The Operation</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="genetics.html">Genetics</a></li>
+            <li><a href="embryo-program.html">Embryo Program</a></li>
+            <li><a href="export.html">Export</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Access</h4>
+          <ul>
+            <li><a href="work-with-us.html">Work With Us</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 King Wagyu. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="work-with-us.html">Enquiry Access</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+function openMenu()  { hamburger.classList.add('active'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMenu() { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeMenu(); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
