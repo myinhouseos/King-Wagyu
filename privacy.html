@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Privacy Policy — King Wagyu">
+<title>Privacy Policy | King Wagyu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:     #050505;
+  --off-white: #F7F6F2;
+  --gold:      #B89A5A;
+  --wine:      #4A1018;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  --max-w: 1280px;
+  --pad: 24px;
+}
+@media (min-width: 768px)  { :root { --pad: 48px; } }
+@media (min-width: 1200px) { :root { --pad: 80px; } }
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--black); color: var(--off-white); font-family: var(--font-body); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+.container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+.t-label { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+
+/* HEADER */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--pad); background: rgba(5,5,5,.96); border-bottom: 1px solid rgba(184,154,90,.15); backdrop-filter: blur(8px); }
+.logo { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; }
+.logo span { color: var(--gold); }
+.nav-desktop { display: none; align-items: center; gap: 36px; }
+@media (min-width: 1024px) { .nav-desktop { display: flex; } }
+.nav-desktop a { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; color: rgba(247,246,242,.65); transition: color .2s; }
+.nav-desktop a:hover { color: var(--off-white); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+.header-cta { display: none; }
+@media (min-width: 1024px) { .header-cta { display: inline-block; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 10px 22px; border: 1px solid var(--gold); color: var(--gold); transition: background .25s, color .25s; } .header-cta:hover { background: var(--gold); color: var(--black); } }
+.hamburger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
+@media (min-width: 1024px) { .hamburger { display: none; } }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--off-white); transition: all .3s; }
+.hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: var(--black); padding: 100px var(--pad) 60px; flex-direction: column; justify-content: center; }
+.mobile-menu.open { display: flex; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 4px; }
+.mobile-menu nav a { font-family: var(--font-display); font-size: 38px; font-weight: 700; letter-spacing: .02em; padding: 12px 0; border-bottom: 1px solid rgba(247,246,242,.07); transition: color .2s; }
+.mobile-menu nav a:hover { color: var(--gold); }
+.mobile-menu-foot { margin-top: 48px; }
+.mobile-menu-foot a { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 14px 28px; border: 1px solid var(--gold); color: var(--gold); }
+
+/* PAGE */
+.page-wrap { padding: 140px 0 100px; }
+.page-header { margin-bottom: 64px; padding-bottom: 40px; border-bottom: 1px solid rgba(184,154,90,.12); }
+.page-header .t-label { color: var(--gold); display: block; margin-bottom: 16px; }
+.page-header h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(36px, 6vw, 72px); letter-spacing: .03em; line-height: 1; }
+.page-header .last-updated { margin-top: 16px; font-size: 12px; letter-spacing: .08em; color: rgba(247,246,242,.3); }
+
+/* CONTENT */
+.privacy-content { max-width: 760px; }
+.privacy-section { margin-bottom: 52px; }
+.privacy-section h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(20px, 2.5vw, 26px); margin-bottom: 16px; color: var(--off-white); }
+.privacy-section p { font-size: 15px; line-height: 1.8; color: rgba(247,246,242,.58); margin-bottom: 14px; }
+.privacy-section p:last-child { margin-bottom: 0; }
+.privacy-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+.privacy-section li { font-size: 15px; line-height: 1.75; color: rgba(247,246,242,.58); padding-left: 20px; position: relative; }
+.privacy-section li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 12px; top: 2px; }
+.privacy-divider { width: 36px; height: 1px; background: rgba(184,154,90,.3); margin-bottom: 52px; }
+.contact-block { background: #0a0a0a; border: 1px solid rgba(184,154,90,.12); padding: 36px 40px; margin-top: 52px; }
+.contact-block .t-label { color: var(--gold); display: block; margin-bottom: 14px; }
+.contact-block p { font-size: 14px; line-height: 1.75; color: rgba(247,246,242,.5); }
+.contact-block a { color: var(--gold); border-bottom: 1px solid rgba(184,154,90,.3); transition: border-color .2s; }
+.contact-block a:hover { border-bottom-color: var(--gold); }
+
+/* FOOTER */
+.site-footer { background: #030303; border-top: 1px solid rgba(184,154,90,.12); padding: 60px 0 40px; }
+.footer-top { display: flex; flex-direction: column; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(247,246,242,.06); margin-bottom: 32px; }
+@media (min-width: 768px) { .footer-top { flex-direction: row; justify-content: space-between; } }
+.footer-logo-text { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+.footer-logo-text span { color: var(--gold); }
+.footer-brand p { font-size: 13px; line-height: 1.7; color: rgba(247,246,242,.32); max-width: 300px; }
+.footer-nav { display: grid; grid-template-columns: repeat(2,1fr); gap: 36px; }
+@media (min-width: 480px) { .footer-nav { grid-template-columns: repeat(3,auto); } }
+.footer-nav-group h4 { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+.footer-nav-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; padding-left: 0; }
+.footer-nav-group li::before { display: none; }
+.footer-nav-group a { font-size: 13px; color: rgba(247,246,242,.4); transition: color .2s; border-bottom: none; }
+.footer-nav-group a:hover { color: var(--off-white); }
+.footer-bottom { display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+.footer-bottom p { font-size: 12px; color: rgba(247,246,242,.18); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(247,246,242,.18); transition: color .2s; border-bottom: none; }
+.footer-legal a:hover { color: rgba(247,246,242,.5); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop">
+    <a href="index.html">Home</a>
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="header-right">
+    <a href="work-with-us.html" class="header-cta">Work With King Wagyu</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog">
+  <nav>
+    <a href="index.html"          onclick="closeMenu()">Home</a>
+    <a href="genetics.html"       onclick="closeMenu()">Genetics</a>
+    <a href="embryo-program.html" onclick="closeMenu()">Embryo Program</a>
+    <a href="export.html"         onclick="closeMenu()">Export</a>
+    <a href="insights.html"       onclick="closeMenu()">Insights</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a href="work-with-us.html" onclick="closeMenu()">Work With King Wagyu</a>
+  </div>
+</div>
+
+
+<main class="page-wrap">
+  <div class="container">
+    <div class="page-header">
+      <span class="t-label">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p class="last-updated">Last updated: April 2026</p>
+    </div>
+
+    <div class="privacy-content">
+
+      <div class="privacy-section">
+        <h2>Who we are</h2>
+        <p>King Wagyu is a Wagyu breeding, embryo, and export operation based in Namibia. This privacy policy explains how we collect, use, and protect information submitted through this website.</p>
+        <p>This website is operated by King Wagyu. Enquiries or concerns regarding this policy may be directed to us using the contact details at the bottom of this page.</p>
+      </div>
+
+      <div class="privacy-divider"></div>
+
+      <div class="privacy-section">
+        <h2>Information we collect</h2>
+        <p>We collect information only when you voluntarily submit it through one of our enquiry forms. This may include:</p>
+        <ul>
+          <li>Your name and email address</li>
+          <li>Your farm, company, or organisation name</li>
+          <li>Your country or region</li>
+          <li>The nature and context of your enquiry</li>
+          <li>Any additional information you choose to provide in open text fields</li>
+        </ul>
+        <p>We do not use tracking cookies, advertising pixels, or any third-party analytics tools on this website. We do not collect data passively.</p>
+      </div>
+
+      <div class="privacy-divider"></div>
+
+      <div class="privacy-section">
+        <h2>How we use your information</h2>
+        <p>Information submitted through our enquiry forms is used solely to:</p>
+        <ul>
+          <li>Review and assess your enquiry</li>
+          <li>Respond to you directly where there is operational relevance</li>
+          <li>Route your enquiry to the correct person within King Wagyu</li>
+        </ul>
+        <p>We do not use your information for marketing purposes, we do not add you to mailing lists without your explicit agreement, and we do not share your information with third parties for commercial purposes.</p>
+      </div>
+
+      <div class="privacy-divider"></div>
+
+      <div class="privacy-section">
+        <h2>How your data is stored</h2>
+        <p>Enquiry submissions are processed through Formspree, a secure form handling service. Formspree stores submissions on secured infrastructure and complies with standard data protection practices. You can review Formspree's own privacy policy at formspree.io.</p>
+        <p>King Wagyu does not operate its own database of visitor or enquirer data. Information submitted is received by email and managed internally. We retain enquiry information only for as long as it is operationally relevant.</p>
+      </div>
+
+      <div class="privacy-divider"></div>
+
+      <div class="privacy-section">
+        <h2>Your rights</h2>
+        <p>You have the right to request access to any personal information we hold about you, to request its correction, or to request its deletion. To make any such request, contact us directly using the details below.</p>
+        <p>Because we do not operate a centralised database, such requests are handled on a direct, case-by-case basis and are typically resolved promptly.</p>
+      </div>
+
+      <div class="privacy-divider"></div>
+
+      <div class="privacy-section">
+        <h2>External links</h2>
+        <p>This website may contain links to external sites. King Wagyu is not responsible for the privacy practices or content of those sites. This policy applies only to kingwagyu.com and its pages.</p>
+      </div>
+
+      <div class="privacy-divider"></div>
+
+      <div class="privacy-section">
+        <h2>Changes to this policy</h2>
+        <p>We may update this policy from time to time. Any changes will be reflected on this page with an updated date. We recommend checking this page periodically if you have submitted an enquiry and have concerns about how your information is handled.</p>
+      </div>
+
+      <div class="contact-block">
+        <span class="t-label">Privacy Contact</span>
+        <p>For any privacy-related questions, requests, or concerns, contact King Wagyu directly through our <a href="work-with-us.html">enquiry system</a>. Mark your enquiry clearly as a privacy matter and it will be handled directly and promptly.</p>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>A serious Wagyu breeding, embryo, and export operation. Built on genetics, discipline, and outcome. Namibia.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>The Operation</h4>
+          <ul>
+            <li><a href="the-operation.html">The Operation</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="genetics.html">Genetics</a></li>
+            <li><a href="embryo-program.html">Embryo Program</a></li>
+            <li><a href="export.html">Export</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Access</h4>
+          <ul>
+            <li><a href="work-with-us.html">Work With Us</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 King Wagyu. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="work-with-us.html">Enquiry Access</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+function openMenu()  { hamburger.classList.add('active'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMenu() { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeMenu(); });
+</script>
+</body>
+</html>
