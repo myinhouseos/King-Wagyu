@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="King Wagyu Insights — Genetics, breeding strategy, embryo systems, export thinking, and production philosophy.">
+<title>Insights | King Wagyu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:     #050505;
+  --off-white: #F7F6F2;
+  --gold:      #B89A5A;
+  --wine:      #4A1018;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  --max-w: 1280px;
+  --pad: 24px;
+  --sec: 80px;
+}
+@media (min-width: 768px)  { :root { --pad: 48px; --sec: 120px; } }
+@media (min-width: 1200px) { :root { --pad: 80px; --sec: 140px; } }
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--off-white); font-family: var(--font-body); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+.container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+.t-label { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* HEADER */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--pad); transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+.site-header.scrolled { background: rgba(5,5,5,.96); border-bottom-color: rgba(184,154,90,.15); backdrop-filter: blur(8px); }
+.logo { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; }
+.logo span { color: var(--gold); }
+.nav-desktop { display: none; align-items: center; gap: 36px; }
+@media (min-width: 1024px) { .nav-desktop { display: flex; } }
+.nav-desktop a { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; color: rgba(247,246,242,.65); transition: color .2s; }
+.nav-desktop a:hover, .nav-desktop a.active { color: var(--off-white); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+.header-cta { display: none; }
+@media (min-width: 1024px) { .header-cta { display: inline-block; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 10px 22px; border: 1px solid var(--gold); color: var(--gold); transition: background .25s, color .25s; } .header-cta:hover { background: var(--gold); color: var(--black); } }
+.hamburger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
+@media (min-width: 1024px) { .hamburger { display: none; } }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--off-white); transition: all .3s; }
+.hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: var(--black); padding: 100px var(--pad) 60px; flex-direction: column; justify-content: center; }
+.mobile-menu.open { display: flex; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 4px; }
+.mobile-menu nav a { font-family: var(--font-display); font-size: 38px; font-weight: 700; letter-spacing: .02em; padding: 12px 0; border-bottom: 1px solid rgba(247,246,242,.07); transition: color .2s; }
+.mobile-menu nav a:hover { color: var(--gold); }
+.mobile-menu-foot { margin-top: 48px; }
+.mobile-menu-foot a { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 14px 28px; border: 1px solid var(--gold); color: var(--gold); }
+
+/* PAGE HERO */
+.page-hero { padding: 152px 0 64px; border-bottom: 1px solid rgba(184,154,90,.1); }
+@media (min-width: 768px) { .page-hero { padding: 172px 0 80px; } }
+.page-hero-inner { display: flex; flex-direction: column; gap: 32px; }
+@media (min-width: 768px) { .page-hero-inner { flex-direction: row; align-items: flex-end; justify-content: space-between; } }
+.page-hero .t-label { color: var(--gold); display: block; margin-bottom: 16px; }
+.page-hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px, 8vw, 90px); letter-spacing: .03em; line-height: .95; text-transform: uppercase; }
+.page-hero-sub { max-width: 400px; }
+.page-hero-sub p { font-size: 15px; line-height: 1.75; color: rgba(247,246,242,.48); }
+
+/* CATEGORY FILTER */
+.filter-bar { padding: 32px 0; border-bottom: 1px solid rgba(247,246,242,.06); }
+.filter-inner { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.filter-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,246,242,.3); margin-right: 8px; white-space: nowrap; }
+.filter-btn { font-family: var(--font-body); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 400; padding: 8px 16px; border: 1px solid rgba(247,246,242,.12); color: rgba(247,246,242,.45); background: transparent; transition: all .2s; white-space: nowrap; }
+.filter-btn:hover { border-color: rgba(247,246,242,.3); color: var(--off-white); }
+.filter-btn.active { border-color: var(--gold); color: var(--gold); }
+
+/* FEATURED ARTICLE */
+.featured-section { padding: var(--sec) 0 0; }
+.featured-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(247,246,242,.3); display: block; margin-bottom: 24px; }
+
+.featured-card {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  background: #080808; border: 1px solid rgba(184,154,90,.1);
+  transition: border-color .3s;
+  text-decoration: none; color: inherit;
+}
+@media (min-width: 768px) { .featured-card { grid-template-columns: 1fr 1fr; } }
+.featured-card:hover { border-color: rgba(184,154,90,.3); }
+
+.featured-card-image {
+  min-height: 300px; position: relative; overflow: hidden;
+  background: #0d0d0d;
+  display: flex; align-items: center; justify-content: center;
+}
+@media (min-width: 768px) { .featured-card-image { min-height: 480px; } }
+.featured-card-image-note { font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(184,154,90,.2); }
+.featured-card-image-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .8s ease; }
+.featured-card:hover .featured-card-image-bg { transform: scale(1.03); }
+
+.featured-card-body { padding: 48px 44px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+.featured-card-cat { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.featured-card-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 3.5vw, 38px); line-height: 1.15; }
+.featured-card-excerpt { font-size: 14px; line-height: 1.8; color: rgba(247,246,242,.5); }
+.featured-card-link { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: flex; align-items: center; gap: 10px; margin-top: 8px; transition: gap .2s; }
+.featured-card-link::after { content: '→'; font-size: 13px; }
+.featured-card:hover .featured-card-link { gap: 16px; }
+
+/* ARTICLE GRID */
+.articles-section { padding: 48px 0 var(--sec); }
+.articles-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(247,246,242,.06); }
+@media (min-width: 640px)  { .articles-grid { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .articles-grid { grid-template-columns: repeat(4,1fr); } }
+
+.article-card { background: var(--black); display: flex; flex-direction: column; transition: background .3s; }
+.article-card:hover { background: #0a0a0a; }
+.article-card[data-cat].hidden { display: none; }
+
+.article-card-image { width: 100%; aspect-ratio: 16/10; background: #0d0d0d; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.article-card-image-note { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: rgba(184,154,90,.18); }
+.article-card-image-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .7s ease; }
+.article-card:hover .article-card-image-bg { transform: scale(1.04); }
+
+.article-card-body { padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.article-card-cat { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.article-card-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(18px, 2vw, 22px); line-height: 1.2; flex: 1; }
+.article-card-excerpt { font-size: 13px; line-height: 1.75; color: rgba(247,246,242,.42); }
+.article-card-link { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: flex; align-items: center; gap: 8px; margin-top: 4px; transition: gap .2s; }
+.article-card-link::after { content: '→'; }
+.article-card:hover .article-card-link { gap: 14px; }
+
+/* NO RESULTS */
+.no-results { display: none; padding: 60px 0; text-align: center; color: rgba(247,246,242,.3); font-size: 14px; letter-spacing: .05em; }
+
+/* KNOWLEDGE CTA */
+.knowledge-cta { background: #050505; border-top: 1px solid rgba(184,154,90,.1); padding: var(--sec) 0; }
+.kc-inner { display: flex; flex-direction: column; gap: 32px; }
+@media (min-width: 768px) { .kc-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+.kc-copy .t-label { color: var(--gold); display: block; margin-bottom: 14px; }
+.kc-copy h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 3.5vw, 40px); line-height: 1.1; max-width: 520px; }
+.kc-copy p { margin-top: 14px; font-size: 14px; line-height: 1.75; color: rgba(247,246,242,.45); max-width: 460px; }
+.kc-cta { flex-shrink: 0; display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 480px) { .kc-cta { flex-direction: row; align-items: center; } }
+.btn-gold { background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 14px 28px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; display: inline-block; font-family: var(--font-body); transition: background .25s, color .25s; white-space: nowrap; }
+.btn-gold:hover { background: var(--gold); color: var(--black); }
+
+/* FOOTER */
+.site-footer { background: #030303; border-top: 1px solid rgba(184,154,90,.12); padding: 60px 0 40px; }
+.footer-top { display: flex; flex-direction: column; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(247,246,242,.06); margin-bottom: 32px; }
+@media (min-width: 768px) { .footer-top { flex-direction: row; justify-content: space-between; } }
+.footer-logo-text { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+.footer-logo-text span { color: var(--gold); }
+.footer-brand p { font-size: 13px; line-height: 1.7; color: rgba(247,246,242,.32); max-width: 300px; }
+.footer-nav { display: grid; grid-template-columns: repeat(2,1fr); gap: 36px; }
+@media (min-width: 480px) { .footer-nav { grid-template-columns: repeat(3,auto); } }
+.footer-nav-group h4 { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+.footer-nav-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav-group a { font-size: 13px; color: rgba(247,246,242,.4); transition: color .2s; }
+.footer-nav-group a:hover { color: var(--off-white); }
+.footer-bottom { display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+.footer-bottom p { font-size: 12px; color: rgba(247,246,242,.18); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(247,246,242,.18); transition: color .2s; }
+.footer-legal a:hover { color: rgba(247,246,242,.5); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop">
+    <a href="index.html">Home</a>
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="insights.html" class="active">Insights</a>
+  </nav>
+  <div class="header-right">
+    <a href="work-with-us.html" class="header-cta">Work With King Wagyu</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog">
+  <nav>
+    <a href="index.html"          onclick="closeMenu()">Home</a>
+    <a href="genetics.html"       onclick="closeMenu()">Genetics</a>
+    <a href="embryo-program.html" onclick="closeMenu()">Embryo Program</a>
+    <a href="export.html"         onclick="closeMenu()">Export</a>
+    <a href="insights.html"       onclick="closeMenu()">Insights</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a href="work-with-us.html" onclick="closeMenu()">Work With King Wagyu</a>
+  </div>
+</div>
+
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div>
+        <span class="t-label">Knowledge</span>
+        <h1>Insights</h1>
+      </div>
+      <div class="page-hero-sub">
+        <p>Genetics, breeding strategy, embryo systems, export thinking, and production philosophy — written for people who take the category seriously.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CATEGORY FILTER -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-inner">
+      <span class="filter-label">Filter</span>
+      <button class="filter-btn active" onclick="filterArticles('all')">All</button>
+      <button class="filter-btn" onclick="filterArticles('genetics')">Genetics</button>
+      <button class="filter-btn" onclick="filterArticles('embryo-strategy')">Embryo Strategy</button>
+      <button class="filter-btn" onclick="filterArticles('eating-quality')">Eating Quality</button>
+      <button class="filter-btn" onclick="filterArticles('export-positioning')">Export</button>
+      <button class="filter-btn" onclick="filterArticles('breeding-decisions')">Breeding Decisions</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- FEATURED ARTICLE -->
+<section class="featured-section">
+  <div class="container">
+    <span class="featured-label">Featured</span>
+    <a href="insights-wagyu-genetics.html" class="featured-card" data-cat="genetics">
+      <div class="featured-card-image">
+        <!-- Replace: add background-image: url('images/insight-genetics.jpg') to .featured-card-image-bg -->
+        <div class="featured-card-image-bg"></div>
+        <span class="featured-card-image-note">[ IMAGE: Genetics Article ]</span>
+      </div>
+      <div class="featured-card-body">
+        <span class="featured-card-cat">Genetics</span>
+        <h2 class="featured-card-title">What Wagyu genetics actually influence — and what they don't</h2>
+        <p class="featured-card-excerpt">Most discussions about Wagyu genetics focus on bloodline names and pedigree prestige. The more useful question is which genetic traits translate directly to eating quality outcome — and which are selected for the wrong reasons entirely.</p>
+        <span class="featured-card-link">Read Article</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+<!-- ARTICLE GRID -->
+<section class="articles-section">
+  <div class="container">
+    <div class="articles-grid" id="articles-grid">
+
+      <a href="insights-embryo-programs.html" class="article-card" data-cat="embryo-strategy">
+        <div class="article-card-image">
+          <div class="article-card-image-bg"></div>
+          <span class="article-card-image-note">[ Article Image ]</span>
+        </div>
+        <div class="article-card-body">
+          <span class="article-card-cat">Embryo Strategy</span>
+          <h3 class="article-card-title">How embryo programs accelerate herd quality — when done correctly</h3>
+          <p class="article-card-excerpt">Embryo work is a precision tool, not a shortcut. The difference between a program that advances a herd and one that wastes significant investment is entirely in how it is managed.</p>
+          <span class="article-card-link">Read Article</span>
+        </div>
+      </a>
+
+      <a href="insights-eating-quality.html" class="article-card" data-cat="eating-quality">
+        <div class="article-card-image">
+          <div class="article-card-image-bg"></div>
+          <span class="article-card-image-note">[ Article Image ]</span>
+        </div>
+        <div class="article-card-body">
+          <span class="article-card-cat">Eating Quality</span>
+          <h3 class="article-card-title">Why eating quality starts before birth — not at the abattoir</h3>
+          <p class="article-card-excerpt">The widely held belief that eating quality is primarily a function of feeding and processing management is only partially correct. The more important decisions were made before the animal was born.</p>
+          <span class="article-card-link">Read Article</span>
+        </div>
+      </a>
+
+      <a href="insights-consistency.html" class="article-card" data-cat="breeding-decisions">
+        <div class="article-card-image">
+          <div class="article-card-image-bg"></div>
+          <span class="article-card-image-note">[ Article Image ]</span>
+        </div>
+        <div class="article-card-body">
+          <span class="article-card-cat">Breeding Decisions</span>
+          <h3 class="article-card-title">What consistency actually means in premium Wagyu production</h3>
+          <p class="article-card-excerpt">Producing one exceptional animal is not a program. Consistency — the ability to produce predictable, repeatable quality across a production group — is what separates serious operations from interesting ones.</p>
+          <span class="article-card-link">Read Article</span>
+        </div>
+      </a>
+
+      <a href="insights-breeding-export.html" class="article-card" data-cat="export-positioning">
+        <div class="article-card-image">
+          <div class="article-card-image-bg"></div>
+          <span class="article-card-image-note">[ Article Image ]</span>
+        </div>
+        <div class="article-card-body">
+          <span class="article-card-cat">Export Positioning</span>
+          <h3 class="article-card-title">How breeding decisions affect export readiness — upstream and long before the gate</h3>
+          <p class="article-card-excerpt">Export readiness is not a logistics problem. It is a genetics and production problem — one that must be solved upstream, long before any conversation about market access begins.</p>
+          <span class="article-card-link">Read Article</span>
+        </div>
+      </a>
+
+    </div>
+    <div class="no-results" id="no-results">No articles in this category yet.</div>
+  </div>
+</section>
+
+
+<!-- KNOWLEDGE CTA -->
+<section class="knowledge-cta">
+  <div class="container">
+    <div class="kc-inner reveal">
+      <div class="kc-copy">
+        <span class="t-label">Work With King Wagyu</span>
+        <h2>Knowledge informs the conversation. The enquiry system starts it.</h2>
+        <p>If these articles have raised questions relevant to your operation — about genetics, embryo strategy, export positioning, or production discipline — the right next step is a structured enquiry.</p>
+      </div>
+      <div class="kc-cta">
+        <a href="work-with-us.html" class="btn-gold">Enter Enquiry System</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>A serious Wagyu breeding, embryo, and export operation. Built on genetics, discipline, and outcome. Namibia.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>The Operation</h4>
+          <ul>
+            <li><a href="the-operation.html">The Operation</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="genetics.html">Genetics</a></li>
+            <li><a href="embryo-program.html">Embryo Program</a></li>
+            <li><a href="export.html">Export</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Access</h4>
+          <ul>
+            <li><a href="work-with-us.html">Work With Us</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 King Wagyu. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="work-with-us.html">Enquiry Access</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+function openMenu()  { hamburger.classList.add('active'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMenu() { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeMenu(); });
+
+function filterArticles(cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  const cards = document.querySelectorAll('.article-card');
+  const featured = document.querySelector('.featured-card');
+  let visible = 0;
+  cards.forEach(c => {
+    const match = cat === 'all' || c.dataset.cat === cat;
+    c.classList.toggle('hidden', !match);
+    if (match) visible++;
+  });
+  if (featured) {
+    const fmatch = cat === 'all' || featured.dataset.cat === cat;
+    featured.closest('.featured-section').style.display = fmatch ? '' : 'none';
+    if (fmatch) visible++;
+  }
+  document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+}
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How breeding decisions affect export readiness — King Wagyu Insights.">
+<title>How Breeding Decisions Affect Export Readiness | King Wagyu Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root { --black:#050505; --off-white:#F7F6F2; --gold:#B89A5A; --wine:#4A1018; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'Inter',-apple-system,sans-serif; --max-w:1280px; --pad:24px; }
+@media(min-width:768px){:root{--pad:48px;}} @media(min-width:1200px){:root{--pad:80px;}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--off-white);font-family:var(--font-body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;} button{cursor:pointer;border:none;background:none;font-family:inherit;}
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad);}
+.t-label{font-family:var(--font-body);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);background:rgba(5,5,5,.96);border-bottom:1px solid rgba(184,154,90,.15);backdrop-filter:blur(8px);}
+.logo{font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:.12em;text-transform:uppercase;} .logo span{color:var(--gold);}
+.nav-desktop{display:none;align-items:center;gap:36px;} @media(min-width:1024px){.nav-desktop{display:flex;}}
+.nav-desktop a{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:rgba(247,246,242,.65);transition:color .2s;} .nav-desktop a:hover,.nav-desktop a.active{color:var(--off-white);}
+.header-right{display:flex;align-items:center;gap:20px;}
+.header-cta{display:none;} @media(min-width:1024px){.header-cta{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:10px 22px;border:1px solid var(--gold);color:var(--gold);transition:background .25s,color .25s;} .header-cta:hover{background:var(--gold);color:var(--black);}}
+.hamburger{display:flex;flex-direction:column;gap:5px;padding:8px;} @media(min-width:1024px){.hamburger{display:none;}}
+.hamburger span{display:block;width:24px;height:1px;background:var(--off-white);transition:all .3s;}
+.hamburger.active span:nth-child(1){transform:translateY(6px) rotate(45deg);} .hamburger.active span:nth-child(2){opacity:0;} .hamburger.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:99;background:var(--black);padding:100px var(--pad) 60px;flex-direction:column;justify-content:center;} .mobile-menu.open{display:flex;}
+.mobile-menu nav{display:flex;flex-direction:column;gap:4px;}
+.mobile-menu nav a{font-family:var(--font-display);font-size:38px;font-weight:700;letter-spacing:.02em;padding:12px 0;border-bottom:1px solid rgba(247,246,242,.07);transition:color .2s;} .mobile-menu nav a:hover{color:var(--gold);}
+.mobile-menu-foot{margin-top:48px;} .mobile-menu-foot a{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);}
+.article-wrap { max-width: 760px; margin: 0 auto; padding: 140px var(--pad) 100px; }
+.article-back { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,246,242,.35); margin-bottom: 48px; transition: color .2s; }
+.article-back:hover { color: var(--gold); }
+.article-back::before { content: '←'; font-size: 13px; }
+.article-header { margin-bottom: 52px; padding-bottom: 40px; border-bottom: 1px solid rgba(184,154,90,.12); }
+.article-cat { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: block; margin-bottom: 20px; }
+.article-header h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 5vw, 52px); line-height: 1.1; margin-bottom: 20px; }
+.article-header .article-sub { font-size: 17px; line-height: 1.7; color: rgba(247,246,242,.55); font-weight: 300; }
+.article-hero-image { width: 100%; aspect-ratio: 16/9; background: #0d0d0d; margin-bottom: 52px; display: flex; align-items: center; justify-content: center; }
+.article-hero-image span { font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(184,154,90,.2); }
+.article-body h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 3vw, 30px); line-height: 1.2; margin: 44px 0 16px; color: var(--off-white); }
+.article-body h2:first-child { margin-top: 0; }
+.article-body p { font-size: 16px; line-height: 1.85; color: rgba(247,246,242,.65); margin-bottom: 20px; }
+.article-body strong { color: rgba(247,246,242,.85); font-weight: 500; }
+.article-body blockquote { border-left: 2px solid var(--gold); padding-left: 24px; margin: 36px 0; font-family: var(--font-display); font-style: italic; font-size: clamp(18px, 2.5vw, 24px); line-height: 1.5; color: rgba(247,246,242,.72); }
+.article-footer { margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(184,154,90,.12); display: flex; flex-direction: column; gap: 24px; }
+@media(min-width:640px){.article-footer{flex-direction:row;align-items:center;justify-content:space-between;}}
+.article-footer p { font-size: 13px; color: rgba(247,246,242,.3); }
+.btn-gold { background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 14px 28px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; display: inline-block; font-family: var(--font-body); transition: background .25s, color .25s; white-space: nowrap; }
+.btn-gold:hover { background: var(--gold); color: var(--black); }
+.related { background: #080808; padding: 60px 0; border-top: 1px solid rgba(184,154,90,.1); }
+.related-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+.related .t-label { color: var(--gold); display: block; margin-bottom: 28px; }
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(247,246,242,.06); }
+@media(min-width:640px){.related-grid{grid-template-columns:repeat(3,1fr);}}
+.related-card { background: #080808; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; transition: background .3s; }
+.related-card:hover { background: #0e0e0e; }
+.related-cat { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.related-title { font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 1.2; flex: 1; }
+.related-link { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: flex; align-items: center; gap: 8px; transition: gap .2s; }
+.related-link::after { content: '→'; }
+.related-card:hover .related-link { gap: 14px; }
+.site-footer{background:#030303;border-top:1px solid rgba(184,154,90,.12);padding:60px 0 40px;}
+.footer-top{display:flex;flex-direction:column;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(247,246,242,.06);margin-bottom:32px;} @media(min-width:768px){.footer-top{flex-direction:row;justify-content:space-between;}}
+.footer-logo-text{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:14px;} .footer-logo-text span{color:var(--gold);}
+.footer-brand p{font-size:13px;line-height:1.7;color:rgba(247,246,242,.32);max-width:300px;}
+.footer-nav{display:grid;grid-template-columns:repeat(2,1fr);gap:36px;} @media(min-width:480px){.footer-nav{grid-template-columns:repeat(3,auto);}}
+.footer-nav-group h4{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px;}
+.footer-nav-group ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-nav-group a{font-size:13px;color:rgba(247,246,242,.4);transition:color .2s;} .footer-nav-group a:hover{color:var(--off-white);}
+.footer-bottom{display:flex;flex-direction:column;gap:12px;} @media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;align-items:center;}}
+.footer-bottom p{font-size:12px;color:rgba(247,246,242,.18);}
+.footer-legal{display:flex;gap:24px;} .footer-legal a{font-size:12px;color:rgba(247,246,242,.18);transition:color .2s;} .footer-legal a:hover{color:rgba(247,246,242,.5);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop">
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="the-operation.html">The Operation</a>
+    <a href="insights.html" class="active">Insights</a>
+  </nav>
+  <div class="header-right">
+    <a href="work-with-us.html" class="header-cta">Work With Us</a>
+    <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mob">
+  <nav>
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="the-operation.html">The Operation</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="mobile-menu-foot"><a href="work-with-us.html">Work With Us</a></div>
+</div>
+
+<main>
+  <div class="article-wrap">
+    <a href="insights.html" class="article-back">All Insights</a>
+
+    <header class="article-header">
+      <span class="article-cat">Export</span>
+      <h1>How breeding decisions affect export readiness</h1>
+      <p class="article-sub">Export markets don't grade on potential. They grade on the animal in front of them — its classification, its documentation, its compliance history, and its eating quality on delivery. These outcomes are determined years before the animal reaches a processing facility.</p>
+    </header>
+
+    <div class="article-hero-image">
+      <!-- Replace with: url('images/export-readiness-hero.jpg') -->
+      <span>Image: Export Readiness</span>
+    </div>
+
+    <div class="article-body">
+
+      <h2>Export markets set the standard. Breeding programs meet it.</h2>
+      <p>The premium Wagyu export markets — Japan, South Korea, the UAE, premium European channels — are not passive recipients of whatever beef an exporting nation chooses to send. They are specific, demanding, and increasingly sophisticated in how they evaluate what they accept.</p>
+      <p>Japanese importers may specify BMS grade minimums, Fullblood classification requirements, and feed protocol documentation. Middle Eastern markets require halal certification that extends from slaughter through handling. European channels require traceability that goes back to the dam. These are not aspirational standards — they are access requirements. Failure to meet them means the product is redirected to a lower-value channel, or rejected outright.</p>
+      <p>The breeding program sits at the origin of the chain. Every subsequent decision about what an animal can deliver on the export market is constrained or enabled by the genetic and management decisions made at the start. This is why export-oriented programs cannot treat breeding as a generic agricultural input.</p>
+
+      <h2>Fullblood classification and why it matters commercially</h2>
+      <p>The most fundamental breeding decision in a Wagyu export program is the classification of animals produced. Fullblood Wagyu — animals with 100% registered Wagyu genetics, traceable through documented pedigrees — command a different market position than crossbred animals, regardless of how good the crossbred animals look on the hook.</p>
+      <p>This is not merely a labelling distinction. Premium Japanese importers and high-end international retailers have increasingly moved toward Fullblood requirements precisely because they want the eating quality assurance that comes with pure genetics. The flavour profile, the fat composition, the marbling consistency — all of these are more reliably delivered by Fullblood animals than by F1 or F2 crosses, and buyers at the premium end of the market understand this.</p>
+      <p><strong>An operation breeding crossbred animals can access the Wagyu premium market at a lower price tier. An operation breeding Fullblood animals can access the highest price tier — but only if documentation, pedigree registration, and classification are maintained rigorously from birth.</strong> The paperwork is inseparable from the product.</p>
+
+      <blockquote>"In export, documentation is not administration. It is provenance. And provenance is price."</blockquote>
+
+      <h2>Marbling selection and grade distribution</h2>
+      <p>Export markets that purchase by grade — paying one price for BMS 6–7 and a materially higher price for BMS 8–9 — create a direct financial incentive to shift the distribution of an operation's grade output upward. This is obvious in principle. The mechanism for achieving it is less obviously understood.</p>
+      <p>Grade distribution in a slaughter cohort is primarily a function of genetic selection, secondarily a function of management. An operation whose breeding program was not specifically selected for high marbling will produce a grade distribution centred around the genetic mean of its animals — which may be BMS 5–6, regardless of how well it manages the feedlot phase. Moving that distribution to BMS 7–9 requires selecting for it at the sire and dam level, across multiple generations, with consistency.</p>
+      <p>Operations that attempt to achieve export-grade marbling through management alone — extended time on feed, high-energy rations, specific feed additives — without the underlying genetic selection, typically find that they achieve diminishing returns beyond a certain point. The animals reach their genetic ceiling. The cost of feed beyond that ceiling produces no further grade uplift. The program becomes economically inefficient.</p>
+      <p>The export-ready breeding program designs its genetic selection around the grade distribution it needs to be commercially viable in the export market it intends to serve. That is the right sequence. It is not the sequence most operations follow.</p>
+
+      <h2>Structural traits and transport tolerance</h2>
+      <p>An aspect of export readiness that receives less attention than marbling genetics is structural soundness. Animals that are exported live — as breeding stock, as weaners, as embryos — need to be robust enough to tolerate the physiological demands of international transport. Animals exported as processed beef need to have been slaughtered in excellent condition, without the dark cutting that comes from pre-slaughter stress.</p>
+      <p>Both outcomes are partially genetic. Temperament — the degree to which an animal is calm in unfamiliar or stressful environments — has a heritable component. Structural soundness — the feet, legs, and joints that determine whether an animal can withstand the physical demands of transport without injury or distress — is heritable and subject to selection.</p>
+      <p>A breeding program that selects exclusively for marbling and growth, without attention to structure and temperament, produces animals that look good on paper and may grade well — but that are commercially difficult to handle and export. The dark-cutting problem alone can convert a premium carcass into a commodity-priced one at the point of grading. Selecting against stress-sensitive temperament is an export-oriented breeding decision, even if it doesn't appear on a marbling EBV report.</p>
+
+      <h2>The documentation chain is part of the breeding program</h2>
+      <p>Pedigree registration, DNA parentage verification, performance recording, and health documentation are not administrative tasks that happen alongside a breeding program. They are functional components of it, and their quality directly affects the export value of the animals produced.</p>
+      <p>An animal with exceptional genetics and no documented pedigree cannot be sold as Fullblood. An animal with documented genetics but no DNA verification cannot be certified by registries that require it. A cohort with excellent marbling but no traceable health history cannot meet import protocol requirements for markets that demand it.</p>
+      <p>The operations that are export-ready have designed their record-keeping as carefully as their selection criteria. Every breeding decision is documented from the point it is made, not reconstructed afterwards. The pedigree is as precise as the genetics it represents. This is not bureaucratic conservatism — it is the mechanism by which premium genetics are converted into premium-priced product at the point of export.</p>
+      <p>At King Wagyu, the documentation discipline is built into the program from foundation breeding. The result is not just animals that can perform in export markets — but animals that can be <strong>proven</strong> to be what they are, at every point in the chain from birth to buyer.</p>
+
+    </div>
+
+    <div class="article-footer">
+      <p>King Wagyu Insights — Export</p>
+      <a href="work-with-us.html#export" class="btn-gold">Export Enquiry</a>
+    </div>
+  </div>
+</main>
+
+<section class="related">
+  <div class="related-inner">
+    <span class="t-label">Related Insights</span>
+    <div class="related-grid">
+      <a href="insights-wagyu-genetics.html" class="related-card">
+        <span class="related-cat">Genetics</span>
+        <p class="related-title">What Wagyu genetics actually influence — and what they don't</p>
+        <span class="related-link">Read</span>
+      </a>
+      <a href="insights-consistency.html" class="related-card">
+        <span class="related-cat">Production</span>
+        <p class="related-title">What consistency means in premium Wagyu production</p>
+        <span class="related-link">Read</span>
+      </a>
+      <a href="insights-embryo-programs.html" class="related-card">
+        <span class="related-cat">Embryo Program</span>
+        <p class="related-title">How embryo programs accelerate herd quality</p>
+        <span class="related-link">Read</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>Fullblood Wagyu genetics, embryo programs, and export operations. Based in Namibia.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>Program</h4>
+          <ul>
+            <li><a href="genetics.html">Genetics</a></li>
+            <li><a href="embryo-program.html">Embryo Program</a></li>
+            <li><a href="export.html">Export</a></li>
+            <li><a href="the-operation.html">The Operation</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="work-with-us.html">Work With Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 King Wagyu. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => { ham.classList.toggle('active'); mob.classList.toggle('open'); document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : ''; });
+</script>
+</body>
+</html>

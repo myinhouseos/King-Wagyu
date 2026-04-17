@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="How embryo programs accelerate herd quality — King Wagyu Insights.">
+<title>How Embryo Programs Accelerate Herd Quality | King Wagyu Insights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root { --black:#050505; --off-white:#F7F6F2; --gold:#B89A5A; --wine:#4A1018; --font-display:'Cormorant Garamond',Georgia,serif; --font-body:'Inter',-apple-system,sans-serif; --max-w:1280px; --pad:24px; }
+@media(min-width:768px){:root{--pad:48px;}} @media(min-width:1200px){:root{--pad:80px;}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--off-white);font-family:var(--font-body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;} button{cursor:pointer;border:none;background:none;font-family:inherit;}
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad);}
+.t-label{font-family:var(--font-body);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);background:rgba(5,5,5,.96);border-bottom:1px solid rgba(184,154,90,.15);backdrop-filter:blur(8px);}
+.logo{font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:.12em;text-transform:uppercase;} .logo span{color:var(--gold);}
+.nav-desktop{display:none;align-items:center;gap:36px;} @media(min-width:1024px){.nav-desktop{display:flex;}}
+.nav-desktop a{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:rgba(247,246,242,.65);transition:color .2s;} .nav-desktop a:hover,.nav-desktop a.active{color:var(--off-white);}
+.header-right{display:flex;align-items:center;gap:20px;}
+.header-cta{display:none;} @media(min-width:1024px){.header-cta{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:10px 22px;border:1px solid var(--gold);color:var(--gold);transition:background .25s,color .25s;} .header-cta:hover{background:var(--gold);color:var(--black);}}
+.hamburger{display:flex;flex-direction:column;gap:5px;padding:8px;} @media(min-width:1024px){.hamburger{display:none;}}
+.hamburger span{display:block;width:24px;height:1px;background:var(--off-white);transition:all .3s;}
+.hamburger.active span:nth-child(1){transform:translateY(6px) rotate(45deg);} .hamburger.active span:nth-child(2){opacity:0;} .hamburger.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:99;background:var(--black);padding:100px var(--pad) 60px;flex-direction:column;justify-content:center;} .mobile-menu.open{display:flex;}
+.mobile-menu nav{display:flex;flex-direction:column;gap:4px;}
+.mobile-menu nav a{font-family:var(--font-display);font-size:38px;font-weight:700;letter-spacing:.02em;padding:12px 0;border-bottom:1px solid rgba(247,246,242,.07);transition:color .2s;} .mobile-menu nav a:hover{color:var(--gold);}
+.mobile-menu-foot{margin-top:48px;} .mobile-menu-foot a{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);}
+.article-wrap { max-width: 760px; margin: 0 auto; padding: 140px var(--pad) 100px; }
+.article-back { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,246,242,.35); margin-bottom: 48px; transition: color .2s; }
+.article-back:hover { color: var(--gold); }
+.article-back::before { content: '←'; font-size: 13px; }
+.article-header { margin-bottom: 52px; padding-bottom: 40px; border-bottom: 1px solid rgba(184,154,90,.12); }
+.article-cat { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: block; margin-bottom: 20px; }
+.article-header h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 5vw, 52px); line-height: 1.1; margin-bottom: 20px; }
+.article-header .article-sub { font-size: 17px; line-height: 1.7; color: rgba(247,246,242,.55); font-weight: 300; }
+.article-hero-image { width: 100%; aspect-ratio: 16/9; background: #0d0d0d; margin-bottom: 52px; display: flex; align-items: center; justify-content: center; }
+.article-hero-image span { font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(184,154,90,.2); }
+.article-body h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 3vw, 30px); line-height: 1.2; margin: 44px 0 16px; color: var(--off-white); }
+.article-body h2:first-child { margin-top: 0; }
+.article-body p { font-size: 16px; line-height: 1.85; color: rgba(247,246,242,.65); margin-bottom: 20px; }
+.article-body strong { color: rgba(247,246,242,.85); font-weight: 500; }
+.article-body blockquote { border-left: 2px solid var(--gold); padding-left: 24px; margin: 36px 0; font-family: var(--font-display); font-style: italic; font-size: clamp(18px, 2.5vw, 24px); line-height: 1.5; color: rgba(247,246,242,.72); }
+.article-footer { margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(184,154,90,.12); display: flex; flex-direction: column; gap: 24px; }
+@media(min-width:640px){.article-footer{flex-direction:row;align-items:center;justify-content:space-between;}}
+.article-footer p { font-size: 13px; color: rgba(247,246,242,.3); }
+.btn-gold { background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 14px 28px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; display: inline-block; font-family: var(--font-body); transition: background .25s, color .25s; white-space: nowrap; }
+.btn-gold:hover { background: var(--gold); color: var(--black); }
+.related { background: #080808; padding: 60px 0; border-top: 1px solid rgba(184,154,90,.1); }
+.related-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+.related .t-label { color: var(--gold); display: block; margin-bottom: 28px; }
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(247,246,242,.06); }
+@media(min-width:640px){.related-grid{grid-template-columns:repeat(3,1fr);}}
+.related-card { background: #080808; padding: 32px 28px; display: flex; flex-direction: column; gap: 12px; transition: background .3s; }
+.related-card:hover { background: #0e0e0e; }
+.related-cat { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.related-title { font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 1.2; flex: 1; }
+.related-link { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 500; display: flex; align-items: center; gap: 8px; transition: gap .2s; }
+.related-link::after { content: '→'; }
+.related-card:hover .related-link { gap: 14px; }
+.site-footer{background:#030303;border-top:1px solid rgba(184,154,90,.12);padding:60px 0 40px;}
+.footer-top{display:flex;flex-direction:column;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(247,246,242,.06);margin-bottom:32px;} @media(min-width:768px){.footer-top{flex-direction:row;justify-content:space-between;}}
+.footer-logo-text{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:14px;} .footer-logo-text span{color:var(--gold);}
+.footer-brand p{font-size:13px;line-height:1.7;color:rgba(247,246,242,.32);max-width:300px;}
+.footer-nav{display:grid;grid-template-columns:repeat(2,1fr);gap:36px;} @media(min-width:480px){.footer-nav{grid-template-columns:repeat(3,auto);}}
+.footer-nav-group h4{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px;}
+.footer-nav-group ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-nav-group a{font-size:13px;color:rgba(247,246,242,.4);transition:color .2s;} .footer-nav-group a:hover{color:var(--off-white);}
+.footer-bottom{display:flex;flex-direction:column;gap:12px;} @media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;align-items:center;}}
+.footer-bottom p{font-size:12px;color:rgba(247,246,242,.18);}
+.footer-legal{display:flex;gap:24px;} .footer-legal a{font-size:12px;color:rgba(247,246,242,.18);transition:color .2s;} .footer-legal a:hover{color:rgba(247,246,242,.5);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop">
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="the-operation.html">The Operation</a>
+    <a href="insights.html" class="active">Insights</a>
+  </nav>
+  <div class="header-right">
+    <a href="work-with-us.html" class="header-cta">Work With Us</a>
+    <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mob">
+  <nav>
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="the-operation.html">The Operation</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="mobile-menu-foot"><a href="work-with-us.html">Work With Us</a></div>
+</div>
+
+<main>
+  <div class="article-wrap">
+    <a href="insights.html" class="article-back">All Insights</a>
+
+    <header class="article-header">
+      <span class="article-cat">Embryo Program</span>
+      <h1>How embryo programs accelerate herd quality</h1>
+      <p class="article-sub">Conventional breeding works one generation at a time. Embryo transfer allows proven genetics to multiply across multiple recipients simultaneously — compressing the timeline from selection decision to herd impact by years.</p>
+    </header>
+
+    <div class="article-hero-image">
+      <!-- Replace with: url('images/embryo-program-hero.jpg') -->
+      <span>Image: Embryo Program</span>
+    </div>
+
+    <div class="article-body">
+
+      <h2>The arithmetic of conventional breeding</h2>
+      <p>In a natural breeding program, a high-performing cow produces one calf per year. If she lives to twelve years old and breeds successfully from age two, she may produce ten offspring in her lifetime. Of those, perhaps half will be female. Of those females, some will perform to the standard of their dam, and some won't. The genetic gains from an exceptional animal are slow to propagate through a herd.</p>
+      <p>This isn't a criticism of conventional breeding — it's simply the biology. A single cow, no matter how exceptional, has limited reproductive output. And the better she performs, the more you wish you had more of her.</p>
+      <p>Embryo transfer exists to solve exactly this constraint. It separates the <strong>genetic contribution</strong> from the <strong>reproductive function</strong> — allowing a single donor to contribute far more to a herd than her physiology would otherwise permit.</p>
+
+      <h2>What embryo transfer actually does</h2>
+      <p>In a standard embryo transfer program, a genetically superior donor cow is superovulated — stimulated to produce multiple eggs in a single cycle rather than the usual one. Those eggs are fertilised in the conventional way, then flushed from the donor and transferred to surrogate recipient cows who carry the pregnancies to term.</p>
+      <p>The donor, unburdened by pregnancy, can be superovulated again within weeks. Over the course of a year, a single exceptional donor cow can produce fifteen, twenty, or more embryos — each one genetically hers, each one carrying the traits that made her worth selecting in the first place.</p>
+
+      <blockquote>"The donor contributes the genetics. The recipient contributes the gestation. The operation benefits from both — with neither compromised."</blockquote>
+
+      <p>Recipients can be any suitable cow of comparable or lesser genetic value. They experience a normal pregnancy, and the resulting calf is genetically identical to what it would have been had the donor carried the pregnancy herself. The recipient's genetics have no influence on the calf — she is a carrier, not a contributor.</p>
+
+      <h2>The compounding effect on herd quality</h2>
+      <p>The acceleration in herd quality comes from two reinforcing effects.</p>
+      <p>The first is volume. A donor producing twenty embryos per year, across even three years, contributes sixty offspring — compared to three in natural breeding. Each of those offspring carries the traits that defined her selection. The herd shifts faster because the contribution is larger.</p>
+      <p>The second is selection intensity. When you have more candidates, you can be more selective about which go into the next generation. If a natural breeding program gives you two replacement heifers from a top cow per year, you keep both regardless of subtle differences. If an embryo program gives you twelve, you keep the best three and cull the rest early. The genetic ceiling rises because the selection pressure rises.</p>
+      <p>Over five to ten years, these two effects compound significantly. A herd using embryo transfer at scale doesn't just improve — it improves faster with each generation, because the selection base is constantly expanding.</p>
+
+      <h2>Sexed semen and the female bias</h2>
+      <p>Embryo programs benefit further when combined with sexed semen. In a Wagyu breeding context — where female replacements are the priority — using semen sorted to produce predominantly female offspring allows each embryo flush to generate a higher proportion of breeding candidates.</p>
+      <p>The tradeoff is conception rate: sexed semen typically achieves lower fertilisation success than conventional semen, which affects total embryo yield per flush. The right approach depends on program goals — <strong>whether the priority is volume of embryos or proportion of females among those produced</strong>.</p>
+      <p>At King Wagyu, this decision is made at the donor level, based on her role in the program and the current needs of the recipient herd or export pipeline. There is no single correct answer — only the answer that fits the objective.</p>
+
+      <h2>What an embryo program demands of its operation</h2>
+      <p>Embryo transfer is not a shortcut. It is a tool that amplifies what is already good — and exposes what is already weak.</p>
+      <p>Recipient management is the most underestimated requirement. Recipients need to be in excellent condition, cycling correctly, and synchronised precisely with donor flush timing. A recipient pool that is poorly managed wastes embryos. Since embryo production is costly — in time, in hormones, in veterinary input — wasted embryos represent a significant operational loss.</p>
+      <p>This is where programs fail. The genetics are strong, the donor performs well, the flush produces quality embryos — and then they are transferred into underconditioned recipients at suboptimal synchronisation and conception rates drop to thirty percent when they should be sixty.</p>
+      <p>King Wagyu's embryo program is designed around recipient quality as a foundational input, not an afterthought. The same discipline applied to genetic selection is applied to recipient preparation and management. That is what makes the program commercially viable rather than aspirationally impressive.</p>
+
+    </div>
+
+    <div class="article-footer">
+      <p>King Wagyu Insights — Embryo Program</p>
+      <a href="work-with-us.html#embryo" class="btn-gold">Enquire About Embryos</a>
+    </div>
+  </div>
+</main>
+
+<section class="related">
+  <div class="related-inner">
+    <span class="t-label">Related Insights</span>
+    <div class="related-grid">
+      <a href="insights-wagyu-genetics.html" class="related-card">
+        <span class="related-cat">Genetics</span>
+        <p class="related-title">What Wagyu genetics actually influence — and what they don't</p>
+        <span class="related-link">Read</span>
+      </a>
+      <a href="insights-eating-quality.html" class="related-card">
+        <span class="related-cat">Production</span>
+        <p class="related-title">Why eating quality starts before birth</p>
+        <span class="related-link">Read</span>
+      </a>
+      <a href="insights-breeding-export.html" class="related-card">
+        <span class="related-cat">Export</span>
+        <p class="related-title">How breeding decisions affect export readiness</p>
+        <span class="related-link">Read</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>Fullblood Wagyu genetics, embryo programs, and export operations. Based in Namibia.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>Program</h4>
+          <ul>
+            <li><a href="genetics.html">Genetics</a></li>
+            <li><a href="embryo-program.html">Embryo Program</a></li>
+            <li><a href="export.html">Export</a></li>
+            <li><a href="the-operation.html">The Operation</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="work-with-us.html">Work With Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 King Wagyu. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => { ham.classList.toggle('active'); mob.classList.toggle('open'); document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : ''; });
+</script>
+</body>
+</html>
