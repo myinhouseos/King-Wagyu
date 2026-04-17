@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The King Wagyu operation — Fullblood Wagyu breeding, embryo programs, and export from Namibia. How we work, what we've built, and what drives every decision.">
+<title>The Operation | King Wagyu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#050505;--off-white:#F7F6F2;--gold:#B89A5A;--wine:#4A1018;--stone:#D9D1C7;--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Inter',-apple-system,sans-serif;--max-w:1280px;--pad:24px;}
+@media(min-width:768px){:root{--pad:48px;}} @media(min-width:1200px){:root{--pad:80px;}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--off-white);font-family:var(--font-body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;} button{cursor:pointer;border:none;background:none;font-family:inherit;}
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad);}
+.t-label{font-family:var(--font-body);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;}
+
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);transition:background .3s,border-color .3s;background:transparent;border-bottom:1px solid transparent;}
+.site-header.scrolled{background:rgba(5,5,5,.96);border-bottom-color:rgba(184,154,90,.15);backdrop-filter:blur(8px);}
+.logo{font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:.12em;text-transform:uppercase;} .logo span{color:var(--gold);}
+.nav-desktop{display:none;align-items:center;gap:36px;} @media(min-width:1024px){.nav-desktop{display:flex;}}
+.nav-desktop a{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;color:rgba(247,246,242,.65);transition:color .2s;} .nav-desktop a:hover,.nav-desktop a.active{color:var(--off-white);}
+.header-right{display:flex;align-items:center;gap:20px;}
+.header-cta{display:none;} @media(min-width:1024px){.header-cta{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:10px 22px;border:1px solid var(--gold);color:var(--gold);transition:background .25s,color .25s;} .header-cta:hover{background:var(--gold);color:var(--black);}}
+.hamburger{display:flex;flex-direction:column;gap:5px;padding:8px;} @media(min-width:1024px){.hamburger{display:none;}}
+.hamburger span{display:block;width:24px;height:1px;background:var(--off-white);transition:all .3s;}
+.hamburger.active span:nth-child(1){transform:translateY(6px) rotate(45deg);} .hamburger.active span:nth-child(2){opacity:0;} .hamburger.active span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:99;background:var(--black);padding:100px var(--pad) 60px;flex-direction:column;justify-content:center;} .mobile-menu.open{display:flex;}
+.mobile-menu nav{display:flex;flex-direction:column;gap:4px;}
+.mobile-menu nav a{font-family:var(--font-display);font-size:38px;font-weight:700;letter-spacing:.02em;padding:12px 0;border-bottom:1px solid rgba(247,246,242,.07);transition:color .2s;} .mobile-menu nav a:hover{color:var(--gold);}
+.mobile-menu-foot{margin-top:48px;} .mobile-menu-foot a{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:14px 28px;border:1px solid var(--gold);color:var(--gold);}
+
+/* HERO */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding-bottom:80px;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:#0a0a0a;
+  /* Replace with: background-image:url('images/operation-hero.jpg');background-size:cover;background-position:center; */
+}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,5,.9) 0%,rgba(5,5,5,.4) 50%,rgba(5,5,5,.2) 100%);}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad);}
+.hero-tag{display:inline-block;font-size:10px;letter-spacing:.25em;text-transform:uppercase;font-weight:500;color:var(--gold);margin-bottom:28px;}
+.hero h1{font-family:var(--font-display);font-weight:700;font-size:clamp(40px,7vw,88px);line-height:1.0;letter-spacing:-.01em;margin-bottom:28px;max-width:800px;}
+.hero-sub{font-size:clamp(15px,2vw,18px);line-height:1.75;color:rgba(247,246,242,.55);max-width:520px;font-weight:300;}
+
+/* STAT STRIP */
+.stat-strip{background:rgba(184,154,90,.07);border-top:1px solid rgba(184,154,90,.15);border-bottom:1px solid rgba(184,154,90,.15);}
+.stat-strip-inner{display:grid;grid-template-columns:repeat(2,1fr);} @media(min-width:640px){.stat-strip-inner{grid-template-columns:repeat(4,1fr);}}
+.stat-item{padding:28px var(--pad);border-right:1px solid rgba(184,154,90,.1);text-align:center;} .stat-item:last-child{border-right:none;}
+.stat-num{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4vw,44px);color:var(--gold);line-height:1;display:block;margin-bottom:8px;}
+.stat-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,246,242,.35);font-weight:400;}
+
+/* LAND SECTION */
+.land{padding:100px 0;}
+.land-inner{display:grid;grid-template-columns:1fr;gap:64px;align-items:center;} @media(min-width:900px){.land-inner{grid-template-columns:1fr 1fr;}}
+.land-image{aspect-ratio:4/3;background:#0d0d0d;position:relative;overflow:hidden;
+  /* Replace with: background-image:url('images/operation-land.jpg');background-size:cover;background-position:center; */
+}
+.land-image-label{position:absolute;bottom:20px;left:20px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(184,154,90,.35);}
+.land-text .section-tag{color:var(--gold);display:block;margin-bottom:24px;}
+.land-text h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.1;margin-bottom:24px;}
+.land-text p{font-size:15px;line-height:1.85;color:rgba(247,246,242,.55);margin-bottom:18px;}
+.land-text p:last-child{margin-bottom:0;}
+.land-detail{margin-top:36px;padding-top:32px;border-top:1px solid rgba(184,154,90,.1);display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.land-detail-item{} .land-detail-item strong{display:block;font-family:var(--font-display);font-weight:600;font-size:18px;color:var(--gold);margin-bottom:4px;} .land-detail-item span{font-size:12px;letter-spacing:.1em;color:rgba(247,246,242,.3);text-transform:uppercase;}
+
+/* HERD SECTION */
+.herd{background:#080808;padding:100px 0;}
+.herd-intro{max-width:680px;margin:0 auto var(--pad);text-align:center;}
+.herd-intro .section-tag{color:var(--gold);display:block;margin-bottom:20px;}
+.herd-intro h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.1;margin-bottom:20px;}
+.herd-intro p{font-size:15px;line-height:1.8;color:rgba(247,246,242,.5);}
+.herd-grid{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(247,246,242,.06);margin-top:60px;} @media(min-width:640px){.herd-grid{grid-template-columns:repeat(2,1fr);}} @media(min-width:1024px){.herd-grid{grid-template-columns:repeat(3,1fr);}}
+.herd-card{background:#080808;padding:40px 36px;display:flex;flex-direction:column;gap:14px;transition:background .3s;} .herd-card:hover{background:#0d0d0d;}
+.herd-card-num{font-family:var(--font-display);font-weight:700;font-size:44px;color:rgba(184,154,90,.15);line-height:1;}
+.herd-card h3{font-family:var(--font-display);font-weight:600;font-size:22px;line-height:1.2;color:var(--off-white);}
+.herd-card p{font-size:14px;line-height:1.8;color:rgba(247,246,242,.45);}
+
+/* SPLIT: OPERATION IMAGE + PHILOSOPHY */
+.philosophy{padding:100px 0;}
+.philosophy-inner{display:grid;grid-template-columns:1fr;gap:0;} @media(min-width:900px){.philosophy-inner{grid-template-columns:1fr 1fr;}}
+.philosophy-image{aspect-ratio:1/1;background:#0d0d0d;min-height:400px;
+  /* Replace with: background-image:url('images/operation-philosophy.jpg');background-size:cover;background-position:center top; */
+}
+.philosophy-text{background:#0a0a0a;padding:72px var(--pad) 72px;display:flex;flex-direction:column;justify-content:center;} @media(min-width:900px){.philosophy-text{padding:72px 64px;}}
+.philosophy-text .section-tag{color:var(--gold);display:block;margin-bottom:24px;}
+.philosophy-text h2{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.5vw,42px);line-height:1.1;margin-bottom:28px;}
+.philosophy-text blockquote{border-left:2px solid var(--gold);padding-left:24px;margin:32px 0;font-family:var(--font-display);font-style:italic;font-size:clamp(18px,2.5vw,24px);line-height:1.5;color:rgba(247,246,242,.72);}
+.philosophy-text p{font-size:15px;line-height:1.85;color:rgba(247,246,242,.5);margin-bottom:16px;}
+.philosophy-text p:last-child{margin-bottom:0;}
+
+/* PROTOCOLS */
+.protocols{background:#070707;padding:100px 0;}
+.protocols-header{text-align:center;max-width:600px;margin:0 auto 64px;}
+.protocols-header .section-tag{color:var(--gold);display:block;margin-bottom:20px;}
+.protocols-header h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.1;margin-bottom:20px;}
+.protocols-header p{font-size:15px;line-height:1.8;color:rgba(247,246,242,.45);}
+.protocols-list{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(247,246,242,.05);} @media(min-width:768px){.protocols-list{grid-template-columns:repeat(2,1fr);}}
+.protocol-item{background:#070707;padding:40px 36px;display:grid;grid-template-columns:48px 1fr;gap:24px;align-items:start;transition:background .3s;} .protocol-item:hover{background:#0c0c0c;}
+.protocol-num{font-family:var(--font-display);font-weight:700;font-size:32px;color:var(--gold);opacity:.25;line-height:1;}
+.protocol-content h3{font-family:var(--font-display);font-weight:600;font-size:20px;margin-bottom:10px;}
+.protocol-content p{font-size:14px;line-height:1.8;color:rgba(247,246,242,.45);}
+
+/* NAMIBIA ADVANTAGE */
+.namibia{padding:100px 0;background:var(--black);}
+.namibia-inner{display:grid;grid-template-columns:1fr;gap:64px;align-items:center;} @media(min-width:900px){.namibia-inner{grid-template-columns:1fr 1fr;gap:80px;}}
+.namibia-text .section-tag{color:var(--gold);display:block;margin-bottom:24px;}
+.namibia-text h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.1;margin-bottom:24px;}
+.namibia-text p{font-size:15px;line-height:1.85;color:rgba(247,246,242,.5);margin-bottom:18px;}
+.namibia-points{display:flex;flex-direction:column;gap:20px;margin-top:36px;}
+.namibia-point{display:flex;gap:20px;align-items:flex-start;}
+.namibia-point-icon{width:36px;height:36px;border:1px solid rgba(184,154,90,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:var(--gold);}
+.namibia-point-body h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-bottom:6px;color:var(--off-white);}
+.namibia-point-body p{font-size:13px;line-height:1.7;color:rgba(247,246,242,.4);}
+.namibia-image{aspect-ratio:4/3;background:#0d0d0d;position:relative;overflow:hidden;
+  /* Replace with: background-image:url('images/namibia-landscape.jpg');background-size:cover;background-position:center; */
+}
+.namibia-image::before{content:'Namibia';position:absolute;bottom:20px;left:20px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(184,154,90,.3);}
+
+/* CTA */
+.op-cta{background:var(--wine);padding:80px 0;}
+.op-cta-inner{text-align:center;max-width:640px;margin:0 auto;padding:0 var(--pad);}
+.op-cta .section-tag{color:rgba(247,246,242,.5);display:block;margin-bottom:20px;}
+.op-cta h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4vw,48px);line-height:1.1;margin-bottom:20px;}
+.op-cta p{font-size:15px;line-height:1.75;color:rgba(247,246,242,.6);margin-bottom:36px;}
+.btn-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}
+.btn-outline-white{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:14px 28px;border:1px solid rgba(247,246,242,.35);color:var(--off-white);font-family:var(--font-body);transition:border-color .25s,background .25s;}
+.btn-outline-white:hover{border-color:var(--off-white);background:rgba(247,246,242,.08);}
+.btn-gold-solid{display:inline-block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:14px 28px;background:var(--gold);color:var(--black);font-family:var(--font-body);transition:opacity .25s;}
+.btn-gold-solid:hover{opacity:.85;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;} .reveal.visible{opacity:1;transform:none;}
+
+/* FOOTER */
+.site-footer{background:#030303;border-top:1px solid rgba(184,154,90,.12);padding:60px 0 40px;}
+.footer-top{display:flex;flex-direction:column;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(247,246,242,.06);margin-bottom:32px;} @media(min-width:768px){.footer-top{flex-direction:row;justify-content:space-between;}}
+.footer-logo-text{font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:14px;} .footer-logo-text span{color:var(--gold);}
+.footer-brand p{font-size:13px;line-height:1.7;color:rgba(247,246,242,.32);max-width:300px;}
+.footer-nav{display:grid;grid-template-columns:repeat(2,1fr);gap:36px;} @media(min-width:480px){.footer-nav{grid-template-columns:repeat(3,auto);}}
+.footer-nav-group h4{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px;}
+.footer-nav-group ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-nav-group a{font-size:13px;color:rgba(247,246,242,.4);transition:color .2s;} .footer-nav-group a:hover{color:var(--off-white);}
+.footer-bottom{display:flex;flex-direction:column;gap:12px;} @media(min-width:640px){.footer-bottom{flex-direction:row;justify-content:space-between;align-items:center;}}
+.footer-bottom p{font-size:12px;color:rgba(247,246,242,.18);}
+.footer-legal{display:flex;gap:24px;} .footer-legal a{font-size:12px;color:rgba(247,246,242,.18);transition:color .2s;} .footer-legal a:hover{color:rgba(247,246,242,.5);}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="hdr">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop">
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="the-operation.html" class="active">The Operation</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="header-right">
+    <a href="work-with-us.html" class="header-cta">Work With Us</a>
+    <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mob">
+  <nav>
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html">Export</a>
+    <a href="the-operation.html">The Operation</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="mobile-menu-foot"><a href="work-with-us.html">Work With Us</a></div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <span class="hero-tag">The Operation</span>
+    <h1>Built from the ground up.<br>Controlled from start to finish.</h1>
+    <p class="hero-sub">King Wagyu is not a conversion project. It was designed as a Fullblood Wagyu operation — with the land, protocols, and genetic foundation chosen to produce one outcome: consistent, export-grade Wagyu that performs in the world's most demanding markets.</p>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-strip-inner">
+    <div class="stat-item">
+      <span class="stat-num">Fullblood</span>
+      <span class="stat-label">100% Wagyu Classification</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">Namibia</span>
+      <span class="stat-label">Southern Africa Base</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">Live & ET</span>
+      <span class="stat-label">Export Capability</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">End-to-End</span>
+      <span class="stat-label">Controlled Production</span>
+    </div>
+  </div>
+</div>
+
+<!-- THE LAND -->
+<section class="land">
+  <div class="container">
+    <div class="land-inner">
+      <div class="land-image reveal">
+        <span class="land-image-label">King Wagyu — Namibia</span>
+      </div>
+      <div class="land-text reveal">
+        <span class="section-tag t-label">The Land</span>
+        <h2>Chosen for what Wagyu needs, not inherited by default</h2>
+        <p>The land on which King Wagyu operates was selected with Wagyu-specific criteria in mind: space, climate stability, low disease pressure, and the ability to control herd environment from weaning through finishing. In Namibia, these conditions are not aspirational — they are the baseline.</p>
+        <p>Low stocking density allows natural behaviour and minimises stress-related cortisol responses that affect marbling deposition. The dry climate reduces parasite burden and supports the health consistency that premium production requires. The isolation of the operation, relative to high-density cattle areas, creates a biosecurity environment that supports the export health certifications required by international markets.</p>
+        <p>This is not luck of geography. It is a considered decision that the production environment and the production goal must be aligned from day one.</p>
+        <div class="land-detail">
+          <div class="land-detail-item"><strong>Low Density</strong><span>Herd Spacing</span></div>
+          <div class="land-detail-item"><strong>Dry Climate</strong><span>Namibian Conditions</span></div>
+          <div class="land-detail-item"><strong>Controlled</strong><span>Biosecurity</span></div>
+          <div class="land-detail-item"><strong>Export-Aligned</strong><span>Health Protocols</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERD MANAGEMENT -->
+<section class="herd">
+  <div class="container">
+    <div class="herd-intro reveal">
+      <span class="section-tag t-label">Herd Management</span>
+      <h2>Six principles that govern every animal, every day</h2>
+      <p>A Wagyu operation is not managed like a conventional beef operation. The animals are different, the production timeline is different, and the commercial stakes of getting it wrong are different. These are the principles that drive daily decisions at King Wagyu.</p>
+    </div>
+    <div class="herd-grid">
+      <div class="herd-card reveal">
+        <span class="herd-card-num">01</span>
+        <h3>Minimal Stress Handling</h3>
+        <p>Wagyu are sensitive animals. Cortisol responses to poor handling directly affect marbling deposition. Every interaction — from routine veterinary work to weighing — follows low-stress protocols as a production standard, not a preference.</p>
+      </div>
+      <div class="herd-card reveal">
+        <span class="herd-card-num">02</span>
+        <h3>Nutritional Precision</h3>
+        <p>Feed programmes are designed per phase of production — backgrounding, pre-finishing, and finishing — with transitions managed carefully to avoid the digestive disruption that affects weight gain and marbling. There is no single ration applied across the herd.</p>
+      </div>
+      <div class="herd-card reveal">
+        <span class="herd-card-num">03</span>
+        <h3>Individual Performance Tracking</h3>
+        <p>Each animal is tracked from birth through slaughter or export. Growth rates, health events, condition scores, and parentage are recorded. This data drives selection decisions and allows problems to be identified before they become production losses.</p>
+      </div>
+      <div class="herd-card reveal">
+        <span class="herd-card-num">04</span>
+        <h3>Recipient Cow Standards</h3>
+        <p>The embryo program's recipients are managed to the same standard as the donor herd. Body condition at transfer, synchronisation accuracy, and post-transfer monitoring are not afterthoughts — they are determinants of conception rate and foetal development quality.</p>
+      </div>
+      <div class="herd-card reveal">
+        <span class="herd-card-num">05</span>
+        <h3>Cohort Integrity</h3>
+        <p>Animals are grouped by age and genetic line and remain in those cohorts through the finishing phase. Mixing of cohorts — which introduces social stress and disrupts feeding hierarchy — is avoided as a matter of management policy.</p>
+      </div>
+      <div class="herd-card reveal">
+        <span class="herd-card-num">06</span>
+        <h3>Documentation at Every Stage</h3>
+        <p>Pedigree registration, DNA parentage verification, health records, and production data are maintained from birth. For live export and embryo sales, this documentation is the product — incomplete records mean reduced commercial value, regardless of animal quality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY SPLIT -->
+<section class="philosophy">
+  <div class="philosophy-inner">
+    <div class="philosophy-image"></div>
+    <div class="philosophy-text">
+      <span class="section-tag t-label">Why We Built It This Way</span>
+      <h2>The decision to do this properly or not at all</h2>
+      <blockquote>"There is no partial commitment to Fullblood Wagyu production. The market sees through compromises — and prices them accordingly."</blockquote>
+      <p>King Wagyu was established with a clear position: that the Wagyu market at the premium end rewards operations that have done the work — the genetics, the management discipline, the documentation — and that there is no shortcut to that position that holds commercially over time.</p>
+      <p>The crossbreeding route is faster. The conventional beef operation converted to Wagyu is cheaper to establish. Both can produce animals that carry the Wagyu name. Neither reliably produces the eating quality, classification integrity, or supply consistency that premium international buyers require.</p>
+      <p>The decision to build a Fullblood operation from foundation genetics — to invest in recipient programs, pedigree registration, health certification, and export compliance before the first animal is sold — was made with the understanding that the market we intend to serve will not accept anything less. That remains the standard against which every operational decision is made.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOCOLS -->
+<section class="protocols">
+  <div class="container">
+    <div class="protocols-header reveal">
+      <span class="section-tag t-label">Production Protocols</span>
+      <h2>How we maintain quality across every cohort</h2>
+      <p>Consistency is designed in, not hoped for. These are the operational protocols that translate genetics into reliable, grade-consistent results.</p>
+    </div>
+    <div class="protocols-list">
+      <div class="protocol-item reveal">
+        <span class="protocol-num">1</span>
+        <div class="protocol-content">
+          <h3>Breeding Selection</h3>
+          <p>Sires are selected against documented EBVs for marbling, structure, temperament, and growth efficiency. No animal enters the breeding program without verified pedigree and performance data. Selection decisions are documented and reviewed against herd production outcomes each cycle.</p>
+        </div>
+      </div>
+      <div class="protocol-item reveal">
+        <span class="protocol-num">2</span>
+        <div class="protocol-content">
+          <h3>Embryo Flush & Transfer</h3>
+          <p>Donors are superovulated on a managed cycle. Flush timing, recipient synchronisation, and transfer procedures follow veterinary protocols developed for Wagyu-specific requirements. Embryo quality is graded and recorded. Conception rates are tracked per flush cycle and inform recipient management adjustments.</p>
+        </div>
+      </div>
+      <div class="protocol-item reveal">
+        <span class="protocol-num">3</span>
+        <div class="protocol-content">
+          <h3>Weaning & Backgrounding</h3>
+          <p>Weaning is managed to minimise stress. Animals are backgrounded in cohort groups with nutritional transition managed over a defined period before pre-finishing begins. Bodyweight and condition targets at each phase are set against finishing timeline requirements, not arbitrary calendar dates.</p>
+        </div>
+      </div>
+      <div class="protocol-item reveal">
+        <span class="protocol-num">4</span>
+        <div class="protocol-content">
+          <h3>Finishing Protocol</h3>
+          <p>Time on feed is set per cohort based on genetic profile and target grade distribution. Animals are not pulled early to free up feedlot space. The finishing phase is treated as the final investment in a multi-year production cycle — shortchanging it is not an operational option.</p>
+        </div>
+      </div>
+      <div class="protocol-item reveal">
+        <span class="protocol-num">5</span>
+        <div class="protocol-content">
+          <h3>Health & Biosecurity</h3>
+          <p>A standing health protocol covers vaccination schedules, parasite management, and biosecurity entry requirements for the property. For animals destined for live export or export processing, health management begins with birth records and is maintained to meet the importing country's specific veterinary requirements.</p>
+        </div>
+      </div>
+      <div class="protocol-item reveal">
+        <span class="protocol-num">6</span>
+        <div class="protocol-content">
+          <h3>Export Documentation</h3>
+          <p>Pedigree registration, DNA verification, health certification, and classification paperwork are prepared in parallel with production — not assembled after the fact. The documentation chain is treated as a production output with the same quality standards applied to the animals themselves.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NAMIBIA ADVANTAGE -->
+<section class="namibia">
+  <div class="container">
+    <div class="namibia-inner">
+      <div class="namibia-text reveal">
+        <span class="section-tag t-label">The Namibia Advantage</span>
+        <h2>Why Namibia is the right base for this operation</h2>
+        <p>Namibia is not the obvious choice for a Wagyu operation. That is, in part, why it is the right one. The competitive concentration of Wagyu producers in Australia, the US, and Japan creates market friction — supply abundance, price compression, and input cost escalation. Building from Namibia creates a different position entirely.</p>
+        <div class="namibia-points">
+          <div class="namibia-point">
+            <div class="namibia-point-icon">✦</div>
+            <div class="namibia-point-body">
+              <h4>Disease-Free Status</h4>
+              <p>Namibia maintains FMD-free zones recognised by international veterinary bodies. This opens export health certification pathways that are unavailable to producers in higher-risk regions.</p>
+            </div>
+          </div>
+          <div class="namibia-point">
+            <div class="namibia-point-icon">✦</div>
+            <div class="namibia-point-body">
+              <h4>Emerging Market Position</h4>
+              <p>As a Southern African Wagyu source, King Wagyu operates in a market with minimal direct competition. Early positioning in an emerging supply region creates advantages that become more pronounced as demand grows.</p>
+            </div>
+          </div>
+          <div class="namibia-point">
+            <div class="namibia-point-icon">✦</div>
+            <div class="namibia-point-body">
+              <h4>Production Cost Structure</h4>
+              <p>Land, feed, and operational costs in Namibia create a production economics profile distinct from saturated Wagyu markets. This creates room to invest in quality while maintaining export price competitiveness.</p>
+            </div>
+          </div>
+          <div class="namibia-point">
+            <div class="namibia-point-icon">✦</div>
+            <div class="namibia-point-body">
+              <h4>African Continent Gateway</h4>
+              <p>As Wagyu demand grows across Middle Eastern and African premium markets, proximity and regional relationships create supply chain advantages that international competitors cannot easily replicate.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="namibia-image reveal"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="op-cta">
+  <div class="op-cta-inner">
+    <span class="section-tag t-label">Work With King Wagyu</span>
+    <h2>See what the operation can offer your program</h2>
+    <p>Whether you are sourcing genetics, embryos, live animals, or looking for a strategic supply relationship — the conversation starts here.</p>
+    <div class="btn-row">
+      <a href="work-with-us.html" class="btn-gold-solid">Enquire Now</a>
+      <a href="results.html" class="btn-outline-white">View Results</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>Fullblood Wagyu genetics, embryo programs, and export operations. Based in Namibia.</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>Program</h4>
+          <ul>
+            <li><a href="genetics.html">Genetics</a></li>
+            <li><a href="embryo-program.html">Embryo Program</a></li>
+            <li><a href="export.html">Export</a></li>
+            <li><a href="the-operation.html">The Operation</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Information</h4>
+          <ul>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="work-with-us.html">Work With Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 King Wagyu. All rights reserved.</p>
+      <div class="footer-legal"><a href="privacy.html">Privacy</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header scroll
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => { hdr.classList.toggle('scrolled', window.scrollY > 40); });
+
+// Mobile menu
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => { ham.classList.toggle('active'); mob.classList.toggle('open'); document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : ''; });
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
