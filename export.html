@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="King Wagyu Export — Built for quality, consistency, and market readiness beyond the farm gate.">
+<title>Export | King Wagyu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:     #050505;
+  --off-white: #F7F6F2;
+  --gold:      #B89A5A;
+  --wine:      #4A1018;
+  --stone:     #D9D1C7;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  --max-w: 1280px;
+  --pad: 24px;
+  --sec: 80px;
+}
+@media (min-width: 768px)  { :root { --pad: 48px; --sec: 120px; } }
+@media (min-width: 1200px) { :root { --pad: 80px; --sec: 150px; } }
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--off-white); font-family: var(--font-body); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+.container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+.t-label { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* HEADER */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--pad); transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; }
+.site-header.scrolled { background: rgba(5,5,5,.96); border-bottom-color: rgba(184,154,90,.15); backdrop-filter: blur(8px); }
+.logo { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; }
+.logo span { color: var(--gold); }
+.nav-desktop { display: none; align-items: center; gap: 36px; }
+@media (min-width: 1024px) { .nav-desktop { display: flex; } }
+.nav-desktop a { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; color: rgba(247,246,242,.65); transition: color .2s; }
+.nav-desktop a:hover, .nav-desktop a.active { color: var(--off-white); }
+.header-right { display: flex; align-items: center; gap: 20px; }
+.header-cta { display: none; }
+@media (min-width: 1024px) { .header-cta { display: inline-block; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 10px 22px; border: 1px solid var(--gold); color: var(--gold); transition: background .25s, color .25s; } .header-cta:hover { background: var(--gold); color: var(--black); } }
+.hamburger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
+@media (min-width: 1024px) { .hamburger { display: none; } }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--off-white); transition: all .3s; }
+.hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: var(--black); padding: 100px var(--pad) 60px; flex-direction: column; justify-content: center; }
+.mobile-menu.open { display: flex; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 4px; }
+.mobile-menu nav a { font-family: var(--font-display); font-size: 38px; font-weight: 700; letter-spacing: .02em; padding: 12px 0; border-bottom: 1px solid rgba(247,246,242,.07); transition: color .2s; }
+.mobile-menu nav a:hover { color: var(--gold); }
+.mobile-menu-foot { margin-top: 48px; }
+.mobile-menu-foot a { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; padding: 14px 28px; border: 1px solid var(--gold); color: var(--gold); }
+
+/* ============================================================
+   HERO — dark, cinematic, controlled
+============================================================ */
+.page-hero {
+  position: relative; min-height: 90vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding-bottom: 0; overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute; inset: 0;
+  /* Replace with: url('images/export-hero.jpg') */
+  background:
+    linear-gradient(to bottom, rgba(5,5,5,.15) 0%, rgba(5,5,5,.05) 40%, rgba(5,5,5,.85) 85%, rgba(5,5,5,1) 100%),
+    linear-gradient(160deg, #080a0d 0%, #060708 60%, #050505 100%);
+  background-size: cover; background-position: center;
+}
+.page-hero-bg::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+}
+.page-hero-img-note { position: absolute; top: 90px; right: var(--pad); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(184,154,90,.25); writing-mode: vertical-rl; pointer-events: none; }
+
+.page-hero-content { position: relative; z-index: 2; padding: 0 var(--pad) 72px; }
+.page-hero-content .t-label { color: var(--gold); display: block; margin-bottom: 20px; }
+.page-hero-content h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(56px, 11vw, 124px); letter-spacing: .04em; line-height: .92; text-transform: uppercase; margin-bottom: 32px; }
+.page-hero-content p { font-size: clamp(15px, 1.8vw, 19px); font-weight: 300; color: rgba(247,246,242,.56); max-width: 520px; line-height: 1.65; }
+
+/* Stat strip at base of hero */
+.hero-stat-strip {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border-top: 1px solid rgba(184,154,90,.15);
+}
+@media (min-width: 768px) { .hero-stat-strip { grid-template-columns: repeat(3,1fr); } }
+.hero-stat { padding: 28px var(--pad); border-right: 1px solid rgba(184,154,90,.1); background: rgba(5,5,5,.8); backdrop-filter: blur(4px); }
+.hero-stat:last-child { border-right: none; }
+.hero-stat-value { font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3.5vw, 40px); line-height: 1; color: var(--off-white); margin-bottom: 6px; }
+.hero-stat-label { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(184,154,90,.6); font-weight: 500; }
+
+/* ============================================================
+   EXPORT POSITIONING — the statement
+============================================================ */
+.positioning { background: var(--off-white); color: var(--black); padding: var(--sec) 0; }
+.pos-inner { display: flex; flex-direction: column; gap: 48px; }
+@media (min-width: 900px) { .pos-inner { flex-direction: row; gap: 80px; align-items: flex-start; } }
+.pos-left { flex-shrink: 0; max-width: 360px; }
+.pos-left .t-label { color: var(--wine); display: block; margin-bottom: 18px; }
+.pos-left h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 3.8vw, 44px); line-height: 1.1; }
+.pos-right p { font-size: 16px; line-height: 1.8; color: rgba(5,5,5,.68); margin-bottom: 20px; }
+.pos-right p:last-child { margin-bottom: 0; }
+.pos-right strong { font-weight: 500; color: var(--black); }
+
+/* ============================================================
+   WHY GENETICS MATTERS FOR EXPORT — 3 column
+============================================================ */
+.genetics-export { background: #080808; padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.1); }
+.ge-header { margin-bottom: 52px; }
+.ge-header .t-label { color: var(--gold); display: block; margin-bottom: 16px; }
+.ge-header h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 48px); line-height: 1.05; max-width: 680px; }
+
+.ge-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(184,154,90,.08); }
+@media (min-width: 640px)  { .ge-grid { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .ge-grid { grid-template-columns: repeat(3,1fr); } }
+
+.ge-card { background: #080808; padding: 44px 36px; display: flex; flex-direction: column; gap: 16px; position: relative; transition: background .3s; }
+.ge-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background .3s; }
+.ge-card:hover { background: #0e0e0e; }
+.ge-card:hover::before { background: var(--gold); }
+.ge-card-rule { width: 28px; height: 1px; background: var(--gold); }
+.ge-card h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(20px, 2.5vw, 26px); line-height: 1.1; }
+.ge-card p { font-size: 14px; line-height: 1.75; color: rgba(247,246,242,.48); }
+
+/* ============================================================
+   PRODUCTION DISCIPLINE — full-width statement section
+============================================================ */
+.production { background: var(--black); padding: var(--sec) 0; position: relative; overflow: hidden; }
+.production::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(184,154,90,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(184,154,90,.025) 1px, transparent 1px);
+  background-size: 100px 100px;
+}
+.prod-inner { position: relative; z-index: 1; }
+.prod-header { margin-bottom: 56px; }
+.prod-header .t-label { color: var(--gold); display: block; margin-bottom: 16px; }
+.prod-header h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 48px); line-height: 1.05; max-width: 640px; }
+
+.prod-pillars { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(247,246,242,.05); }
+@media (min-width: 768px) { .prod-pillars { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1100px) { .prod-pillars { grid-template-columns: repeat(4,1fr); } }
+
+.prod-pillar { background: var(--black); padding: 40px 32px; display: flex; flex-direction: column; gap: 14px; }
+.prod-pillar-num { font-family: var(--font-display); font-size: 48px; font-weight: 700; line-height: 1; color: rgba(184,154,90,.08); margin-bottom: 4px; }
+.prod-pillar h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(18px, 2vw, 22px); line-height: 1.15; }
+.prod-pillar p { font-size: 13.5px; line-height: 1.75; color: rgba(247,246,242,.46); }
+
+/* ============================================================
+   MARKET CONTEXT — the confident statement
+============================================================ */
+.market-context { background: var(--off-white); color: var(--black); padding: var(--sec) 0; }
+.mc-inner { display: flex; flex-direction: column; gap: 56px; }
+@media (min-width: 768px) { .mc-inner { flex-direction: row; gap: 80px; align-items: stretch; } }
+
+.mc-quote { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.mc-quote .t-label { color: var(--wine); display: block; margin-bottom: 24px; }
+.mc-quote blockquote { font-family: var(--font-display); font-style: italic; font-size: clamp(22px, 3.2vw, 34px); line-height: 1.4; font-weight: 400; color: var(--black); border-left: 2px solid var(--wine); padding-left: 28px; }
+
+.mc-points { flex: 1; display: flex; flex-direction: column; gap: 0; justify-content: center; }
+.mc-point { padding: 24px 0; border-bottom: 1px solid rgba(5,5,5,.08); display: flex; gap: 20px; align-items: flex-start; }
+.mc-point:first-child { border-top: 1px solid rgba(5,5,5,.08); }
+.mc-point-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--wine); flex-shrink: 0; margin-top: 8px; }
+.mc-point-body h4 { font-family: var(--font-display); font-weight: 600; font-size: 18px; margin-bottom: 6px; color: var(--black); }
+.mc-point-body p { font-size: 14px; line-height: 1.7; color: rgba(5,5,5,.62); }
+
+/* ============================================================
+   NAMIBIA CONTEXT — geographic + operational brief
+============================================================ */
+.namibia-context { background: var(--black); padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.1); }
+.nc-inner { display: flex; flex-direction: column; gap: 48px; }
+@media (min-width: 768px) { .nc-inner { flex-direction: row; align-items: flex-start; gap: 80px; } }
+.nc-left { flex-shrink: 0; }
+.nc-left .t-label { color: var(--gold); display: block; margin-bottom: 18px; }
+.nc-left h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 3.8vw, 42px); line-height: 1.1; max-width: 340px; }
+.nc-right { flex: 1; }
+.nc-right p { font-size: 15px; line-height: 1.8; color: rgba(247,246,242,.55); margin-bottom: 18px; }
+.nc-right p:last-child { margin-bottom: 0; }
+.nc-right strong { color: rgba(247,246,242,.8); font-weight: 500; }
+
+/* ============================================================
+   PAGE CTA — export enquiry
+============================================================ */
+.page-cta { background: var(--wine); padding: var(--sec) 0; position: relative; overflow: hidden; }
+.page-cta::before { content: 'EXPORT'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%); font-family: var(--font-display); font-weight: 700; font-size: clamp(80px,14vw,180px); letter-spacing: .06em; color: rgba(247,246,242,.04); white-space: nowrap; pointer-events: none; user-select: none; }
+.page-cta-inner { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 40px; }
+@media (min-width: 768px) { .page-cta-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+.page-cta-copy .t-label { color: rgba(247,246,242,.45); display: block; margin-bottom: 16px; }
+.page-cta-copy h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 4vw, 46px); line-height: 1.1; color: var(--off-white); max-width: 560px; }
+.page-cta-copy p { margin-top: 16px; font-size: 14px; line-height: 1.7; color: rgba(247,246,242,.5); max-width: 480px; }
+.cta-group { display: flex; flex-direction: column; gap: 14px; flex-shrink: 0; }
+@media (min-width: 480px) { .cta-group { flex-direction: row; align-items: center; } }
+.btn-white { background: transparent; color: var(--off-white); border: 1px solid rgba(247,246,242,.5); padding: 14px 28px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; display: inline-block; font-family: var(--font-body); transition: background .25s, border-color .25s; white-space: nowrap; }
+.btn-white:hover { background: rgba(247,246,242,.1); border-color: var(--off-white); }
+.btn-ghost { background: transparent; color: rgba(247,246,242,.5); border: 1px solid rgba(247,246,242,.2); padding: 14px 28px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; display: inline-block; font-family: var(--font-body); transition: color .25s, border-color .25s; white-space: nowrap; }
+.btn-ghost:hover { color: var(--off-white); border-color: rgba(247,246,242,.4); }
+
+/* FOOTER */
+.site-footer { background: #030303; border-top: 1px solid rgba(184,154,90,.12); padding: 60px 0 40px; }
+.footer-top { display: flex; flex-direction: column; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(247,246,242,.06); margin-bottom: 32px; }
+@media (min-width: 768px) { .footer-top { flex-direction: row; justify-content: space-between; } }
+.footer-logo-text { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: .12em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+.footer-logo-text span { color: var(--gold); }
+.footer-brand p { font-size: 13px; line-height: 1.7; color: rgba(247,246,242,.32); max-width: 300px; }
+.footer-nav { display: grid; grid-template-columns: repeat(2,1fr); gap: 36px; }
+@media (min-width: 480px) { .footer-nav { grid-template-columns: repeat(3,auto); } }
+.footer-nav-group h4 { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+.footer-nav-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav-group a { font-size: 13px; color: rgba(247,246,242,.4); transition: color .2s; }
+.footer-nav-group a:hover { color: var(--off-white); }
+.footer-bottom { display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+.footer-bottom p { font-size: 12px; color: rgba(247,246,242,.18); }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(247,246,242,.18); transition: color .2s; }
+.footer-legal a:hover { color: rgba(247,246,242,.5); }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop">
+    <a href="index.html">Home</a>
+    <a href="genetics.html">Genetics</a>
+    <a href="embryo-program.html">Embryo Program</a>
+    <a href="export.html" class="active">Export</a>
+    <a href="insights.html">Insights</a>
+  </nav>
+  <div class="header-right">
+    <a href="work-with-us.html" class="header-cta">Work With King Wagyu</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog">
+  <nav>
+    <a href="index.html"          onclick="closeMenu()">Home</a>
+    <a href="genetics.html"       onclick="closeMenu()">Genetics</a>
+    <a href="embryo-program.html" onclick="closeMenu()">Embryo Program</a>
+    <a href="export.html"         onclick="closeMenu()">Export</a>
+    <a href="insights.html"       onclick="closeMenu()">Insights</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a href="work-with-us.html" onclick="closeMenu()">Work With King Wagyu</a>
+  </div>
+</div>
+
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" aria-hidden="true"></div>
+  <div class="page-hero-img-note" aria-hidden="true">[ IMAGE: Cattle / Landscape — Export Quality ]</div>
+  <div class="page-hero-content">
+    <span class="t-label">Market Positioning</span>
+    <h1>Export</h1>
+    <p>Built for quality, consistency, and market readiness beyond the farm gate. Not an aspiration — a current operational reality.</p>
+  </div>
+  <div class="hero-stat-strip">
+    <div class="hero-stat">
+      <div class="hero-stat-value">Fullblood</div>
+      <div class="hero-stat-label">Wagyu Genetics</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-value">Controlled</div>
+      <div class="hero-stat-label">Production System</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-value">Namibia</div>
+      <div class="hero-stat-label">Based &amp; Operating</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPORT POSITIONING -->
+<section class="positioning">
+  <div class="container">
+    <div class="pos-inner">
+      <div class="pos-left reveal">
+        <span class="t-label">The Position</span>
+        <h2>Already within export. Operating now.</h2>
+      </div>
+      <div class="pos-right reveal">
+        <p>King Wagyu does not position itself as export-ready in the aspirational sense — as an operation that hopes to reach international markets eventually. <strong>Export is a current component of the business system.</strong> It is where the operation is already active, already engaged, and already building the relationships that serious international trade requires.</p>
+        <p>This matters because the distinction between an operation that is export-oriented and one that is export-active is significant. The former is common. The latter requires a level of production discipline, genetic consistency, and operational seriousness that most operations never achieve — not because they lack ambition, but because they lack the foundational systems to sustain it.</p>
+        <p>King Wagyu's export positioning is built on those foundations: genetics-led quality, controlled production, and the embryo program that drives consistency across production cycles. The market-facing component is built on something real. That is what makes it credible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHY GENETICS MATTERS FOR EXPORT -->
+<section class="genetics-export">
+  <div class="container">
+    <div class="ge-header reveal">
+      <span class="t-label">The Upstream Advantage</span>
+      <h2>Why export quality is determined before the animal leaves the property.</h2>
+    </div>
+    <div class="ge-grid">
+      <div class="ge-card reveal">
+        <div class="ge-card-rule"></div>
+        <h3>Consistency Over Volume</h3>
+        <p>Premium export markets do not simply require large supply. They require supply that meets specification reliably — the same eating quality, the same marbling grade, the same carcass weight, cycle after cycle. That consistency is a genetics outcome. It cannot be produced by management alone. King Wagyu's genetic selection is designed specifically to narrow the variance in production quality.</p>
+      </div>
+      <div class="ge-card reveal">
+        <div class="ge-card-rule"></div>
+        <h3>Outcome Reliability</h3>
+        <p>A serious export partner needs to know that what they receive next month will match what they received this month. Outcome reliability is what separates a genuine export operation from a farm that occasionally produces export-quality animals. The breeding and embryo program at King Wagyu is structured to produce reliable outcomes — not exceptional outliers surrounded by variance.</p>
+      </div>
+      <div class="ge-card reveal">
+        <div class="ge-card-rule"></div>
+        <h3>Eating Quality as Differentiator</h3>
+        <p>In premium Wagyu markets, price is determined by eating quality. Eating quality is determined by genetics and production discipline. Operations that compete on genetics — not just on volume, geography, or feeding time — occupy a different tier of the market. King Wagyu's genetics program is designed to place product in that tier. The market premium follows the quality. The quality follows the genetics.</p>
+      </div>
+      <div class="ge-card reveal">
+        <div class="ge-card-rule"></div>
+        <h3>Disciplined Breeding as Supply Infrastructure</h3>
+        <p>Export supply infrastructure is not just cold storage and logistics. It begins with a breeding program disciplined enough to produce consistent quality across production cycles. The embryo program accelerates that consistency. The genetic selection criteria enforce it. Together, they form the upstream infrastructure that makes export supply credible and sustainable.</p>
+      </div>
+      <div class="ge-card reveal">
+        <div class="ge-card-rule"></div>
+        <h3>Traceability Through the System</h3>
+        <p>Premium export markets increasingly require traceability — not as a compliance exercise, but as a quality assurance signal. When genetics are controlled, when the breeding program is documented, and when production management is consistent, traceability is a natural output of the system rather than an administrative burden layered on top of it.</p>
+      </div>
+      <div class="ge-card reveal">
+        <div class="ge-card-rule"></div>
+        <h3>Long-Term Supply Relationships</h3>
+        <p>Export is not a transaction. It is a relationship built on consistent performance over time. The breeding and production discipline at King Wagyu is designed not just to produce quality now, but to sustain it — building the trust that long-term international trade relationships require. That requires a program built for the long term, not optimised for short-term volume.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRODUCTION DISCIPLINE -->
+<section class="production">
+  <div class="container prod-inner">
+    <div class="prod-header reveal">
+      <span class="t-label">Production Discipline</span>
+      <h2>The operational components that make export positioning real.</h2>
+    </div>
+    <div class="prod-pillars">
+      <div class="prod-pillar reveal">
+        <div class="prod-pillar-num">01</div>
+        <h3>Genetics Selection</h3>
+        <p>Every animal in the production system traces to a genetics decision made with export-grade consistency as an explicit objective. Selection criteria prioritise marbling potential, structural correctness, and trait expression reliability — not showring aesthetics or pedigree prestige.</p>
+      </div>
+      <div class="prod-pillar reveal">
+        <div class="prod-pillar-num">02</div>
+        <h3>Embryo Program Control</h3>
+        <p>The embryo program compresses genetic progress and narrows variance across the production group. When donor selection is disciplined and recipient management is controlled, the resulting cohort is significantly more consistent than any AI or natural service program can produce at equivalent scale.</p>
+      </div>
+      <div class="prod-pillar reveal">
+        <div class="prod-pillar-num">03</div>
+        <h3>Animal Condition</h3>
+        <p>Condition is managed as a production variable, not assumed as a background outcome. Nutrition, stress management, handling protocols, and environment all influence the final eating quality of the animal. These are controlled program components at King Wagyu — not afterthoughts addressed at the point of processing.</p>
+      </div>
+      <div class="prod-pillar reveal">
+        <div class="prod-pillar-num">04</div>
+        <h3>Quality Alignment</h3>
+        <p>Production decisions — timing, management protocols, processing alignment — are made with the end market specification in mind. The operation is structured around what the market requires, not around what is convenient. That alignment between production reality and market expectation is what makes export positioning sustainable rather than aspirational.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MARKET CONTEXT -->
+<section class="market-context">
+  <div class="container">
+    <div class="mc-inner">
+      <div class="mc-quote reveal">
+        <span class="t-label">In Market Context</span>
+        <blockquote>"Premium Wagyu is not sold. It is earned — through genetic discipline, production consistency, and the willingness to hold quality as the non-negotiable standard regardless of the pressure to compromise for volume."</blockquote>
+      </div>
+      <div class="mc-points reveal">
+        <div class="mc-point">
+          <div class="mc-point-dot"></div>
+          <div class="mc-point-body">
+            <h4>A Premium Program</h4>
+            <p>King Wagyu does not compete in the commodity Wagyu space. The genetics program, the embryo work, and the production discipline are all designed for the premium end of the market — where quality and consistency command the pricing that justifies the investment.</p>
+          </div>
+        </div>
+        <div class="mc-point">
+          <div class="mc-point-dot"></div>
+          <div class="mc-point-body">
+            <h4>Serious Supply Capability</h4>
+            <p>Supply capability is built on a foundation of genetic consistency and production control. King Wagyu's program is structured to support serious, sustained supply — not occasional exceptional product from an otherwise variable herd.</p>
+          </div>
+        </div>
+        <div class="mc-point">
+          <div class="mc-point-dot"></div>
+          <div class="mc-point-body">
+            <h4>Strategic Relationships</h4>
+            <p>Export is built on trust. King Wagyu's approach to international trade discussions is direct, substantive, and structured for operational fit — not for volume of conversations. The enquiry system reflects this: selective access, serious engagement.</p>
+          </div>
+        </div>
+        <div class="mc-point">
+          <div class="mc-point-dot"></div>
+          <div class="mc-point-body">
+            <h4>Quality-Led Positioning</h4>
+            <p>The King Wagyu market position is built on quality first — genetics, consistency, eating experience. Price and volume follow from that foundation. This is the only sustainable positioning in a premium Wagyu market that is becoming increasingly sophisticated and discerning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- NAMIBIA CONTEXT -->
+<section class="namibia-context">
+  <div class="container">
+    <div class="nc-inner">
+      <div class="nc-left reveal">
+        <span class="t-label">Origin</span>
+        <h2>Namibia — an export-active agricultural nation.</h2>
+      </div>
+      <div class="nc-right reveal">
+        <p>Namibia is not an emerging agricultural market. It is <strong>one of Africa's most established beef-producing and exporting nations</strong> — operating within international trade frameworks, holding market access to multiple premium destinations, and maintaining a strong reputation for clean, traceable production.</p>
+        <p>King Wagyu operates within this established framework, with access to the infrastructure, regulatory systems, and international relationships that Namibia's agricultural export sector has built over decades. This is a meaningful operational advantage — one that distinguishes King Wagyu from Wagyu operations based in markets without equivalent export infrastructure or market access.</p>
+        <p>For international buyers, this matters. Namibian origin is not an exotic novelty. It is a credible, established agricultural provenance backed by real export systems and real market access.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PAGE CTA -->
+<section class="page-cta">
+  <div class="container page-cta-inner">
+    <div class="page-cta-copy reveal">
+      <span class="t-label">Export Enquiry</span>
+      <h2>Serious export discussions through the right channel.</h2>
+      <p>Export enquiries are reviewed for relevance and operational fit. Use the structured pathway below for trade discussions, supply conversations, and strategic market engagement.</p>
+    </div>
+    <div class="cta-group reveal">
+      <a href="work-with-us.html#export" class="btn-white">Begin Export Enquiry</a>
+      <a href="work-with-us.html#strategic" class="btn-ghost">Strategic Discussion</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>A serious Wagyu breeding, embryo, and export operation. Built on genetics, discipline, and outcome. Namibia.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-group">
+          <h4>The Operation</h4>
+          <ul>
+            <li><a href="the-operation.html">The Operation</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="insights.html">Insights</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="genetics.html">Genetics</a></li>
+            <li><a href="embryo-program.html">Embryo Program</a></li>
+            <li><a href="export.html">Export</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Access</h4>
+          <ul>
+            <li><a href="work-with-us.html">Work With Us</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 King Wagyu. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="work-with-us.html">Enquiry Access</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+function openMenu()  { hamburger.classList.add('active'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMenu() { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeMenu(); });
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
