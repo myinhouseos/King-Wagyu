@@ -102,15 +102,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ============================================================
    EXPORT POSITIONING — the statement
 ============================================================ */
-.positioning { background: var(--off-white); color: var(--black); padding: var(--sec) 0; }
+.positioning { background: #0e0c0a; color: var(--off-white); padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.12); }
 .pos-inner { display: flex; flex-direction: column; gap: 48px; }
 @media (min-width: 900px) { .pos-inner { flex-direction: row; gap: 80px; align-items: flex-start; } }
 .pos-left { flex-shrink: 0; max-width: 360px; }
-.pos-left .t-label { color: var(--wine); display: block; margin-bottom: 18px; }
-.pos-left h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 3.8vw, 44px); line-height: 1.1; }
-.pos-right p { font-size: 16px; line-height: 1.8; color: rgba(5,5,5,.68); margin-bottom: 20px; }
+.pos-left .t-label { color: var(--gold); display: block; margin-bottom: 18px; }
+.pos-left h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(26px, 3.8vw, 44px); line-height: 1.1; color: var(--off-white); }
+.pos-right p { font-size: 16px; line-height: 1.8; color: rgba(247,246,242,.55); margin-bottom: 20px; }
 .pos-right p:last-child { margin-bottom: 0; }
-.pos-right strong { font-weight: 500; color: var(--black); }
+.pos-right strong { font-weight: 500; color: var(--gold); }
 
 /* ============================================================
    WHY GENETICS MATTERS FOR EXPORT — 3 column
@@ -158,20 +158,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ============================================================
    MARKET CONTEXT — the confident statement
 ============================================================ */
-.market-context { background: var(--off-white); color: var(--black); padding: var(--sec) 0; }
+.market-context { background: #0e0c0a; color: var(--off-white); padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.12); }
 .mc-inner { display: flex; flex-direction: column; gap: 56px; }
 @media (min-width: 768px) { .mc-inner { flex-direction: row; gap: 80px; align-items: stretch; } }
 
 .mc-quote { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.mc-quote .t-label { color: var(--wine); display: block; margin-bottom: 24px; }
-.mc-quote blockquote { font-family: var(--font-display); font-style: italic; font-size: clamp(22px, 3.2vw, 34px); line-height: 1.4; font-weight: 400; color: var(--black); border-left: 2px solid var(--wine); padding-left: 28px; }
+.mc-quote .t-label { color: var(--gold); display: block; margin-bottom: 24px; }
+.mc-quote blockquote { font-family: var(--font-display); font-style: italic; font-size: clamp(22px, 3.2vw, 34px); line-height: 1.4; font-weight: 400; color: var(--off-white); border-left: 2px solid var(--gold); padding-left: 28px; }
 
 .mc-points { flex: 1; display: flex; flex-direction: column; gap: 0; justify-content: center; }
-.mc-point { padding: 24px 0; border-bottom: 1px solid rgba(5,5,5,.08); display: flex; gap: 20px; align-items: flex-start; }
-.mc-point:first-child { border-top: 1px solid rgba(5,5,5,.08); }
-.mc-point-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--wine); flex-shrink: 0; margin-top: 8px; }
-.mc-point-body h4 { font-family: var(--font-display); font-weight: 600; font-size: 18px; margin-bottom: 6px; color: var(--black); }
-.mc-point-body p { font-size: 14px; line-height: 1.7; color: rgba(5,5,5,.62); }
+.mc-point { padding: 24px 0; border-bottom: 1px solid rgba(247,246,242,.08); display: flex; gap: 20px; align-items: flex-start; }
+.mc-point:first-child { border-top: 1px solid rgba(247,246,242,.08); }
+.mc-point-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 8px; }
+.mc-point-body h4 { font-family: var(--font-display); font-weight: 600; font-size: 18px; margin-bottom: 6px; color: var(--off-white); }
+.mc-point-body p { font-size: 14px; line-height: 1.7; color: rgba(247,246,242,.5); }
 
 /* ============================================================
    NAMIBIA CONTEXT — geographic + operational brief

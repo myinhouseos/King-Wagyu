@@ -164,14 +164,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 ============================================================ */
 .hero {
   position: relative; height: 100svh; min-height: 620px;
-  display: flex; align-items: flex-end; padding-bottom: 64px;
+  display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
 .hero-bg {
   position: absolute; inset: 0;
   background:
     linear-gradient(to bottom, rgba(5,5,5,.15) 0%, rgba(5,5,5,.08) 35%, rgba(5,5,5,.55) 70%, rgba(5,5,5,.92) 100%),
-    url('images/king-wagyu-1-hero-bg.jpeg');
+    url('images/king-wagyu-bull-meat-hero-bg.jpeg');
   background-size: cover; background-position: center;
 }
 /* Grain texture */
@@ -185,9 +185,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 9px; letter-spacing: .15em; text-transform: uppercase;
   color: rgba(184,154,90,.3); writing-mode: vertical-rl; pointer-events: none;
 }
-.hero-content { position: relative; z-index: 2; width: 100%; padding: 0 var(--pad); }
+.hero-content { position: relative; z-index: 2; width: 100%; padding: 0 var(--pad); text-align: center; display: flex; flex-direction: column; align-items: center; }
+.hero-logo { width: clamp(120px, 18vw, 200px); margin-bottom: 36px; opacity: .92; }
 .hero-eyebrow {
-  display: flex; align-items: center; gap: 16px; margin-bottom: 22px;
+  display: flex; align-items: center; gap: 16px; margin-bottom: 22px; justify-content: center;
 }
 .hero-eyebrow-line { width: 32px; height: 1px; background: var(--gold); flex-shrink: 0; }
 .hero-eyebrow-text { font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
@@ -200,9 +201,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-sub {
   font-size: clamp(14px, 1.9vw, 17px); font-weight: 300;
   color: rgba(247,246,242,.62); max-width: 460px;
-  line-height: 1.6; margin-bottom: 40px; letter-spacing: .01em;
+  line-height: 1.6; margin-bottom: 40px; letter-spacing: .01em; text-align: center;
 }
-.hero-ctas { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.hero-ctas { display: flex; flex-direction: column; gap: 14px; align-items: center; }
 @media (min-width: 500px) { .hero-ctas { flex-direction: row; align-items: center; } }
 
 .hero-scroll {
@@ -224,20 +225,21 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ============================================================
    POSITIONING STATEMENT
 ============================================================ */
-.positioning { background: var(--off-white); color: var(--black); padding: var(--sec) 0; }
+.positioning { background: #0e0c0a; color: var(--off-white); padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.12); }
 .pos-statement {
   font-family: var(--font-display); font-weight: 600;
   font-size: clamp(22px, 3.8vw, 42px);
   line-height: 1.25; letter-spacing: .01em; max-width: 900px;
+  color: var(--off-white);
 }
-.pos-statement em { font-style: italic; color: var(--wine); }
+.pos-statement em { font-style: italic; color: var(--gold); }
 .pos-detail {
   margin-top: 48px;
   display: grid; grid-template-columns: 1fr; gap: 32px;
 }
 @media (min-width: 768px) { .pos-detail { grid-template-columns: repeat(3,1fr); margin-top: 64px; } }
-.pos-detail-item .t-label { color: var(--wine); display: block; margin-bottom: 12px; }
-.pos-detail-item p { font-size: 14px; line-height: 1.75; color: rgba(5,5,5,.65); }
+.pos-detail-item .t-label { color: var(--gold); display: block; margin-bottom: 12px; }
+.pos-detail-item p { font-size: 14px; line-height: 1.75; color: rgba(247,246,242,.5); }
 
 
 /* ============================================================
@@ -259,16 +261,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: transform .8s ease;
 }
 .go-panel:hover .go-panel-bg { transform: scale(1.03); }
-/* ↓ Replace gradients with your images */
 .go-bull .go-panel-bg {
   background:
     linear-gradient(135deg, rgba(5,5,5,0) 40%, rgba(5,5,5,.75) 100%),
-    linear-gradient(160deg, #1d1108 0%, #0d0805 100%);
+    url('images/king-wagyu-2-genetics-bull.jpeg');
+  background-size: cover; background-position: center;
 }
 .go-marbling .go-panel-bg {
   background:
     linear-gradient(225deg, rgba(5,5,5,0) 40%, rgba(5,5,5,.75) 100%),
-    linear-gradient(340deg, #0d0805 0%, #1a1208 100%);
+    url('images/king-wagyu-13-marbling-bms7.jpeg');
+  background-size: cover; background-position: center;
 }
 .go-panel-label {
   position: absolute; top: 28px; left: 28px;
@@ -359,7 +362,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: absolute; inset: 0;
   background:
     linear-gradient(to bottom, var(--black) 0%, rgba(5,5,5,0) 20%, rgba(5,5,5,0) 60%, var(--black) 100%),
-    url('images/king-wagyu-20-genetics-bull.jpeg');
+    url('images/king-wagyu-bull-meat-hero-bg.jpeg');
   background-size: cover; background-position: center 30%;
 }
 .operation-strip-note {
@@ -613,9 +616,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-img-note" aria-hidden="true">[ IMAGE: Bulls in Dust ]</div>
   <div class="hero-content">
+    <img src="King Wagyu Logo-.png" alt="King Wagyu" class="hero-logo">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-line"></div>
       <span class="hero-eyebrow-text">Wagyu Breeding &amp; Embryo Operation — Namibia</span>
+      <div class="hero-eyebrow-line"></div>
     </div>
     <h1>King<br>Wagyu</h1>
     <p class="hero-sub">Built for Genetic Strength. Positioned for Export.</p>
