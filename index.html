@@ -173,7 +173,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     linear-gradient(to bottom, rgba(5,5,5,.15) 0%, rgba(5,5,5,.08) 35%, rgba(5,5,5,.55) 70%, rgba(5,5,5,.92) 100%),
     url('images/king-wagyu-bull-meat-hero-bg.jpeg');
   background-size: cover; background-position: center;
+  background-attachment: fixed;
 }
+@media (max-width: 768px) { .hero-bg { background-attachment: scroll; } }
 /* Grain texture */
 .hero-bg::after {
   content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .04;
@@ -225,7 +227,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ============================================================
    POSITIONING STATEMENT
 ============================================================ */
-.positioning { background: #0e0c0a; color: var(--off-white); padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.12); }
+.positioning { background: #0e0c0a; color: var(--off-white); padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.12); position: relative; overflow: hidden; }
+.positioning::before {
+  content: 'KING'; position: absolute; left: -20px; bottom: -20px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(100px, 22vw, 260px); letter-spacing: .04em;
+  color: rgba(184,154,90,.04); white-space: nowrap; pointer-events: none; user-select: none; line-height: 1;
+}
 .pos-statement {
   font-family: var(--font-display); font-weight: 600;
   font-size: clamp(22px, 3.8vw, 42px);
@@ -311,7 +319,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ============================================================
    THREE PILLARS
 ============================================================ */
-.pillars { background: #080808; padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.1); }
+.pillars { background: #080808; padding: var(--sec) 0; border-top: 1px solid rgba(184,154,90,.1); position: relative; overflow: hidden; }
+.pillars::after {
+  content: 'WAGYU'; position: absolute; right: -10px; top: 0;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(80px, 18vw, 220px); letter-spacing: .04em;
+  color: rgba(74,16,24,.18); white-space: nowrap; pointer-events: none; user-select: none; line-height: 1;
+}
 .pillars-header { margin-bottom: 52px; }
 .pillars-header .t-label { color: var(--gold); display: block; margin-bottom: 16px; }
 .pillars-header h2 {
@@ -398,14 +412,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    EXPORT PREVIEW
 ============================================================ */
 .export-prev {
-  background: var(--wine); padding: var(--sec) 0;
-  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #2a0810 0%, var(--wine) 45%, #1a0508 100%);
+  padding: var(--sec) 0; position: relative; overflow: hidden;
 }
 .export-prev::before {
   content: 'EXPORT'; position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
   font-family: var(--font-display); font-weight: 700;
   font-size: clamp(80px, 14vw, 180px); letter-spacing: .06em;
-  color: rgba(247,246,242,.04); white-space: nowrap; pointer-events: none; user-select: none;
+  color: rgba(247,246,242,.07); white-space: nowrap; pointer-events: none; user-select: none;
 }
 .export-prev-inner {
   position: relative; z-index: 1;
@@ -528,7 +542,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     linear-gradient(to bottom, rgba(5,5,5,.65) 0%, rgba(5,5,5,.25) 50%, rgba(5,5,5,.9) 100%),
     url('images/king-wagyu-16-namibia-landscape.jpeg');
   background-size: cover; background-position: center;
+  background-attachment: fixed;
 }
+@media (max-width: 768px) { .brand-closer-bg { background-attachment: scroll; } }
 .brand-closer-content { position: relative; z-index: 2; text-align: center; padding: 0 var(--pad); }
 .closer-rule { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--gold), transparent); margin: 0 auto 24px; }
 .brand-closer-content h2 {
@@ -616,13 +632,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-img-note" aria-hidden="true">[ IMAGE: Bulls in Dust ]</div>
   <div class="hero-content">
-    <img src="King Wagyu Logo-.png" alt="King Wagyu" class="hero-logo">
+    <img src="images/King Wagyu Logo-.png" alt="King Wagyu" class="hero-logo">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-line"></div>
       <span class="hero-eyebrow-text">Wagyu Breeding &amp; Embryo Operation — Namibia</span>
       <div class="hero-eyebrow-line"></div>
     </div>
-    <h1>King<br>Wagyu</h1>
     <p class="hero-sub">Built for Genetic Strength. Positioned for Export.</p>
     <div class="hero-ctas">
       <a href="genetics.html" class="btn btn-light">View Genetics</a>
