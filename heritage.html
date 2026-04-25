@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The King Wagyu story — a family farm in Hochfeld, Namibia, dedicated to fullblood Japanese Black Wagyu cattle since 2018.">
+<title>Heritage | King Wagyu Namibia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   KING WAGYU — HERITAGE
+============================================================ */
+
+:root {
+  --black:     #050505;
+  --off-white: #F7F6F2;
+  --gold:      #B89A5A;
+  --wine:      #4A1018;
+  --stone:     #D9D1C7;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+  --max-w: 1280px;
+  --pad: 24px;
+  --sec: 80px;
+}
+@media (min-width: 768px)  { :root { --pad: 48px; --sec: 120px; } }
+@media (min-width: 1200px) { :root { --pad: 80px; --sec: 160px; } }
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--off-white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* --- UTILITIES --- */
+.container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+.t-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: 1px solid currentColor;
+  transition: background .25s, color .25s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-light  { background: var(--off-white); color: var(--black); border-color: var(--off-white); }
+.btn-light:hover { background: transparent; color: var(--off-white); }
+.btn-gold   { background: transparent; color: var(--gold); border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold); color: var(--black); }
+
+/* --- SCROLL REVEAL --- */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--pad);
+  transition: background .3s, border-color .3s;
+  border-bottom: 1px solid transparent;
+}
+.site-header.scrolled {
+  background: rgba(5,5,5,.96);
+  border-bottom-color: rgba(184,154,90,.15);
+  backdrop-filter: blur(8px);
+}
+.logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.logo span { color: var(--gold); }
+
+.nav-desktop { display: none; align-items: center; gap: 36px; }
+@media (min-width: 1024px) { .nav-desktop { display: flex; } }
+.nav-desktop a {
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  font-weight: 400; color: rgba(247,246,242,.65); transition: color .2s;
+}
+.nav-desktop a:hover, .nav-desktop a.active { color: var(--off-white); }
+
+.header-right { display: flex; align-items: center; gap: 20px; }
+.header-cta { display: none; }
+@media (min-width: 1024px) {
+  .header-cta {
+    display: inline-block;
+    font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+    font-weight: 500; padding: 10px 22px;
+    border: 1px solid rgba(184,154,90,.6); color: var(--gold);
+    transition: background .25s, color .25s;
+  }
+  .header-cta:hover { background: var(--gold); color: var(--black); }
+}
+.hamburger { display: flex; flex-direction: column; gap: 5px; padding: 8px; }
+@media (min-width: 1024px) { .hamburger { display: none; } }
+.hamburger span { display: block; width: 24px; height: 1px; background: var(--off-white); transition: all .3s; }
+.hamburger.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.mobile-menu {
+  display: none; position: fixed; inset: 0; z-index: 99;
+  background: var(--black);
+  padding: 100px var(--pad) 60px;
+  flex-direction: column; justify-content: center;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 4px; }
+.mobile-menu nav a {
+  font-family: var(--font-display); font-size: 38px; font-weight: 700;
+  letter-spacing: .02em; padding: 12px 0;
+  border-bottom: 1px solid rgba(247,246,242,.07);
+  transition: color .2s;
+}
+.mobile-menu nav a:hover { color: var(--gold); }
+.mobile-menu-foot { margin-top: 48px; }
+.mobile-menu-foot a {
+  display: inline-block;
+  font-family: var(--font-body); font-size: 11px; letter-spacing: .2em;
+  text-transform: uppercase; font-weight: 500;
+  padding: 14px 28px; border: 1px solid var(--gold); color: var(--gold);
+}
+
+
+/* ============================================================
+   PAGE HERO
+============================================================ */
+.page-hero {
+  position: relative; height: 75vh; min-height: 540px;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(5,5,5,.3) 0%, rgba(5,5,5,.12) 40%, rgba(5,5,5,.8) 80%, rgba(5,5,5,.97) 100%),
+    url('images/king-wagyu-2-genetics-bull.jpeg');
+  background-size: cover; background-position: center 40%;
+  background-attachment: fixed;
+}
+@media (max-width: 768px) { .page-hero-bg { background-attachment: scroll; } }
+.page-hero-content {
+  position: relative; z-index: 2;
+  width: 100%; padding: 0 var(--pad) 72px;
+}
+.page-hero-eyebrow {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+}
+.page-hero-eyebrow-line { width: 32px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.page-hero-eyebrow-text { font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
+.page-hero h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(40px, 8vw, 96px);
+  letter-spacing: .04em; text-transform: uppercase;
+  line-height: .95; color: var(--off-white);
+  max-width: 800px;
+}
+.page-hero-sub {
+  margin-top: 20px;
+  font-size: clamp(14px, 1.8vw, 17px); font-weight: 300;
+  color: rgba(247,246,242,.65); max-width: 500px;
+  line-height: 1.65; letter-spacing: .01em;
+}
+
+
+/* ============================================================
+   STORY SECTION
+============================================================ */
+.story-section {
+  background: #0e0c0a;
+  padding: var(--sec) 0;
+  border-top: 1px solid rgba(184,154,90,.12);
+  position: relative; overflow: hidden;
+}
+.story-section::before {
+  content: 'HERITAGE'; position: absolute; right: -20px; bottom: -30px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(80px, 15vw, 200px); letter-spacing: .04em;
+  color: rgba(184,154,90,.04); white-space: nowrap; pointer-events: none; user-select: none; line-height: 1;
+}
+.story-grid {
+  display: grid; grid-template-columns: 1fr; gap: 64px;
+}
+@media (min-width: 900px) { .story-grid { grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; } }
+
+.story-left {}
+.story-left .t-label { color: var(--gold); display: block; margin-bottom: 20px; }
+.story-left h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(28px, 4.5vw, 52px); line-height: 1.05; text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.story-body { display: flex; flex-direction: column; gap: 20px; }
+.story-body p { font-size: 15px; line-height: 1.85; color: rgba(247,246,242,.55); }
+.story-body p strong { font-weight: 500; color: rgba(247,246,242,.8); }
+
+.story-right {}
+.story-quote {
+  border-left: 2px solid var(--gold);
+  padding: 28px 32px;
+  background: rgba(184,154,90,.04);
+  margin-bottom: 40px;
+}
+.story-quote blockquote {
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(20px, 2.8vw, 28px); line-height: 1.4;
+  color: rgba(247,246,242,.75); margin-bottom: 16px;
+}
+.story-quote cite { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(184,154,90,.6); font-style: normal; }
+
+.story-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.story-stat {}
+.story-stat-num {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(32px, 5vw, 52px); letter-spacing: .04em; text-transform: uppercase;
+  color: var(--off-white); line-height: 1;
+}
+.story-stat-num span { color: var(--gold); }
+.story-stat-label {
+  font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500;
+  color: rgba(184,154,90,.55); margin-top: 6px; display: block;
+}
+
+
+/* ============================================================
+   FARM SECTION (image + text split)
+============================================================ */
+.farm-section {
+  background: var(--black);
+  padding: var(--sec) 0;
+  overflow: hidden;
+}
+.farm-split {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+}
+@media (min-width: 900px) { .farm-split { grid-template-columns: 1fr 1fr; min-height: 560px; } }
+
+.farm-image-panel {
+  position: relative; min-height: 340px; overflow: hidden;
+}
+@media (min-width: 900px) { .farm-image-panel { min-height: 560px; } }
+.farm-image-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, rgba(5,5,5,0) 60%, rgba(5,5,5,.6) 100%),
+    url('images/king-wagyu-hero.jpeg');
+  background-size: cover; background-position: center;
+  transition: transform .8s ease;
+}
+.farm-image-panel:hover .farm-image-bg { transform: scale(1.03); }
+
+.farm-copy-panel {
+  background: #0e0c0a;
+  padding: 56px 48px; display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.farm-copy-panel::before {
+  content: 'FARM'; position: absolute; right: -10px; bottom: -20px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(80px, 14vw, 180px); letter-spacing: .04em;
+  color: rgba(184,154,90,.04); white-space: nowrap; pointer-events: none; user-select: none; line-height: 1;
+}
+.farm-copy-panel .t-label { color: var(--gold); display: block; margin-bottom: 20px; }
+.farm-copy-panel h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(24px, 3.5vw, 42px); line-height: 1.1; text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.farm-copy-panel p { font-size: 14px; line-height: 1.85; color: rgba(247,246,242,.5); margin-bottom: 16px; }
+.farm-copy-panel p:last-of-type { margin-bottom: 32px; }
+
+.farm-details { display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
+.farm-detail {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 14px 0; border-bottom: 1px solid rgba(184,154,90,.08);
+}
+.farm-detail:last-child { border-bottom: none; }
+.farm-detail-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+  flex-shrink: 0; margin-top: 5px;
+}
+.farm-detail-text .t-label { color: rgba(184,154,90,.6); display: block; margin-bottom: 4px; }
+.farm-detail-text p { font-size: 13px; color: rgba(247,246,242,.45); line-height: 1.6; }
+
+
+/* ============================================================
+   PHILOSOPHY SECTION
+============================================================ */
+.philosophy-section {
+  background: #0e0c0a;
+  padding: var(--sec) 0;
+  border-top: 1px solid rgba(184,154,90,.08);
+  position: relative; overflow: hidden;
+}
+.philosophy-section::before {
+  content: 'WAGYU'; position: absolute; left: -20px; top: 20px;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(80px, 16vw, 220px); letter-spacing: .04em;
+  color: rgba(184,154,90,.04); white-space: nowrap; pointer-events: none; user-select: none; line-height: 1;
+}
+.philosophy-inner { position: relative; z-index: 2; }
+.philosophy-header { margin-bottom: 64px; text-align: center; }
+.philosophy-header .t-label { color: var(--gold); display: block; margin-bottom: 20px; }
+.philosophy-header h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(28px, 5vw, 56px); line-height: 1.05; text-transform: uppercase;
+  max-width: 640px; margin: 0 auto;
+}
+
+.philosophy-pillars {
+  display: grid; grid-template-columns: 1fr;
+  gap: 40px;
+}
+@media (min-width: 640px)  { .philosophy-pillars { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .philosophy-pillars { grid-template-columns: repeat(3,1fr); } }
+.pillar {
+  padding: 36px 0;
+  border-top: 1px solid rgba(184,154,90,.18);
+}
+.pillar-num {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 48px; line-height: 1; letter-spacing: .04em;
+  color: rgba(184,154,90,.15); margin-bottom: 16px;
+}
+.pillar h3 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 24px); text-transform: uppercase;
+  letter-spacing: .03em; margin-bottom: 14px;
+}
+.pillar p { font-size: 14px; color: rgba(247,246,242,.45); line-height: 1.8; }
+
+
+/* ============================================================
+   TIMELINE
+============================================================ */
+.timeline-section {
+  background: var(--black);
+  padding: var(--sec) 0;
+  overflow: hidden;
+}
+.timeline-header { margin-bottom: 64px; }
+.timeline-header .t-label { color: var(--gold); display: block; margin-bottom: 16px; }
+.timeline-header h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(26px, 4vw, 46px); text-transform: uppercase; line-height: 1.1;
+  max-width: 560px;
+}
+.timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 64px; top: 0; bottom: 0;
+  width: 1px; background: rgba(184,154,90,.12);
+}
+@media (max-width: 600px) { .timeline::before { left: 36px; } }
+.timeline-item {
+  display: grid; grid-template-columns: 120px 1fr; gap: 32px;
+  padding: 36px 0; border-bottom: 1px solid rgba(184,154,90,.06);
+  position: relative;
+}
+@media (max-width: 600px) { .timeline-item { grid-template-columns: 72px 1fr; gap: 20px; } }
+.timeline-item:last-child { border-bottom: none; }
+.timeline-year {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(18px, 2.5vw, 26px); letter-spacing: .04em;
+  color: var(--gold); text-align: right; padding-right: 32px;
+  line-height: 1.2; padding-top: 4px; position: relative;
+}
+.timeline-year::after {
+  content: ''; position: absolute; right: -5px; top: 9px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--gold); border: 2px solid var(--black);
+}
+@media (max-width: 600px) { .timeline-year { padding-right: 16px; font-size: 16px; } }
+.timeline-body {}
+.timeline-body h3 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(17px, 2vw, 22px); text-transform: uppercase;
+  margin-bottom: 10px; line-height: 1.2;
+}
+.timeline-body p { font-size: 14px; color: rgba(247,246,242,.45); line-height: 1.8; }
+
+
+/* ============================================================
+   WINE CTA
+============================================================ */
+.wine-cta {
+  padding: var(--sec) 0;
+  background: linear-gradient(135deg, #2a0810 0%, var(--wine) 45%, #1a0508 100%);
+  text-align: center; position: relative; overflow: hidden;
+}
+.wine-cta::before {
+  content: 'KING'; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(100px, 28vw, 340px); letter-spacing: .04em;
+  color: rgba(247,246,242,.04); white-space: nowrap; pointer-events: none; user-select: none; line-height: 1;
+}
+.wine-cta-inner { position: relative; z-index: 2; }
+.wine-cta .t-label { color: rgba(184,154,90,.7); display: block; margin-bottom: 20px; }
+.wine-cta h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(28px, 5vw, 58px); text-transform: uppercase;
+  line-height: 1.05; letter-spacing: .04em; color: var(--off-white);
+  max-width: 640px; margin: 0 auto 20px;
+}
+.wine-cta p {
+  font-size: clamp(14px, 1.8vw, 17px); font-weight: 300;
+  color: rgba(247,246,242,.65); max-width: 440px; margin: 0 auto 40px;
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   BRAND CLOSER
+============================================================ */
+.brand-closer {
+  position: relative; padding: var(--sec) 0;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden;
+}
+.brand-closer-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(rgba(5,5,5,.82), rgba(5,5,5,.82)),
+    url('images/king-wagyu-bull-meat-hero-bg.jpeg');
+  background-size: cover; background-position: center;
+  background-attachment: fixed;
+}
+@media (max-width: 768px) { .brand-closer-bg { background-attachment: scroll; } }
+.brand-closer-content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 24px;
+}
+.closer-rule { width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, rgba(184,154,90,.6)); }
+.brand-closer h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(22px, 3.5vw, 40px); letter-spacing: .06em; text-transform: uppercase;
+}
+.brand-closer .location {
+  font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
+  color: rgba(184,154,90,.6);
+}
+
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer { background: var(--black); border-top: 1px solid rgba(247,246,242,.06); padding: var(--sec) 0 48px; }
+.footer-top { display: grid; grid-template-columns: 1fr; gap: 48px; margin-bottom: 48px; }
+@media (min-width: 768px) { .footer-top { grid-template-columns: 1fr 1.4fr; gap: 80px; } }
+.footer-logo-text { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: .1em; text-transform: uppercase; display: block; margin-bottom: 16px; }
+.footer-logo-text span { color: var(--gold); }
+.footer-brand p { font-size: 13px; color: rgba(247,246,242,.35); line-height: 1.8; max-width: 320px; }
+.footer-social { margin-top: 24px; display: flex; gap: 20px; }
+.footer-social a { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,246,242,.4); transition: color .2s; }
+.footer-social a:hover { color: var(--gold); }
+.footer-nav { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+@media (max-width: 480px) { .footer-nav { grid-template-columns: 1fr 1fr; } }
+.footer-nav-group h4 { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; color: rgba(184,154,90,.5); margin-bottom: 16px; }
+.footer-nav-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav-group a { font-size: 13px; color: rgba(247,246,242,.4); transition: color .2s; line-height: 1.4; }
+.footer-nav-group a:hover { color: var(--off-white); }
+.footer-bottom { padding-top: 32px; border-top: 1px solid rgba(247,246,242,.05); display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 640px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
+.footer-bottom p { font-size: 12px; color: rgba(247,246,242,.25); letter-spacing: .05em; }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { font-size: 12px; color: rgba(247,246,242,.25); transition: color .2s; }
+.footer-legal a:hover { color: var(--off-white); }
+
+h1, h2, h3 { text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="site-header" id="site-header">
+  <a href="index.html" class="logo">King <span>Wagyu</span></a>
+  <nav class="nav-desktop" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="heritage.html" class="active">Heritage</a>
+    <a href="quality.html">Quality</a>
+    <a href="connect.html">Connect</a>
+  </nav>
+  <div class="header-right">
+    <a href="connect.html" class="header-cta">Connect</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation">
+  <nav>
+    <a href="index.html"     onclick="closeMenu()">Home</a>
+    <a href="heritage.html"  onclick="closeMenu()">Heritage</a>
+    <a href="quality.html"   onclick="closeMenu()">Quality</a>
+    <a href="connect.html"   onclick="closeMenu()">Connect</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a href="connect.html" onclick="closeMenu()">Connect With Us</a>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     PAGE HERO
+============================================================ -->
+<section class="page-hero" aria-label="Heritage">
+  <div class="page-hero-bg" aria-hidden="true"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">
+      <div class="page-hero-eyebrow-line"></div>
+      <span class="page-hero-eyebrow-text">Est. 2018 — Hochfeld, Namibia</span>
+    </div>
+    <h1>Our Heritage</h1>
+    <p class="page-hero-sub">A family farm. A deliberate choice. A commitment to raising the world's finest beef, the right way.</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     STORY SECTION
+============================================================ -->
+<section class="story-section">
+  <div class="container">
+    <div class="story-grid">
+
+      <!-- Left -->
+      <div class="story-left reveal">
+        <span class="t-label">The King Wagyu Story</span>
+        <h2>A Family Decision That Changed Everything</h2>
+        <div class="story-body">
+          <p>King Wagyu began with a simple conviction: that the most extraordinary beef in the world deserved to be raised with extraordinary care. In 2018, the Kars and Nienaber families established their Wagyu operation at Farm Houmoed in Hochfeld, Namibia — a decision grounded in both passion and precision.</p>
+          <p>Namibia's vast, clean landscapes and its strict veterinary standards make it one of the world's most compelling locations for premium beef production. The country's unique biosecurity environment, combined with Hochfeld's natural grazing conditions, provides a foundation that few operations anywhere can match.</p>
+          <p><strong>We did not stumble into Wagyu.</strong> We chose it deliberately — researching genetics, studying the Japanese tradition, and building a programme from the ground up that honours everything that makes Wagyu exceptional.</p>
+          <p>Today, King Wagyu maintains a closed fullblood herd of Japanese Black cattle, an Akaushi up-breeding programme, and a commercial herd — all raised on the same farm, under the same philosophy of care, consistency, and genetic excellence.</p>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="story-right reveal">
+        <div class="story-quote">
+          <blockquote>"Wagyu is not just a breed — it is a discipline. Every decision on this farm reflects that."</blockquote>
+          <cite>— The King Wagyu Family</cite>
+        </div>
+        <div class="story-stats">
+          <div class="story-stat">
+            <div class="story-stat-num">2018<span>.</span></div>
+            <span class="story-stat-label">Founded</span>
+          </div>
+          <div class="story-stat">
+            <div class="story-stat-num">100<span>%</span></div>
+            <span class="story-stat-label">Fullblood Japanese Black</span>
+          </div>
+          <div class="story-stat">
+            <div class="story-stat-num">EU<span>—</span></div>
+            <span class="story-stat-label">Export Certified</span>
+          </div>
+          <div class="story-stat">
+            <div class="story-stat-num">1<span>st</span></div>
+            <span class="story-stat-label">Generation Wagyu Farm, Namibia</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FARM SECTION
+============================================================ -->
+<section class="farm-section">
+  <div class="farm-split">
+    <div class="farm-image-panel" aria-hidden="true">
+      <div class="farm-image-bg"></div>
+    </div>
+    <div class="farm-copy-panel reveal">
+      <span class="t-label">Farm Houmoed</span>
+      <h2>Hochfeld, Namibia</h2>
+      <p>Situated in the Otjozondjupa region of central Namibia, Farm Houmoed sits in a landscape shaped by open plains, clean air, and an agricultural tradition that stretches back generations.</p>
+      <p>Namibia's biosecurity status is among the highest in Africa — foot-and-mouth disease free, with strict movement controls and veterinary oversight that meets European Union import requirements. For a premium beef operation, this is not a small detail. It is everything.</p>
+      <div class="farm-details">
+        <div class="farm-detail">
+          <div class="farm-detail-dot"></div>
+          <div class="farm-detail-text">
+            <span class="t-label">Region</span>
+            <p>Otjozondjupa, Central Namibia</p>
+          </div>
+        </div>
+        <div class="farm-detail">
+          <div class="farm-detail-dot"></div>
+          <div class="farm-detail-text">
+            <span class="t-label">Climate</span>
+            <p>Semi-arid with natural grazing, minimal disease pressure, exceptional air quality</p>
+          </div>
+        </div>
+        <div class="farm-detail">
+          <div class="farm-detail-dot"></div>
+          <div class="farm-detail-text">
+            <span class="t-label">Biosecurity</span>
+            <p>FMD-free zone, compliant with EU veterinary import standards</p>
+          </div>
+        </div>
+        <div class="farm-detail">
+          <div class="farm-detail-dot"></div>
+          <div class="farm-detail-text">
+            <span class="t-label">Operation</span>
+            <p>Closed herd — all animals bred, raised, and finished on-farm</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PHILOSOPHY
+============================================================ -->
+<section class="philosophy-section">
+  <div class="container">
+    <div class="philosophy-inner">
+      <div class="philosophy-header reveal">
+        <span class="t-label">How We Farm</span>
+        <h2>Our Guiding Philosophy</h2>
+      </div>
+      <div class="philosophy-pillars">
+        <div class="pillar reveal">
+          <div class="pillar-num">01</div>
+          <h3>Genetics First</h3>
+          <p>Every animal on this farm traces to documented, high-performance Japanese Black bloodlines. We invest in the best genetics available and manage them with discipline and long-term thinking.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-num">02</div>
+          <h3>Closed Herd Integrity</h3>
+          <p>We raise all our Wagyu from birth to finish on Farm Houmoed. A closed herd gives us complete control over health, welfare, and the genetic consistency our customers depend on.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-num">03</div>
+          <h3>Patient Feeding</h3>
+          <p>Premium marbling cannot be rushed. Our dedicated feedlot programme allows cattle to reach full marbling potential on a carefully balanced diet, over a timeline that prioritises quality over speed.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-num">04</div>
+          <h3>Low Stress Handling</h3>
+          <p>Wagyu are sensitive animals and respond strongly to their environment. We apply low-stress handling techniques throughout — from paddock to feedlot — because calm cattle marble better and taste better.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-num">05</div>
+          <h3>Environmental Respect</h3>
+          <p>We farm in harmony with the Namibian landscape. Sustainable grazing management protects the land for future generations while producing beef we are proud to put our name on.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pillar-num">06</div>
+          <h3>Transparency</h3>
+          <p>We maintain full traceability from birth to dispatch. Our customers — whether restaurants, retailers, or export partners — know exactly what they are buying and where it came from.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TIMELINE
+============================================================ -->
+<section class="timeline-section">
+  <div class="container">
+    <div class="timeline-header reveal">
+      <span class="t-label">Our Journey</span>
+      <h2>From Founding to Europe</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-body">
+          <h3>King Wagyu Founded</h3>
+          <p>The Kars and Nienaber families establish King Wagyu at Farm Houmoed, Hochfeld. First fullblood Japanese Black genetics are imported and the foundation herd is assembled.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-body">
+          <h3>Embryo Programme Launched</h3>
+          <p>A structured embryo transfer and AI programme is established, accelerating genetic improvement and herd growth using elite international bloodlines.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-body">
+          <h3>First Wagyu Beef Produced</h3>
+          <p>The first King Wagyu animals complete the feedlot programme and are processed. Marbling grades confirm that the genetics and feeding protocol are delivering results.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-body">
+          <h3>European Export Programme</h3>
+          <p>King Wagyu achieves compliance with EU veterinary import requirements and begins supplying the European market with premium fullblood Wagyu beef.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">Today</div>
+        <div class="timeline-body">
+          <h3>Growing. Improving. Consistently.</h3>
+          <p>A closed fullblood herd, an active embryo programme, bull sales to breeders, and a growing export footprint. King Wagyu continues to build on a foundation of genetic integrity and family commitment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WINE CTA
+============================================================ -->
+<section class="wine-cta">
+  <div class="container">
+    <div class="wine-cta-inner reveal">
+      <span class="t-label">Ready to Experience It?</span>
+      <h2>Taste Our Heritage</h2>
+      <p>Every cut of King Wagyu beef carries this story — the farm, the family, the discipline. We'd love to share it with you.</p>
+      <a href="connect.html" class="btn btn-light">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BRAND CLOSER
+============================================================ -->
+<section class="brand-closer" aria-label="King Wagyu — Namibia">
+  <div class="brand-closer-bg" aria-hidden="true"></div>
+  <div class="brand-closer-content">
+    <div class="closer-rule" aria-hidden="true"></div>
+    <h2>King Wagyu Namibia</h2>
+    <span class="location">Hochfeld · Namibia</span>
+    <a href="quality.html" class="btn btn-gold">Our Quality</a>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo-text">King <span>Wagyu</span></span>
+        <p>Premium fullblood Japanese Black Wagyu beef. Family farmed in Hochfeld, Namibia. Supplying the European export market with genetics-led quality.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/kingwagyunamibia/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.linkedin.com/company/king-wagyu/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/kingwagyu" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-nav-group">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="heritage.html">Heritage</a></li>
+            <li><a href="quality.html">Quality</a></li>
+            <li><a href="connect.html">Connect</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="connect.html">Wagyu Bull Sales</a></li>
+            <li><a href="connect.html">Embryo &amp; Semen</a></li>
+            <li><a href="connect.html">Export to Europe</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-group">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 King Wagyu. Farm Houmoed, Otjozondjupa, Namibia.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// --- HEADER SCROLL ---
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// --- MOBILE MENU ---
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+function openMenu()  { hamburger.classList.add('active'); mobileMenu.classList.add('open'); hamburger.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
+function closeMenu() { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+// --- SCROLL REVEAL ---
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
