@@ -200,9 +200,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: .06em; text-transform: uppercase;
   line-height: .95; color: var(--off-white); margin-bottom: 24px;
 }
+.hero-headline {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(28px, 5vw, 56px); letter-spacing: .06em; text-transform: uppercase;
+  color: var(--off-white); margin-bottom: 16px; line-height: 1.1;
+}
 .hero-sub {
   font-size: clamp(14px, 1.9vw, 17px); font-weight: 300;
-  color: rgba(247,246,242,.62); max-width: 460px;
+  color: rgba(247,246,242,.72); max-width: 460px;
   line-height: 1.6; margin-bottom: 40px; letter-spacing: .01em; text-align: center;
 }
 .hero-ctas { display: flex; flex-direction: column; gap: 14px; align-items: center; }
@@ -337,7 +342,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: rgba(184,154,90,.1);
   border-top: 1px solid rgba(184,154,90,.1);
 }
-@media (min-width: 768px) { .pillars-grid { grid-template-columns: repeat(3,1fr); } }
+@media (min-width: 640px)  { .pillars-grid { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .pillars-grid { grid-template-columns: repeat(3,1fr); } }
 .pillar-card {
   background: #080808; padding: 48px var(--pad);
   display: flex; flex-direction: column; gap: 20px;
@@ -616,15 +622,12 @@ h1, h2, h3 { text-transform: uppercase; }
   <a href="index.html" class="logo">King <span>Wagyu</span></a>
   <nav class="nav-desktop" aria-label="Primary">
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="genetics.html">Genetics</a>
-    <a href="embryo-program.html">Embryo Program</a>
-    <a href="export.html">Export</a>
-    <a href="the-operation.html">The Operation</a>
-    <a href="insights.html">Insights</a>
+    <a href="heritage.html">Heritage</a>
+    <a href="quality.html">Quality</a>
+    <a href="connect.html">Connect</a>
   </nav>
   <div class="header-right">
-    <a href="work-with-us.html" class="header-cta">Work With King Wagyu</a>
+    <a href="connect.html" class="header-cta">Connect</a>
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -633,16 +636,13 @@ h1, h2, h3 { text-transform: uppercase; }
 
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation">
   <nav>
-    <a href="index.html"           onclick="closeMenu()">Home</a>
-    <a href="about.html"         onclick="closeMenu()">About</a>
-    <a href="genetics.html"        onclick="closeMenu()">Genetics</a>
-    <a href="embryo-program.html"  onclick="closeMenu()">Embryo Program</a>
-    <a href="export.html"          onclick="closeMenu()">Export</a>
-    <a href="the-operation.html" onclick="closeMenu()">The Operation</a>
-    <a href="insights.html"        onclick="closeMenu()">Insights</a>
+    <a href="index.html"     onclick="closeMenu()">Home</a>
+    <a href="heritage.html"  onclick="closeMenu()">Heritage</a>
+    <a href="quality.html"   onclick="closeMenu()">Quality</a>
+    <a href="connect.html"   onclick="closeMenu()">Connect</a>
   </nav>
   <div class="mobile-menu-foot">
-    <a href="work-with-us.html" onclick="closeMenu()">Work With King Wagyu</a>
+    <a href="connect.html" onclick="closeMenu()">Connect With Us</a>
   </div>
 </div>
 
@@ -657,13 +657,14 @@ h1, h2, h3 { text-transform: uppercase; }
     <img src="king-wagyu-logo-white.png" alt="King Wagyu" class="hero-logo">
     <div class="hero-eyebrow">
       <div class="hero-eyebrow-line"></div>
-      <span class="hero-eyebrow-text">Wagyu Breeding &amp; Embryo Operation — Namibia</span>
+      <span class="hero-eyebrow-text">Family Farm — Hochfeld, Namibia</span>
       <div class="hero-eyebrow-line"></div>
     </div>
-    <p class="hero-sub">Built for Genetic Strength. Positioned for Export.</p>
+    <h1 class="hero-headline">Welcome to King Wagyu Namibia</h1>
+    <p class="hero-sub">Experience the Finest Wagyu Beef from Our Family Farm</p>
     <div class="hero-ctas">
-      <a href="genetics.html" class="btn btn-light">View Genetics</a>
-      <a href="work-with-us.html" class="btn btn-gold">Enter Enquiry System</a>
+      <a href="quality.html" class="btn btn-light">Our Quality</a>
+      <a href="connect.html" class="btn btn-gold">Shop Now</a>
     </div>
   </div>
   <div class="hero-scroll" aria-hidden="true">
@@ -679,24 +680,23 @@ h1, h2, h3 { text-transform: uppercase; }
 <section class="positioning">
   <div class="container">
     <div class="reveal">
+      <span class="t-label" style="display:block;margin-bottom:20px;color:var(--gold);">About Us</span>
       <p class="pos-statement">
-        King Wagyu is not a lifestyle farm. Not a boutique retail brand.
-        It is <em>a serious Wagyu operation</em> built on breeding logic,
-        embryo strategy, animal condition, and export-aligned production.
+        At King Wagyu Namibia, we pride ourselves on producing <em>premium Wagyu beef</em> for the European export market.
       </p>
     </div>
     <div class="pos-detail">
       <div class="pos-detail-item reveal">
-        <span class="t-label">The Foundation</span>
-        <p>Every decision at King Wagyu begins with genetics. Animal selection, breeding direction, and program structure are built on a single standard: producing consistent, high-quality Wagyu with real market relevance.</p>
+        <span class="t-label">Our Farm</span>
+        <p>Our small, family-run farm in the Hochfeld area of Namibia focuses on quality, utilising the best fullblood Japanese Black Wagyu genetics to deliver exceptional marbling.</p>
       </div>
       <div class="pos-detail-item reveal">
-        <span class="t-label">The Approach</span>
-        <p>We do not chase prestige for its own sake. We build systems. From embryo work to final condition, the focus is always on outcome — repeatable quality that meets the standards of serious buyers and export markets.</p>
+        <span class="t-label">Our Commitment</span>
+        <p>With a commitment to ethical farming, all our cattle are bred and raised on the farm, ensuring the highest standards of quality and sustainability.</p>
       </div>
       <div class="pos-detail-item reveal">
-        <span class="t-label">The Position</span>
-        <p>King Wagyu already operates within export as a working system. This is not aspiration. It is current operational reality, built with discipline and structured for long-term market presence.</p>
+        <span class="t-label">Our Vision</span>
+        <p>Join us in our journey toward excellence in beef production — where genetics, care, and craftsmanship come together on every plate.</p>
       </div>
     </div>
   </div>
@@ -709,17 +709,16 @@ h1, h2, h3 { text-transform: uppercase; }
 <section class="go-section">
   <div class="container">
     <div class="go-header reveal">
-      <span class="t-label">The Principle</span>
-      <h2>Eating quality does not begin at the plate. It begins in the breeding decision.</h2>
+      <span class="t-label">From Farm to Table</span>
+      <h2>Exceptional genetics. Exceptional taste.</h2>
     </div>
   </div>
   <div class="go-split">
     <div class="go-panel go-bull">
       <div class="go-panel-bg"></div>
-      <span class="go-panel-label">[ IMAGE: Black Wagyu Bull — Dust ]</span>
       <div class="go-panel-copy">
-        <span class="t-label">On the Hoof</span>
-        <p>Strength. Structure. Genetic potential expressed in condition and frame.</p>
+        <span class="t-label">The Animal</span>
+        <p>Fullblood Japanese Black Wagyu — raised with care on our family farm in Hochfeld, Namibia.</p>
       </div>
     </div>
     <div class="go-divider" aria-hidden="true">
@@ -729,16 +728,15 @@ h1, h2, h3 { text-transform: uppercase; }
     </div>
     <div class="go-panel go-marbling">
       <div class="go-panel-bg"></div>
-      <span class="go-panel-label">[ IMAGE: Marbled Wagyu — Smoke ]</span>
       <div class="go-panel-copy">
-        <span class="t-label">On the Plate</span>
-        <p>Precision. Marbling. The outcome of a decision made long before this moment.</p>
+        <span class="t-label">The Result</span>
+        <p>Extraordinary marbling, tenderness, and flavour. The finest Wagyu beef for discerning European markets.</p>
       </div>
     </div>
   </div>
   <div class="go-footer reveal">
-    <p>The genetics we select today determine the quality outcomes of tomorrow. This is not philosophy — it is the operational logic behind every breeding decision at King Wagyu.</p>
-    <a href="genetics.html" class="btn btn-gold">Explore Genetics</a>
+    <p>Every animal we raise reflects our commitment to the highest standards — from bloodline selection through to the final product on your plate.</p>
+    <a href="quality.html" class="btn btn-gold">Discover Our Quality</a>
   </div>
 </section>
 
@@ -749,27 +747,45 @@ h1, h2, h3 { text-transform: uppercase; }
 <section class="pillars">
   <div class="container">
     <div class="pillars-header reveal">
-      <span class="t-label">The Operation</span>
-      <h2>Three disciplines.<br>One standard.</h2>
+      <span class="t-label">What We Offer</span>
+      <h2>Our Services</h2>
     </div>
     <div class="pillars-grid">
       <article class="pillar-card reveal">
         <div class="pillar-num">01</div>
-        <h2 class="pillar-title">Genetics</h2>
-        <p class="pillar-body">The foundation of everything. Our breeding program is built on selection with intent — choosing animals that carry the genetic potential for consistent marbling, strong structure, and reliable eating quality outcome.</p>
-        <a href="genetics.html" class="pillar-link">Explore Genetics</a>
+        <h2 class="pillar-title">Wagyu Bull Sales</h2>
+        <p class="pillar-body">Premium fullblood Japanese Black Wagyu bulls available for purchase. Each animal is selected for superior genetics, frame, and marbling potential to elevate your herd.</p>
+        <a href="connect.html" class="pillar-link">Enquire</a>
       </article>
       <article class="pillar-card reveal">
         <div class="pillar-num">02</div>
-        <h2 class="pillar-title">Embryo Program</h2>
-        <p class="pillar-body">Embryo work is not separate from our genetics strategy — it is the mechanism that accelerates it. A controlled program built to advance herd quality, strengthen consistency, and scale elite outcomes with precision.</p>
-        <a href="embryo-program.html" class="pillar-link">Explore Program</a>
+        <h2 class="pillar-title">Commercial Akaushi Herd Management</h2>
+        <p class="pillar-body">Specialist management and up-breeding services for commercial Akaushi herds — building consistency, quality, and long-term value into your operation.</p>
+        <a href="connect.html" class="pillar-link">Enquire</a>
       </article>
       <article class="pillar-card reveal">
         <div class="pillar-num">03</div>
-        <h2 class="pillar-title">Export</h2>
-        <p class="pillar-body">King Wagyu already operates within export as a functioning business system. Genetics-led quality, controlled production, and market readiness are not goals — they are the current operational standard.</p>
-        <a href="export.html" class="pillar-link">Explore Export</a>
+        <h2 class="pillar-title">Feedlot Finishing Services</h2>
+        <p class="pillar-body">Our dedicated on-site feedlot ensures the highest quality finish for every animal — a controlled environment designed to express the full potential of Wagyu genetics.</p>
+        <a href="connect.html" class="pillar-link">Enquire</a>
+      </article>
+      <article class="pillar-card reveal">
+        <div class="pillar-num">04</div>
+        <h2 class="pillar-title">Embryo &amp; Semen Production</h2>
+        <p class="pillar-body">Access elite Wagyu genetics through our embryo and semen program. A precision tool for advancing herd quality — available to qualifying operations.</p>
+        <a href="connect.html" class="pillar-link">Enquire</a>
+      </article>
+      <article class="pillar-card reveal">
+        <div class="pillar-num">05</div>
+        <h2 class="pillar-title">High-Quality Beef Production</h2>
+        <p class="pillar-body">Farm-to-market Wagyu beef produced under strict quality controls. Exceptional marbling, flavour, and tenderness — the result of genetics-first thinking at every stage.</p>
+        <a href="connect.html" class="pillar-link">Enquire</a>
+      </article>
+      <article class="pillar-card reveal">
+        <div class="pillar-num">06</div>
+        <h2 class="pillar-title">Export Services to Europe</h2>
+        <p class="pillar-body">Supplying the European market with premium Namibian Wagyu beef. We manage the full export process — from production standards through to market delivery.</p>
+        <a href="connect.html" class="pillar-link">Enquire</a>
       </article>
     </div>
   </div>
@@ -821,12 +837,12 @@ h1, h2, h3 { text-transform: uppercase; }
 <section class="export-prev">
   <div class="container export-prev-inner">
     <div class="export-prev-copy reveal">
-      <span class="t-label">Market Positioning</span>
-      <h2>Already within export.<br>Built for serious markets.</h2>
-      <p>King Wagyu's export positioning is not aspirational. It is a current operational reality — supported by genetics-led quality, controlled production systems, and the discipline to meet the standards that serious trade requires.</p>
+      <span class="t-label">Premium Wagyu Beef</span>
+      <h2>Ready to Taste the Difference?</h2>
+      <p>Indulge in premium Wagyu beef from our family farm in Hochfeld, Namibia — bred with the finest Japanese Black genetics and finished to European export standards.</p>
     </div>
     <div class="export-prev-cta reveal">
-      <a href="export.html" class="btn btn-white">Explore Export</a>
+      <a href="connect.html" class="btn btn-white">Shop Now</a>
     </div>
   </div>
 </section>
