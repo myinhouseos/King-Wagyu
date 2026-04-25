@@ -590,6 +590,26 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .footer-social a { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: rgba(247,246,242,.28); transition: color .2s; }
 .footer-social a:hover { color: var(--gold); }
 
+/* ============================================================
+   FAQ ACCORDION
+============================================================ */
+.faq-list { max-width: 860px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid rgba(184,154,90,.12); }
+.faq-q {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  gap: 20px; padding: 28px 0; background: none; border: none;
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(17px, 2vw, 22px); color: var(--off-white);
+  text-align: left; cursor: pointer; transition: color .2s; letter-spacing: .01em;
+}
+.faq-q:hover { color: var(--gold); }
+.faq-q[aria-expanded="true"] { color: var(--gold); }
+.faq-icon { font-size: 22px; font-weight: 300; flex-shrink: 0; color: var(--gold); transition: transform .3s; line-height: 1; font-family: var(--font-body); }
+.faq-q[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+.faq-a { display: none; padding: 0 0 28px; }
+.faq-a.open { display: block; }
+.faq-a p { font-size: 15px; line-height: 1.75; color: rgba(247,246,242,.55); max-width: 680px; }
+
 /* ===== GLOBAL TYPOGRAPHY OVERRIDES =====
    Headings: ALL CAPS
    Subheadings / labels: ALL CAPS (already set via .t-label)
@@ -849,89 +869,74 @@ h1, h2, h3 { text-transform: uppercase; }
 
 
 <!-- ============================================================
-     INSIGHTS PREVIEW
+     TESTIMONIALS
 ============================================================ -->
 <section class="insights-prev">
   <div class="container">
     <div class="insights-prev-header">
       <div class="reveal">
-        <span class="t-label">Insights</span>
-        <h2>Genetics, breeding, and production thinking.</h2>
+        <span class="t-label">What People Say</span>
+        <h2>Trusted by buyers &amp; partners.</h2>
       </div>
-      <a href="insights.html" class="btn btn-gold reveal" style="align-self:flex-end;">All Insights</a>
     </div>
     <div class="insights-grid">
       <article class="insight-card reveal">
-        <div class="insight-card-img"><span>[ Article Image ]</span></div>
-        <span class="insight-cat">Genetics</span>
-        <h3>What Wagyu genetics actually influence — and what they don't</h3>
-        <p>Understanding which genetic traits translate directly to eating quality outcome, and which are selected for the wrong reasons.</p>
-        <a href="insights.html" class="insight-link">Read Article</a>
+        <div class="insight-card-img" style="display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:72px;color:rgba(184,154,90,.18);font-style:italic;">"</div>
+        <span class="insight-cat">Exceptional Taste &amp; Quality</span>
+        <h3 style="font-size:clamp(15px,1.6vw,18px);">King Wagyu Namibia has transformed my understanding of beef. Their Wagyu is incredibly flavourful and tender — truly the best I've ever tasted.</h3>
+        <p style="color:rgba(247,246,242,.3);font-size:11px;letter-spacing:.12em;text-transform:uppercase;">— Beef Connoisseur</p>
       </article>
       <article class="insight-card reveal">
-        <div class="insight-card-img"><span>[ Article Image ]</span></div>
-        <span class="insight-cat">Embryo Strategy</span>
-        <h3>How embryo programs accelerate herd quality — when done correctly</h3>
-        <p>Embryo work is a tool, not a shortcut. Used with discipline, it is one of the most powerful mechanisms for systematic genetic advancement.</p>
-        <a href="insights.html" class="insight-link">Read Article</a>
+        <div class="insight-card-img" style="display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:72px;color:rgba(184,154,90,.18);font-style:italic;">"</div>
+        <span class="insight-cat">Highly Recommended for Export</span>
+        <h3 style="font-size:clamp(15px,1.6vw,18px);">As an exporter, I'm thrilled to work with King Wagyu Namibia. Their commitment to quality genetics and marbling is unparalleled.</h3>
+        <p style="color:rgba(247,246,242,.3);font-size:11px;letter-spacing:.12em;text-transform:uppercase;">— European Export Partner</p>
       </article>
       <article class="insight-card reveal">
-        <div class="insight-card-img"><span>[ Article Image ]</span></div>
-        <span class="insight-cat">Eating Quality</span>
-        <h3>Why eating quality starts before birth — not at the abattoir</h3>
-        <p>The quality of the final Wagyu eating experience is determined largely before the animal is born. This is what that means in practice.</p>
-        <a href="insights.html" class="insight-link">Read Article</a>
+        <div class="insight-card-img" style="display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:72px;color:rgba(184,154,90,.18);font-style:italic;">"</div>
+        <span class="insight-cat">Family Farm with Integrity</span>
+        <h3 style="font-size:clamp(15px,1.6vw,18px);">I appreciate the care and dedication this family puts into their farming. It's a pleasure to support local producers like King Wagyu.</h3>
+        <p style="color:rgba(247,246,242,.3);font-size:11px;letter-spacing:.12em;text-transform:uppercase;">— Industry Partner</p>
       </article>
-    </div>
-    <div class="insights-foot">
-      <a href="insights.html" class="btn btn-gold">All Insights</a>
     </div>
   </div>
 </section>
 
 
 <!-- ============================================================
-     WORK WITH KING WAGYU PREVIEW
+     FAQs
 ============================================================ -->
 <section class="enquiry-prev">
   <div class="container">
     <div class="enquiry-prev-header reveal">
-      <span class="t-label">Work With King Wagyu</span>
-      <h2>Structured access for serious discussions.</h2>
-      <p>Enquiries are routed by type — so the right conversation starts in the right place. Select the pathway that fits your interest.</p>
+      <span class="t-label">Frequently Asked Questions</span>
+      <h2>Everything you need to know.</h2>
     </div>
-    <div class="pathway-grid">
-      <a href="work-with-us.html#genetics" class="pathway-card reveal">
-        <div class="pathway-num">01</div>
-        <h3 class="pathway-title">Genetics Enquiry</h3>
-        <div class="pathway-sub">Breeders / Herd Development / Genetics Interest</div>
-        <p class="pathway-body">For breeders, operations, or individuals interested in discussing genetics, herd alignment, or breeding direction with King Wagyu.</p>
-        <span class="pathway-cta">Begin Enquiry</span>
-      </a>
-      <a href="work-with-us.html#embryo" class="pathway-card reveal">
-        <div class="pathway-num">02</div>
-        <h3 class="pathway-title">Embryo Program</h3>
-        <div class="pathway-sub">Embryo Strategy / Donor &amp; Recipient / Program Access</div>
-        <p class="pathway-body">For operations interested in embryo strategy, program access, or discussing how the King Wagyu embryo system may support your breeding goals.</p>
-        <span class="pathway-cta">Begin Enquiry</span>
-      </a>
-      <a href="work-with-us.html#export" class="pathway-card reveal">
-        <div class="pathway-num">03</div>
-        <h3 class="pathway-title">Export Enquiry</h3>
-        <div class="pathway-sub">International / Trade / Supply Discussions</div>
-        <p class="pathway-body">For international buyers, trade contacts, or parties with a serious interest in King Wagyu's export positioning and supply capability.</p>
-        <span class="pathway-cta">Begin Enquiry</span>
-      </a>
-      <a href="work-with-us.html#strategic" class="pathway-card reveal">
-        <div class="pathway-num">04</div>
-        <h3 class="pathway-title">Strategic &amp; Conference</h3>
-        <div class="pathway-sub">Partnership / Media / Industry / Conference</div>
-        <p class="pathway-body">For conference connections, media enquiries, strategic collaborations, or industry discussions including World Wagyu Conference access.</p>
-        <span class="pathway-cta">Begin Enquiry</span>
-      </a>
-    </div>
-    <div class="enquiry-foot">
-      <p>All enquiries are reviewed and routed according to relevance and operational fit.</p>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What is Wagyu beef?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Wagyu beef comes from specific breeds of cattle known for their high levels of marbling, which leads to exceptional tenderness and flavour. It is also well known for its health benefits.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How do you ensure the quality of your beef?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We invest in the best fullblood Japanese Black Wagyu genetics and maintain a closed farming system, ensuring all animals are bred and raised on our farm.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Do you sell beef directly to consumers?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Currently, we primarily focus on supplying the European export market, but please contact us for enquiries regarding direct sales.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What types of animals do you raise?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>In addition to fullblood Japanese Wagyu cattle, we also maintain a commercial herd, and we are up-breeding Akaushi for diverse beef production.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Where can I purchase your bulls and embryos?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We welcome enquiries regarding our bulls, embryos, and semen. Please reach out through our <a href="connect.html" style="color:var(--gold);">Connect page</a> for more details.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What is your farming method?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We practise sustainable farming by producing all our livestock on-site and finishing them in our dedicated feedlot to ensure the highest quality.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -944,9 +949,9 @@ h1, h2, h3 { text-transform: uppercase; }
   <div class="brand-closer-bg" aria-hidden="true"></div>
   <div class="brand-closer-content">
     <div class="closer-rule" aria-hidden="true"></div>
-    <h2>King Wagyu</h2>
-    <span class="location">Namibia</span>
-    <a href="work-with-us.html" class="btn btn-gold">Work With King Wagyu</a>
+    <h2>King Wagyu Namibia</h2>
+    <span class="location">Hochfeld · Namibia</span>
+    <a href="connect.html" class="btn btn-gold">Get in Touch</a>
   </div>
 </section>
 
@@ -959,7 +964,7 @@ h1, h2, h3 { text-transform: uppercase; }
     <div class="footer-top">
       <div class="footer-brand">
         <span class="footer-logo-text">King <span>Wagyu</span></span>
-        <p>A serious Wagyu breeding, embryo, and export operation. Built on genetics, discipline, and outcome. Farm Houmoed, Otjozondjupa, Namibia.</p>
+        <p>Premium fullblood Japanese Black Wagyu beef. Family farmed in Hochfeld, Namibia. Supplying the European export market with genetics-led quality.</p>
         <div class="footer-social">
           <a href="https://www.instagram.com/kingwagyunamibia/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.linkedin.com/company/king-wagyu/" target="_blank" rel="noopener">LinkedIn</a>
@@ -968,28 +973,26 @@ h1, h2, h3 { text-transform: uppercase; }
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <div class="footer-nav-group">
-          <h4>The Operation</h4>
+          <h4>Navigate</h4>
           <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="the-operation.html">The Operation</a></li>
-            <li><a href="results.html">Results</a></li>
-            <li><a href="insights.html">Insights</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="heritage.html">Heritage</a></li>
+            <li><a href="quality.html">Quality</a></li>
+            <li><a href="connect.html">Connect</a></li>
           </ul>
         </div>
         <div class="footer-nav-group">
-          <h4>Programs</h4>
+          <h4>Our Services</h4>
           <ul>
-            <li><a href="genetics.html">Genetics</a></li>
-            <li><a href="embryo-program.html">Embryo Program</a></li>
-            <li><a href="export.html">Export</a></li>
+            <li><a href="connect.html">Wagyu Bull Sales</a></li>
+            <li><a href="connect.html">Embryo &amp; Semen</a></li>
+            <li><a href="connect.html">Export to Europe</a></li>
           </ul>
         </div>
         <div class="footer-nav-group">
-          <h4>Access</h4>
+          <h4>Legal</h4>
           <ul>
-            <li><a href="work-with-us.html">Work With Us</a></li>
-            <li><a href="work-with-us.html">Enquiry Access</a></li>
-            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
       </nav>
@@ -1019,6 +1022,15 @@ function openMenu()  { hamburger.classList.add('active'); mobileMenu.classList.a
 function closeMenu() { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
 hamburger.addEventListener('click', () => mobileMenu.classList.contains('open') ? closeMenu() : openMenu());
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+// --- FAQ ACCORDION ---
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-q').forEach(b => { b.setAttribute('aria-expanded','false'); b.nextElementSibling.classList.remove('open'); });
+    if (!expanded) { btn.setAttribute('aria-expanded','true'); btn.nextElementSibling.classList.add('open'); }
+  });
+});
 
 // --- SCROLL REVEAL ---
 const reveals = document.querySelectorAll('.reveal');
