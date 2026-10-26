@@ -100,6 +100,32 @@
     margin:6px 0 0;
   }
   .art-bottom{padding-bottom:env(safe-area-inset-bottom)}
+  /* Entrance: restrained fade + rise, staggered. Off for reduced-motion users. */
+  @keyframes kw-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes kw-fade{from{opacity:0}to{opacity:1}}
+  @keyframes kw-line{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .art-top{animation:kw-fade 1.1s ease-out both}
+  .name{animation:kw-rise .8s cubic-bezier(.22,.8,.25,1) .25s both}
+  .org{animation:kw-rise .8s cubic-bezier(.22,.8,.25,1) .4s both}
+  .save{animation:kw-rise .8s cubic-bezier(.22,.8,.25,1) .55s both;transition:background-color .2s ease,transform .15s ease}
+  .save:active{transform:scale(.985)}
+  .rows{animation:kw-fade .6s ease-out .7s both}
+  .rows li{animation:kw-rise .7s cubic-bezier(.22,.8,.25,1) both}
+  .rows li:nth-child(1){animation-delay:.75s}
+  .rows li:nth-child(2){animation-delay:.83s}
+  .rows li:nth-child(3){animation-delay:.91s}
+  .rows li:nth-child(4){animation-delay:.99s}
+  .rows li:nth-child(5){animation-delay:1.07s}
+  .rows li:nth-child(6){animation-delay:1.15s}
+  .rows li:nth-child(7){animation-delay:1.23s}
+  .note{animation:kw-fade .8s ease-out 1.35s both}
+  .art-bottom{animation:kw-fade 1.4s ease-out 1.2s both}
+  .row{transition:background-color .2s ease}
+  .row .go{transition:transform .2s ease}
+  .row:active .go{transform:translateX(3px)}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
 </style>
 </head>
 <body>
