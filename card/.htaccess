@@ -1,0 +1,5 @@
+DirectoryIndex index.html
+AddType text/vcard .vcf
+<FilesMatch "\.vcf$">
+  Header set Content-Type "text/vcard; charset=utf-8"
+</FilesMatch>
